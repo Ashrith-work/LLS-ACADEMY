@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens (mirrors tailwind.config.ts — "Bold Ink & Ember") ── */
+:root {
+  --ink: #0e0e14;
+  --surface: #17161f;
+  --card: #1e1c28;
+  --bone: #f6f1e7;
+  --ember: #ff4e2b;
+  --gold: #f5a623;
+  --lime: #c4f82a;
+  --violet: #7c5cff;
+  --teal: #12d6a6;
+  --cream: #ede9e0;
+  --muted: #a7a29a;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  text-rendering: optimizeLegibility;
+}
+
+/* Accessible focus everywhere — lime ring on dark, ember on light. */
+:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.on-light :focus-visible {
+  outline-color: var(--ember);
+}
+
+::selection {
+  background: var(--ember);
+  color: #fff;
+}
+
+/* Horizontal course rows: hide scrollbar, keep scrollability. */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* CSS 3D tilt for cards — GPU-cheap depth, no WebGL. */
+.tilt-wrap {
+  perspective: 900px;
+}
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+/* 2D hero fallback tiles — pure CSS depth, zero JS cost. */
+.hero-tile {
+  border-radius: 14px;
+  border: 1px solid rgba(237, 233, 224, 0.08);
+  background: linear-gradient(150deg, var(--card), var(--surface));
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,35 @@
+import { TopBar } from "@/components/layout/TopBar";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/home/Hero";
+import { GoalEntry } from "@/components/home/GoalEntry";
+import { LaneRow } from "@/components/home/LaneRow";
+import { BundleSection } from "@/components/home/BundleSection";
+import { ProofSection } from "@/components/home/ProofSection";
+import { Faq } from "@/components/home/Faq";
+import { LANES } from "@/lib/data/courses";
+
+/**
+ * The academy homepage — browse + abundance, for brand/organic traffic.
+ * Section order is the trust arc: desire (hero) → routing (goal entry)
+ * → abundance (lanes) → value (bundle) → trust (proof) → objections (FAQ).
+ */
+export default function HomePage() {
+  return (
+    <>
+      <TopBar />
+      <main>
+        <Hero />
+        <GoalEntry />
+        <div id="courses" className="bg-ink py-10">
+          {LANES.map((lane) => (
+            <LaneRow key={lane.id} lane={lane} />
+          ))}
+        </div>
+        <BundleSection />
+        <ProofSection />
+        <Faq />
+      </main>
+      <Footer />
+    </>
+  );
+}
