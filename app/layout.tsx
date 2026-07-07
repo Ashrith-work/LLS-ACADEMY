@@ -1,12 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Archivo_Black, Noto_Sans_Telugu } from "next/font/google";
+import { Archivo, Archivo_Black } from "next/font/google";
 import { AuthProvider } from "@/lib/auth/dev-auth";
 import { SITE } from "@/lib/data/site";
 import "./globals.css";
 
-/* Display: confident, heavy, distinctive. Body: clean + readable.
-   Noto Sans Telugu sits in the fallback stack so Telugu glyphs render
-   beautifully wherever they appear in mixed Tinglish copy. */
+/* Display: confident, heavy, distinctive. Body: clean + readable. */
 const display = Archivo_Black({
   weight: "400",
   subsets: ["latin"],
@@ -18,33 +16,27 @@ const body = Archivo({
   variable: "--font-body",
   display: "swap",
 });
-const telugu = Noto_Sans_Telugu({
-  subsets: ["telugu"],
-  weight: ["400", "700"],
-  variable: "--font-telugu",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Live Life Shameless — Telugu lo nerchuko, life lo edagandi",
+    default: "Live Life Shameless — Learn the skills, level up your life",
     template: "%s · Live Life Shameless",
   },
   description:
-    "24 self-paced courses in Tinglish (Telugu + English) — sales, communication, business, personal brand, career. Shashank tho nerchukondi. Lifetime access.",
+    "24 self-paced courses in clear, simple English — sales, communication, business, personal brand, career. Learn with Shashank. Lifetime access.",
   openGraph: {
     type: "website",
     siteName: SITE.name,
-    title: "Live Life Shameless — Telugu course academy",
+    title: "Live Life Shameless — online course academy",
     description:
-      "Sales, communication, business, career — 24 courses in Tinglish. Telugu lo nerchuko, life lo pedda ga aalochinchuko.",
-    locale: "te_IN",
+      "Sales, communication, business, career — 24 courses in clear, simple English. Learn the skills and think bigger.",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Live Life Shameless — Telugu course academy",
-    description: "24 courses in Tinglish — sales, communication, business, career. Lifetime access.",
+    title: "Live Life Shameless — online course academy",
+    description: "24 courses in clear, simple English — sales, communication, business, career. Lifetime access.",
   },
 };
 
@@ -56,7 +48,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="te" className={`${display.variable} ${body.variable} ${telugu.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="font-body bg-ink text-cream antialiased">
         <AuthProvider>{children}</AuthProvider>
       </body>

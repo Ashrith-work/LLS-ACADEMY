@@ -36,9 +36,9 @@ export function ProofSection() {
           </p>
         </Reveal>
 
-        {/* Testimonials — Telugu voices, real places. TODO: replace samples. */}
+        {/* Testimonials — real voices, real places. TODO: replace samples. */}
         <Reveal>
-          <h2 className="mt-20 font-display text-3xl sm:text-4xl">Vaallu chesaru. Meeru enduku cheyaleru?</h2>
+          <h2 className="mt-20 font-display text-3xl sm:text-4xl">They did it. Why can&rsquo;t you?</h2>
         </Reveal>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           {TESTIMONIALS.map((t, i) => (
@@ -57,9 +57,9 @@ export function ProofSection() {
 
         {/* What you get — concrete deliverables replace the missing refund promise. */}
         <Reveal>
-          <h2 className="mt-20 font-display text-3xl sm:text-4xl">Prathi course tho, guaranteed ga:</h2>
+          <h2 className="mt-20 font-display text-3xl sm:text-4xl">With every course, guaranteed:</h2>
           <p className="mt-2 max-w-xl text-sm text-inkText/60">
-            Refund policy ledu — anduke em istamo exact ga cheptunnam. Promise kaadu, list.
+            No refund policy — so here&rsquo;s exactly what you get. Not a promise, a list.
           </p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -75,7 +75,7 @@ export function ProofSection() {
 
         <Reveal>
           <p className="mt-10 text-center text-sm text-inkText/60">
-            {SITE.instagramReach} Telugu vaallaki already reach ayyam — ippudu courses tho depth istunnam.
+            We&rsquo;ve already reached {SITE.instagramReach} people — now the courses take you deeper.
           </p>
         </Reveal>
       </div>

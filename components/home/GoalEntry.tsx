@@ -17,10 +17,10 @@ export function GoalEntry() {
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <h2 id="goal-entry-heading" className="text-center font-display text-2xl text-cream sm:text-4xl">
-            Neeku em kavali?
+            What do you want?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-center text-sm text-muted sm:text-base">
-            Okka goal choose cheyyi — 2 questions adugutam, correct course chupistam.
+            Pick one goal — we ask 2 questions and show you the right course.
           </p>
         </Reveal>
         <div className="mt-10 grid gap-4 sm:grid-cols-3">

@@ -10,20 +10,20 @@ export const SITE = {
   name: "Live Life Shameless",
   shortName: "LLS",
   company: "StartupWithShashank",
-  tagline: "Telugu lo nerchuko. Life lo pedda ga aalochinchuko.",
+  tagline: "Learn what school skipped. Think bigger about your life.",
   url: "https://livelifeshameless.in", // TODO: set the real production domain
-  instagramReach: "38 lakh+",
+  instagramReach: "3.8M+",
   whatsappInviteUrl: "#", // TODO: real WhatsApp community invite link
 };
 
 /** Everything a buyer gets with ANY course — concrete, no fluff. */
 export const DELIVERABLES = [
-  { title: "Recorded lessons in Tinglish", detail: "Telugu + English mix — mee bhasha lo, mee pace lo, lifetime access." },
-  { title: "Certificate of completion", detail: "Course complete cheyagane certificate — LinkedIn lo pettukovachu." },
-  { title: "WhatsApp community", detail: "Same journey lo unna Telugu vaallatho — questions, wins, accountability." },
-  { title: "Monthly live Q&A with Shashank", detail: "Prathi nela live session — mee doubts ki direct answers." },
-  { title: "Weekly teardown feedback", detail: "Mee pitch/content/answers meeda community teardown — real feedback, real improvement." },
-  { title: "Points toward 1:1 with Shashank", detail: "Course complete chesi, active ga unte — Shashank tho 1:1 call ki points earn cheyyandi." },
+  { title: "Recorded video lessons", detail: "Clear, plain-English lessons — learn at your own pace, with lifetime access." },
+  { title: "Certificate of completion", detail: "Finish the course and get a certificate you can add to LinkedIn." },
+  { title: "WhatsApp community", detail: "People on the same journey as you — questions, wins, and accountability." },
+  { title: "Monthly live Q&A with Shashank", detail: "A live session every month — direct answers to your doubts." },
+  { title: "Weekly teardown feedback", detail: "Community teardowns of your pitch, content, and answers — real feedback, real improvement." },
+  { title: "Points toward 1:1 with Shashank", detail: "Complete a course and stay active to earn points toward a 1:1 call with Shashank." },
 ];
 
 /** TODO: SAMPLE testimonials — replace with real, permissioned ones (video > text). */
@@ -32,28 +32,28 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Ravi Teja",
     place: "Karimnagar",
     quote:
-      "Nenu anukunna motivation video la untundi ani. Kaadu — direct ga 'ila cheyyi' ani cheppadu. Art of Selling chesaka first month lo ne 2 deals close chesa.",
+      "I expected another motivation video. It wasn't — it told me exactly what to do, step by step. After Art of Selling, I closed 2 deals in the first month itself.",
     result: "Field sales → team lead in 8 months",
   },
   {
     name: "Sandhya",
     place: "Vijayawada",
     quote:
-      "Meetings lo nenu eppudu silent. Communication course lo cheppina frameworks use chesi first time managers mundu presentation ichha — appraisal lo adhe point ayyindi.",
+      "I was always silent in meetings. I used the frameworks from the Communication course to present in front of managers for the first time — that became the highlight of my appraisal.",
     result: "First promotion in 3 years",
   },
   {
     name: "Prashanth",
     place: "Nizamabad",
     quote:
-      "'Emanukuntaro' ani 4 years aagipoya. LLS course challenges vall ah bhayam break ayyindi. Ippudu na own tuition business nadipistunna — oorike kaadu, profit tho.",
+      "I stalled for 4 years worrying about what people would think. The LLS course challenges broke that fear. Now I run my own tuition business — and it's actually profitable.",
     result: "Started his own coaching business",
   },
   {
     name: "Divya",
     place: "Hyderabad",
     quote:
-      "English perfect ga radu ani interviews avoid chesedanni. Crack an Interview lo scripts practice chesi — third attempt lo offer vachindi. ₹499 ki intha value expect cheyyaledu.",
+      "I used to avoid interviews because my English wasn't perfect. I practised the scripts in Crack an Interview and got an offer on my third attempt. I didn't expect this much value for ₹499.",
     result: "Placed at an MNC, 40% above expected package",
   },
 ];
@@ -61,55 +61,55 @@ export const TESTIMONIALS: Testimonial[] = [
 /** FAQ — answers the REAL objections, plainly. No dodging the no-refund policy. */
 export const FAQS: FaqItem[] = [
   {
-    q: "Idi kuda 'motivation gyaan' ena?",
-    a: "Kaadu. Prathi course lo frameworks, scripts, templates, assignments untayi — 'inspire' cheyyadam kaadu, 'implement' cheyyadam goal. Prathi course page lo exact ga em istamo list chesam — chudandi, judge cheyyandi.",
+    q: "Is this just more 'motivational gyaan'?",
+    a: "No. Every course comes with frameworks, scripts, templates and assignments — the goal isn't to inspire you, it's to get you to implement. We've listed exactly what you get on every course page — go look, and judge for yourself.",
   },
   {
-    q: "Nenu complete chestano? Chala courses konni vadalesa...",
-    a: "Anduke lifetime access + WhatsApp community + monthly live Q&A. Tinglish lo undadam valla lectures heavy ga anipinchavu. Weekly teardowns lo mee progress ki accountability untundi. Only watch cheyyadam kaadu — cheyyadam.",
+    q: "Will I actually finish it? I've dropped courses before...",
+    a: "That's exactly why you get lifetime access, a WhatsApp community and a monthly live Q&A. Lessons are kept short and practical so they never feel heavy. The weekly teardowns keep you accountable to your progress. This isn't about watching — it's about doing.",
   },
   {
-    q: "Payment chesaka access ela vastundi?",
-    a: "Payment success avvagane instant ga access details + WhatsApp community invite vastayi. Emaina problem unte community lo or support ki message cheyyandi — 24 hours lo resolve chestam.",
+    q: "How do I get access after paying?",
+    a: "The moment your payment succeeds, you instantly get your access details and a WhatsApp community invite. If anything goes wrong, message us in the community or via support — we'll resolve it within 24 hours.",
   },
   {
-    q: "Refund policy enti?",
-    a: "Refunds ledu — idi mundhe clear ga cheptunnam. Digital course kabatti access ichaka vapas teesukolem. Anduke prathi course page lo em untundo full ga chupistam, konni free previews kuda istam. Sure ga unnappude konandi — mem pressure cheyyam.",
+    q: "What's the refund policy?",
+    a: "No refunds — we're upfront about this. Because it's a digital course, we can't take back access once it's granted. That's why we show you everything a course contains, and give you free previews too. Buy only when you're sure — we won't pressure you.",
   },
   {
-    q: "Phone lo work avtunda? Data entha kavali?",
-    a: "Full ga mobile kosam design chesam. Videos konchem data-friendly quality lo kuda available — patchy network unna chudavachu. Download options courses platform lo untayi.",
+    q: "Does it work on a phone? How much data do I need?",
+    a: "It's fully designed for mobile. Videos are also available in a data-friendly quality, so you can watch even on a patchy network. Download options are available inside the course platform.",
   },
   {
-    q: "English raakapothe problem aa?",
-    a: "Assalu kaadu — adhe point. Anni courses Tinglish lo (Telugu + English mix). English fluency avasaram ledu; konni English terms industry lo ela use avtayo ade context lo nerchukuntaru.",
+    q: "What if my English isn't strong?",
+    a: "That's completely fine — that's the whole point. The lessons are taught in clear, simple English with no jargon, so you never need to be fluent to follow along. You'll also pick up how key industry terms are actually used, in context.",
   },
 ];
 
 /** Shashank's story beats — authenticity, not guru-polish.
  *  TODO: SAMPLE copy — tighten with real dates/details from Shashank. */
 export const STORY = {
-  headline: "Guru kaadu. Mee laane struggle chesina manishi.",
+  headline: "Not a guru. Someone who struggled just like you.",
   beats: [
     {
       title: "Engineering → confusion",
-      body: "Andarilaane engineering chesa. Andarilaane 'next enti' ani bhayapadda. Difference okkate — aa bhayam tho aagipoledu.",
+      body: "I did engineering like everyone else. I panicked about 'what next' like everyone else. The only difference — I didn't let that fear stop me.",
     },
     {
-      title: "Sales floor nunchi director varaku",
-      body: "Luxury Escapes lo regional business development director ayyaanu — backdoor kaadu, references kaadu. Selling nerchukuni, cheyyi, fail avvi, malli cheyyi.",
+      title: "From the sales floor to director",
+      body: "I became a regional business development director at Luxury Escapes — no backdoor, no references. I learned to sell, did it, failed, and did it again.",
     },
     {
-      title: "IIM Lucknow — nerchukovadam aapaledu",
-      body: "Executive education IIM Lucknow lo. Degree kosam kaadu — business ni deep ga ardham chesukovadaniki.",
+      title: "IIM Lucknow — never stopped learning",
+      body: "Executive education at IIM Lucknow. Not for the degree — to understand business deeply.",
     },
     {
-      title: "Bootstrap founder",
-      body: "Evari funding lekunda StartupWithShashank build chesa. 38 lakh+ mandiki reach ayye Telugu community — okka rupai ad spend start lo lekunda.",
+      title: "Bootstrapped founder",
+      body: "I built StartupWithShashank without anyone's funding — a community that reaches 3.8M+ people, with zero ad spend at the start.",
     },
     {
-      title: "Ippudu — mee vantu",
-      body: "Nenu nerchukunnadi antha Tinglish lo, direct ga, affordable ga. Endukante naaku telusu — chinna town lo talent ki kaadu kotha, opportunity ki kotha.",
+      title: "Now — it's your turn",
+      body: "Everything I learned, taught plainly, directly and affordably. Because I know it firsthand — in a small town, talent isn't the shortage, opportunity is.",
     },
   ],
 };

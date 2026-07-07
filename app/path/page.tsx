@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PathClient } from "./PathClient";
 
 export const metadata: Metadata = {
-  title: "Your path — mee goal ki correct course",
+  title: "Your path — the right course for your goal",
   robots: { index: false }, // personalised result page, not for search
 };
 

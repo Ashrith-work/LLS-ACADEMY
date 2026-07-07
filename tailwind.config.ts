@@ -26,8 +26,8 @@ const config: Config = {
         inkText: "#1A1720",
       },
       fontFamily: {
-        display: ["var(--font-display)", "var(--font-telugu)", "system-ui", "sans-serif"],
-        body: ["var(--font-body)", "var(--font-telugu)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         glow: "0 0 40px -8px rgba(255, 78, 43, 0.45)",

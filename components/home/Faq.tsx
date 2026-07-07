@@ -14,10 +14,10 @@ export function Faq() {
       <div className="mx-auto max-w-3xl px-4">
         <Reveal>
           <h2 id="faq-heading" className="text-center font-display text-3xl text-cream sm:text-4xl">
-            Doubts unte, adagandi
+            Got doubts? Ask away
           </h2>
           <p className="mt-3 text-center text-sm text-muted">
-            Ivi maaku real ga vachina questions — dodge cheyyakunda answer chestunnam.
+            These are the real questions people ask us — answered straight, no dodging.
           </p>
         </Reveal>
         <div className="mt-10 space-y-3">

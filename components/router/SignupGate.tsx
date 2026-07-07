@@ -17,12 +17,12 @@ import type { RouterAnswers } from "@/lib/types";
  */
 
 const EmailSchema = z.object({
-  name: z.string().min(2, "Mee peru cheppandi"),
-  email: z.string().email("Correct email ivvandi"),
+  name: z.string().min(2, "Tell us your name"),
+  email: z.string().email("Enter a valid email"),
 });
 const PhoneSchema = z.object({
-  name: z.string().min(2, "Mee peru cheppandi"),
-  phone: z.string().regex(/^[6-9]\d{9}$/, "10-digit mobile number ivvandi"),
+  name: z.string().min(2, "Tell us your name"),
+  phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a 10-digit mobile number"),
 });
 
 type EmailForm = z.infer<typeof EmailSchema>;
@@ -79,10 +79,10 @@ export function SignupGate({
   return (
     <div className="mx-auto w-full max-w-md">
       <h2 className="text-center font-display text-2xl text-cream sm:text-3xl">
-        Mee path ready. <span className="text-lime">Free ga</span> unlock cheyyandi.
+        Your path is ready. Unlock it <span className="text-lime">free</span>.
       </h2>
       <p className="mt-3 text-center text-sm text-muted">
-        Mee goal ki match ayye course + full roadmap chupistam. Spam undadu — promise.
+        We'll show you the course that matches your goal, plus the full roadmap. No spam — promise.
       </p>
 
       <div className="mt-8 space-y-3">
@@ -107,13 +107,13 @@ export function SignupGate({
                 onClick={() => setMode("email")}
                 className="rounded-full border border-cream/25 px-4 py-3 text-sm text-cream transition hover:border-cream/60"
               >
-                Email tho
+                Email
               </button>
               <button
                 onClick={() => setMode("phone")}
                 className="rounded-full border border-cream/25 px-4 py-3 text-sm text-cream transition hover:border-cream/60"
               >
-                Phone tho
+                Phone
               </button>
             </div>
           </>
@@ -126,9 +126,9 @@ export function SignupGate({
             noValidate
           >
             <Field
-              label="Peru"
+              label="Name"
               error={emailForm.formState.errors.name?.message}
-              inputProps={{ ...emailForm.register("name"), placeholder: "Mee peru", autoComplete: "name" }}
+              inputProps={{ ...emailForm.register("name"), placeholder: "Your name", autoComplete: "name" }}
             />
             <Field
               label="Email"
@@ -155,9 +155,9 @@ export function SignupGate({
             noValidate
           >
             <Field
-              label="Peru"
+              label="Name"
               error={phoneForm.formState.errors.name?.message}
-              inputProps={{ ...phoneForm.register("name"), placeholder: "Mee peru", autoComplete: "name" }}
+              inputProps={{ ...phoneForm.register("name"), placeholder: "Your name", autoComplete: "name" }}
             />
             <Field
               label="Mobile number"
@@ -179,7 +179,7 @@ export function SignupGate({
       </div>
 
       <p className="mt-6 text-center text-xs text-muted">
-        Sign up ante mee details safe ga untayi. Courses ki matrame use chestam.
+        Your details stay safe. We only use them for your courses.
       </p>
     </div>
   );
@@ -222,7 +222,7 @@ function Field({
 function BackLink({ onClick }: { onClick: () => void }) {
   return (
     <button type="button" onClick={onClick} className="w-full text-center text-xs text-muted hover:text-cream">
-      ← Vere option choose chestanu
+      ← Choose a different option
     </button>
   );
 }

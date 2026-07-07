@@ -40,19 +40,19 @@ export function PathClient() {
           LIVE LIFE <span className="text-ember">SHAMELESS</span>
         </Link>
         <Link href="/start" className="text-xs text-muted hover:text-cream">
-          ← Goal marchali
+          ← Change goal
         </Link>
       </header>
 
       <div className="mx-auto max-w-3xl px-4 pt-8 text-center">
         <p className={cn("text-xs font-semibold uppercase tracking-wider", styles.text)}>
-          Mee goal: {lane.label}
+          Your goal: {lane.label}
         </p>
         <h1 className="mt-3 font-display text-3xl text-cream sm:text-5xl">
-          Mee path <span className="text-lime">ready</span>.
+          Your path is <span className="text-lime">ready</span>.
         </h1>
         <p className="mt-3 text-sm text-muted sm:text-base">
-          Mee answers batti — ikkada start cheyyandi. Okkate. Confusion vaddu.
+          Based on your answers — start right here. Just one. No confusion.
         </p>
       </div>
 
@@ -99,9 +99,9 @@ export function PathClient() {
       {/* The lane ladder, cheap → premium. */}
       <div className="mx-auto mt-14 max-w-6xl">
         <div className="px-4">
-          <h3 className="font-display text-xl text-cream">Mee lane lo full ladder</h3>
+          <h3 className="font-display text-xl text-cream">The full ladder in your lane</h3>
           <p className="mt-1 text-sm text-muted">
-            Chinnaga start cheyyalanukunte cheap side; serious ga unte direct anchor.
+            Want to start small? Take the cheaper side. Serious? Go straight for the anchor.
           </p>
         </div>
         <div className="scrollbar-none mt-6 flex gap-4 overflow-x-auto px-4 pb-2">
@@ -116,10 +116,10 @@ export function PathClient() {
         <div className="rounded-3xl border border-gold/30 bg-surface p-6 text-center sm:p-8">
           <p className="text-xs font-bold uppercase tracking-wider text-gold">Go deeper</p>
           <h3 className="mt-2 font-display text-2xl text-cream">
-            Okka course kaadu — antha kavali ante
+            Not just one course — want it all?
           </h3>
           <p className="mt-2 text-sm text-muted">
-            All-access: anni {TOTAL_COUNT} courses, lifetime, one-time {inr(BUNDLE.price)}.
+            All-access: all {TOTAL_COUNT} courses, lifetime, one-time {inr(BUNDLE.price)}.
           </p>
           <div className="mt-5">
             <ButtonLink

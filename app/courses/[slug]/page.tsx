@@ -58,13 +58,13 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           />
           <div className="relative mx-auto max-w-3xl text-center">
             <p className={cn("mb-4 text-xs font-semibold uppercase tracking-wider", styles.text)}>
-              {comingSoon ? "Coming soon · demand validate chestunnam" : "Recorded course · Tinglish · lifetime access"}
+              {comingSoon ? "Coming soon · gauging demand" : "Recorded course · lifetime access"}
             </p>
             <h1 className="font-display text-4xl leading-[1.1] text-cream sm:text-5xl">{course.hook}</h1>
             <p className="mx-auto mt-5 max-w-xl text-base text-muted sm:text-lg">{course.description}</p>
             {!comingSoon && (
               <p className="mt-8 text-sm text-muted">
-                ↓ Mundu chudandi em untundo — <span className="text-cream">taruvatha decide cheyyandi</span>
+                ↓ See what's inside first — <span className="text-cream">then decide</span>
               </p>
             )}
           </div>
@@ -74,10 +74,10 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           /* Coming-soon: the entire pitch becomes "join the waitlist". */
           <section className="px-4 pb-24">
             <div className="mx-auto max-w-xl rounded-3xl border border-cream/15 bg-card p-8 text-center">
-              <h2 className="font-display text-2xl text-cream">Ee course meeku kavala?</h2>
+              <h2 className="font-display text-2xl text-cream">Want this course?</h2>
               <p className="mt-3 text-sm text-muted">
-                Interest chupinchandi — waitlist strong ga unte ee course ni fast ga shoot chestam. Launch price kuda
-                waitlist vaallake first.
+                Show your interest — a strong waitlist means we shoot this course faster. Waitlist members also
+                get the launch price first.
               </p>
               <div className="mt-6">
                 <WaitlistForm courseId={course.id} />
@@ -121,7 +121,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <section className="py-16 sm:py-20">
               <div className="mx-auto max-w-3xl px-4">
                 <Reveal>
-                  <h2 className="font-display text-2xl text-cream sm:text-3xl">Ee course lo exact ga:</h2>
+                  <h2 className="font-display text-2xl text-cream sm:text-3xl">Exactly what's in this course:</h2>
                 </Reveal>
                 <ul className="mt-8 space-y-3">
                   {course.whatYouGet.map((w, i) => (
@@ -163,7 +163,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                       {/* The big number — lime, reserved for this moment. */}
                       <p className="font-display text-5xl text-lime">{inr(price)}</p>
                     </div>
-                    <p className="mt-2 text-sm text-muted">One-time · lifetime access · anni updates free</p>
+                    <p className="mt-2 text-sm text-muted">One-time · lifetime access · all updates free</p>
                     <div className="mt-7">
                       <CourseCta courseId={course.id} />
                     </div>

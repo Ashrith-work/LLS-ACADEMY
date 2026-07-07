@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { GoalRouter } from "@/components/router/GoalRouter";
 
 export const metadata: Metadata = {
-  title: "Find your course — 30 seconds lo mee path",
-  description: "Okka goal + 2 questions — mee situation ki correct Telugu course recommend chestam.",
+  title: "Find your course — your path in 30 seconds",
+  description: "One goal + 2 questions — we'll recommend the right course for your situation.",
 };
 
 export default function StartPage() {

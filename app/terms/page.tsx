@@ -24,69 +24,68 @@ export default function TermsPage() {
 
           <section className="mt-10 space-y-8 leading-relaxed">
             <div className="rounded-2xl border-2 border-ember/40 bg-white/60 p-6">
-              <h2 className="font-display text-xl">Refund policy — clear ga cheptunnam</h2>
+              <h2 className="font-display text-xl">Refund policy — stated plainly</h2>
               <p className="mt-3">
-                <strong>Mem refunds ivvam.</strong> Digital courses kabatti access ichina ventane full content
-                meeku open avtundi — vapas teesukovadam possible kaadu.
+                <strong>We don't give refunds.</strong> Because these are digital courses, the full content opens up
+                to you the moment access is granted — so it can't be returned.
               </p>
-              <p className="mt-3">Anduke konadaniki mundhe ivi chestunnam:</p>
+              <p className="mt-3">That's why we do this before you buy:</p>
               <ul className="mt-2 list-disc space-y-1.5 pl-5">
-                <li>Prathi course page lo exact deliverables list chestam — em vastundo mundhe telustundi.</li>
-                <li>Prices honest ga untayi — fake discounts, fake timers undavu.</li>
-                <li>Doubts unte konakandi — mundu Instagram lo free content chudandi, nachithe randi.</li>
+                <li>Every course page lists the exact deliverables — you know what you're getting before you pay.</li>
+                <li>Prices are honest — no fake discounts, no fake timers.</li>
+                <li>Not sure? Don't buy yet — watch the free content on Instagram first, and come back if you like it.</li>
               </ul>
               <p className="mt-3">
-                Sure ga unnappude konandi. Mem pressure cheyyam — ee page meeda countdown timer ledu, gamaninchara?
+                Buy only when you're sure. We won't pressure you — notice there's no countdown timer on this page?
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl">1. Access</h2>
               <p className="mt-2">
-                Payment success ayyaka access details mee email ki instant ga vastayi. Access lifetime — mee account
-                ki personal, share cheyyakudadhu. Bundle buyers ki kotha courses launch avvagane automatic ga add
-                avtayi.
+                Once payment succeeds, access details arrive in your email instantly. Access is lifetime — personal to
+                your account, not to be shared. For bundle buyers, new courses are added automatically as soon as they
+                launch.
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl">2. Content usage</h2>
               <p className="mt-2">
-                Course content (videos, worksheets, templates) mee personal learning kosam. Re-record, re-sell,
-                or public ga distribute cheyyadam copyright violation — account terminate avtundi, refund undadu
-                (point pai chudandi — asalu refund ledu).
+                Course content (videos, worksheets, templates) is for your personal learning. Re-recording, reselling,
+                or distributing it publicly is a copyright violation — your account will be terminated, with no refund
+                (see the point above — there are no refunds at all).
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl">3. Payments</h2>
               <p className="mt-2">
-                Anni payments Razorpay dwara — UPI, cards, netbanking. Prices INR lo, one-time. Payment fail ayyi
-                money debit ayithe, bank 5–7 working days lo auto-reverse chestundi.
+                All payments go through Razorpay — UPI, cards, netbanking. Prices are in INR, one-time. If a payment
+                fails but money is debited, your bank auto-reverses it within 5–7 working days.
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl">4. Community conduct</h2>
               <p className="mt-2">
-                WhatsApp community lo respect maintain cheyyandi. Spam, self-promotion without permission, harassment
-                — removal ki grounds. Community access course access lo part, kaani privilege.
+                Be respectful in the WhatsApp community. Spam, self-promotion without permission, and harassment are
+                grounds for removal. Community access is part of your course access, but it's a privilege.
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl">5. Results disclaimer</h2>
               <p className="mt-2">
-                Courses tools istayi — results mee implementation meeda depend avtayi. &ldquo;Intha earn
-                chestaru&rdquo; ani mem guarantee cheyyam; alaanti guarantees icchevaallani nammakandi.
+                The courses give you the tools — your results depend on how you apply them. We don't guarantee
+                &ldquo;you'll earn this much&rdquo;; don't trust anyone who makes those guarantees.
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-xl">6. Contact</h2>
               <p className="mt-2">
-                Questions? {/* TODO: real support email/WhatsApp */} Support ki message cheyyandi — 24–48 hours lo
-                reply istam.
+                Questions? {/* TODO: real support email/WhatsApp */} Message support — we'll reply within 24–48 hours.
               </p>
             </div>
           </section>

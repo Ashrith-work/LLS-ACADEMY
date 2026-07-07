@@ -22,16 +22,16 @@ import { SignupGate } from "@/components/router/SignupGate";
 type Step = "goal" | "stage" | "blocker" | "gate";
 
 const STAGES = [
-  { id: "student", label: "Student ni / fresh ga start", hint: "College lo or just finished" },
-  { id: "working", label: "Job chestunna", hint: "Corporate / private / govt" },
-  { id: "running", label: "Edo okati run chestunna", hint: "Business / side-hustle / freelancing" },
+  { id: "student", label: "Student or just starting out", hint: "In college or recently finished" },
+  { id: "working", label: "Working a job", hint: "Corporate / private / govt" },
+  { id: "running", label: "Running something of my own", hint: "Business / side-hustle / freelancing" },
 ] as const;
 
 const BLOCKERS = [
-  { id: "freeze", label: "Freeze aipotha", hint: "Situations lo matladalekapotha" },
-  { id: "how", label: "Ela cheyyalo teliyadu", hint: "Direction / method ledu" },
-  { id: "time", label: "Time undadu", hint: "Busy schedule, consistency radu" },
-  { id: "confidence", label: "Confidence undadu", hint: "'Nenu cheyagalana' anipistundi" },
+  { id: "freeze", label: "I freeze up", hint: "Can't speak up in the moment" },
+  { id: "how", label: "I don't know how", hint: "No direction or method" },
+  { id: "time", label: "I have no time", hint: "Busy schedule, can't stay consistent" },
+  { id: "confidence", label: "I lack confidence", hint: "I keep doubting whether I can do it" },
 ] as const;
 
 export function GoalRouter() {
@@ -118,8 +118,8 @@ export function GoalRouter() {
         <AnimatePresence mode="wait">
           {step === "goal" && (
             <motion.div key="goal" {...anim} className="w-full max-w-2xl">
-              <h1 className="text-center font-display text-3xl text-cream sm:text-4xl">Neeku em kavali?</h1>
-              <p className="mt-3 text-center text-sm text-muted">Honest ga choose cheyyi — daani batti path istam.</p>
+              <h1 className="text-center font-display text-3xl text-cream sm:text-4xl">What do you want?</h1>
+              <p className="mt-3 text-center text-sm text-muted">Choose honestly — we'll build your path from it.</p>
               <div className="mt-10 grid gap-4">
                 {LANES.map((lane) => {
                   const s = LANE_STYLES[lane.id];
@@ -148,7 +148,7 @@ export function GoalRouter() {
 
           {step === "stage" && (
             <motion.div key="stage" {...anim} className="w-full max-w-xl">
-              <QuestionHeader n={1} title="Ippudu ekkada unnav?" goal={goal} />
+              <QuestionHeader n={1} title="Where are you right now?" goal={goal} />
               <div className="mt-8 grid gap-3">
                 {STAGES.map((s) => (
                   <OptionButton key={s.id} label={s.label} hint={s.hint} onClick={() => chooseStage(s.id)} />
@@ -160,7 +160,7 @@ export function GoalRouter() {
 
           {step === "blocker" && (
             <motion.div key="blocker" {...anim} className="w-full max-w-xl">
-              <QuestionHeader n={2} title="Ninnu apedhi enti?" goal={goal} />
+              <QuestionHeader n={2} title="What's holding you back?" goal={goal} />
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {BLOCKERS.map((b) => (
                   <OptionButton key={b.id} label={b.label} hint={b.hint} onClick={() => chooseBlocker(b.id)} />

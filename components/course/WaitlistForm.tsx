@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { track } from "@/lib/tracking";
 import { cn } from "@/lib/utils";
 
-const Schema = z.object({ email: z.string().email("Correct email ivvandi") });
+const Schema = z.object({ email: z.string().email("Enter a valid email") });
 type Form = z.infer<typeof Schema>;
 
 /**
@@ -36,7 +36,7 @@ export function WaitlistForm({ courseId }: { courseId: string }) {
   if (done) {
     return (
       <p className="rounded-2xl border border-teal/40 bg-teal/10 px-5 py-4 text-sm text-cream" role="status">
-        ✓ List lo unnaru! Course launch avvagane first meeku cheptam.
+        ✓ You're on the list! We'll tell you first the moment the course launches.
       </p>
     );
   }
@@ -52,7 +52,7 @@ export function WaitlistForm({ courseId }: { courseId: string }) {
           type="email"
           inputMode="email"
           autoComplete="email"
-          placeholder="Mee email — launch avvagane cheptam"
+          placeholder="Your email — we'll tell you at launch"
           className={cn(
             "w-full rounded-full border bg-surface px-5 py-3.5 text-cream placeholder:text-muted/60",
             formState.errors.email ? "border-ember" : "border-cream/20 focus:border-cream/50",

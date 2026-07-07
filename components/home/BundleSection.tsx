@@ -28,13 +28,13 @@ export function BundleSection() {
                   All-access · one-time · lifetime
                 </p>
                 <h2 id="bundle-heading" className="font-display text-3xl leading-tight text-cream sm:text-4xl">
-                  Anni {TOTAL_COUNT} courses.
+                  All {TOTAL_COUNT} courses.
                   <br />
-                  Okka decision.
+                  One decision.
                 </h2>
                 <p className="mt-4 text-muted">
-                  {BUNDLE.hook} Konni ippude complete cheyyalsina avasaram ledu — lifetime access ante nee pace lo,
-                  nee time lo. Kotha courses add ayina kuda nee ke.
+                  {BUNDLE.hook} No need to finish anything right now — lifetime access means your pace,
+                  your time. Every new course we add is yours too.
                 </p>
                 <div className="mt-8 flex items-end gap-4">
                   <div>

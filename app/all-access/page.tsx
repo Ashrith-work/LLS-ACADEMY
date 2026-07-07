@@ -10,8 +10,8 @@ import { inr } from "@/lib/utils";
 import { Faq } from "@/components/home/Faq";
 
 export const metadata: Metadata = {
-  title: `All-Access — anni ${TOTAL_COUNT} courses, lifetime`,
-  description: `Okka one-time payment tho anni ${TOTAL_COUNT} Telugu courses — sales, communication, business, career. Lifetime access, kotha courses free.`,
+  title: `All-Access — all ${TOTAL_COUNT} courses, lifetime`,
+  description: `One payment for all ${TOTAL_COUNT} courses — sales, communication, business, career. Lifetime access, new courses free.`,
 };
 
 /**
@@ -33,11 +33,11 @@ export default function AllAccessPage() {
               One-time payment · lifetime access
             </p>
             <h1 className="mx-auto max-w-3xl font-display text-4xl leading-[1.1] text-cream sm:text-5xl">
-              Life antha nerchukovadaniki, <span className="text-gold">okka decision</span> chalu.
+              One <span className="text-gold">decision</span> to learn it all.
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-muted">
-              Anni {TOTAL_COUNT} courses ({LIVE_COUNT} live, migatha launch avvagane automatic ga mee library lo).
-              Complete cheyyadaniki deadline ledu — lifetime ante lifetime.
+              All {TOTAL_COUNT} courses ({LIVE_COUNT} live, the rest land in your library automatically the moment they launch).
+              No deadline to finish — lifetime means lifetime.
             </p>
           </Reveal>
         </section>
@@ -85,7 +85,7 @@ export default function AllAccessPage() {
         <section className="on-light bg-bone py-16 text-inkText">
           <div className="mx-auto max-w-4xl px-4">
             <Reveal>
-              <h2 className="text-center font-display text-3xl">Prathi course tho idi kuda:</h2>
+              <h2 className="text-center font-display text-3xl">With every course, you also get:</h2>
             </Reveal>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {DELIVERABLES.map((d, i) => (
@@ -99,7 +99,7 @@ export default function AllAccessPage() {
             </div>
             <Reveal>
               <p className="mt-8 text-center text-sm text-inkText/60">
-                Konni courses inka shoot avvaledu — bundle lo unte, launch avvagane automatic ga meeku.
+                Some courses aren't shot yet — with the bundle, they're automatically yours the moment they launch.
               </p>
             </Reveal>
           </div>
@@ -109,11 +109,11 @@ export default function AllAccessPage() {
 
         <section className="px-4 py-16 text-center">
           <Reveal>
-            <h2 className="font-display text-2xl text-cream">Inka okka course tho start cheyyalanukuntunnara?</h2>
+            <h2 className="font-display text-2xl text-cream">Rather start with just one course?</h2>
             <p className="mt-2 text-sm text-muted">
               No problem —{" "}
               <Link href="/start" className="text-cream underline">
-                2 questions tho mee course kanukondi
+                find your course in 2 questions
               </Link>
               .
             </p>

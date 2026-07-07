@@ -18,28 +18,28 @@ export const FOUNDING_PRICING = false;
  *  TODO: placeholder price — set the real bundle price before launch. */
 export const BUNDLE = {
   id: "all-access",
-  title: "All-Access — anni 24 courses",
+  title: "All-Access — all 24 courses",
   price: 9999, // TODO: editable placeholder
-  hook: "Okka decision. Prathi skill. Lifetime access.",
+  hook: "One decision. Every skill. Lifetime access.",
 };
 
 export const LANES: Lane[] = [
   {
     id: "sell",
     label: "Sell better",
-    hook: "Convince cheyyadam vachaka, income ki limit undadu.",
+    hook: "Once you can convince people, there's no cap on your income.",
     accent: "ember",
   },
   {
     id: "brand",
     label: "Build your brand",
-    hook: "Mee peru oka asset avvali — opportunities meeku raavaali.",
+    hook: "Your name should be an asset — opportunities should come to you.",
     accent: "violet",
   },
   {
     id: "grow",
     label: "Grow in career & life",
-    hook: "Room lo ki enter avvagane notice avvali. Overlooked kaadu.",
+    hook: "Get noticed the moment you walk into the room. No more being overlooked.",
     accent: "teal",
   },
 ];
@@ -72,12 +72,12 @@ export const COURSES: Course[] = [
     foundingPrice: 1499,
     anchor: true,
     status: "live",
-    hook: "Sell cheyyadam vachina vaadiki salary cap undadu.",
+    hook: "Once you can sell, there's no cap on your salary.",
     description:
-      "Selling ante pushy ga undadam kaadu — oka system. Cold call nunchi closing varaku, Shashank field lo use chesina exact framework. Tinglish lo, direct ga.",
+      "Selling isn't about being pushy — it's a system. From the cold call to the close, this is the exact framework Shashank used in the field. Direct and practical.",
     whatYouGet: [
-      "6+ hours recorded lessons (Tinglish)",
-      "Objection-handling scripts — Telugu customer scenarios",
+      "6+ hours of recorded lessons",
+      "Objection-handling scripts for real customer scenarios",
       "Closing framework worksheet",
       "Certificate + WhatsApp community access",
       "Monthly live Q&A with Shashank",
@@ -90,9 +90,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 1999,
     status: "live",
-    hook: "Companies ki ammadam nerchuko — deal size lakhs lo untundi.",
+    hook: "Learn to sell to companies — where deal sizes run into lakhs.",
     description:
-      "B2B lo buyer okkadu kaadu, committee untundi. Long cycle, big ticket. Aa game ela adali — prospecting to procurement — step by step.",
+      "In B2B, the buyer isn't one person — it's a committee. Long cycle, big ticket. How to play that game — from prospecting to procurement — step by step.",
     whatYouGet: [
       "4+ hours recorded lessons",
       "B2B outreach templates (email + LinkedIn)",
@@ -107,9 +107,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 1999,
     status: "live",
-    hook: "Customer 'chusta le' annapudu deal close cheyyadam nerchuko.",
+    hook: "Learn to close the deal even when the customer says 'I'll think about it.'",
     description:
-      "Retail, D2C, services — direct customer ki ammadam lo psychology antha. Price objection, trust building, repeat sales. Field-tested, no theory.",
+      "Retail, D2C, services — selling directly to a customer is all psychology. Price objections, trust building, repeat sales. Field-tested, no theory.",
     whatYouGet: [
       "4+ hours recorded lessons",
       "Price-objection playbook",
@@ -125,9 +125,9 @@ export const COURSES: Course[] = [
     price: 1499,
     anchor: true,
     status: "live",
-    hook: "Business start cheyyataniki lakhs avasaram ledu — sariaina plan chalu.",
+    hook: "You don't need lakhs to start a business — you need the right plan.",
     description:
-      "Bootstrap ga start chesi run cheyyadam ela — Shashank own story tho sahaa. First customer, first revenue, first profit. Capital kanna clarity mukhyam.",
+      "How to start and run a business bootstrapped — with Shashank's own story included. First customer, first revenue, first profit. Clarity matters more than capital.",
     whatYouGet: [
       "5+ hours recorded lessons",
       "Zero-to-first-customer checklist",
@@ -142,9 +142,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 1499,
     status: "live",
-    hook: "Launch day ni event ga kaadu — revenue machine ga plan cheyyi.",
+    hook: "Don't treat launch day as an event — plan it as a revenue machine.",
     description:
-      "Product ready ayyaka silence lo release cheyyakudadhu. Waitlist, hype, pricing, first-week sales — full launch playbook.",
+      "Once your product is ready, don't release it in silence. Waitlist, hype, pricing, first-week sales — the full launch playbook.",
     whatYouGet: [
       "4 hours recorded lessons",
       "Launch-week calendar template",
@@ -159,9 +159,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 1499,
     status: "live",
-    hook: "Business lo biggest risk market kaadu — nee own doubts.",
+    hook: "The biggest risk in business isn't the market — it's your own doubts.",
     description:
-      "Failure fear, comparison, imposter feeling — ivi handle cheyyakapothe strategy work avvadu. Founder mindset ni build chese practical course. Gyaan kaadu — tools.",
+      "Fear of failure, comparison, imposter feelings — no strategy works until you handle these. A practical course to build the founder mindset. Not gyaan — tools.",
     whatYouGet: [
       "3+ hours recorded lessons",
       "Decision-making frameworks",
@@ -176,9 +176,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 999,
     status: "live",
-    hook: "Idea meeda money pettadam kanna mundu — adi ammudavtundo ledho test cheyyi.",
+    hook: "Before you put money into an idea — test whether it will actually sell.",
     description:
-      "90% startups fail avvadaniki reason: evariki avasaram leni product. Idea ni cheap ga, fast ga validate chese exact process.",
+      "90% of startups fail for one reason: a product nobody needs. The exact process to validate an idea cheaply and fast.",
     whatYouGet: [
       "3 hours recorded lessons",
       "Validation experiment templates",
@@ -193,9 +193,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 999,
     status: "live",
-    hook: "Manchi product saripodu — kanipinchali, gurthundali, ammudavvali.",
+    hook: "A good product isn't enough — it has to be seen, remembered and sold.",
     description:
-      "Brand ante logo kaadu. Positioning, messaging, D2C channels — chinna budget tho pedda brand feel ela create cheyyalo.",
+      "A brand isn't a logo. Positioning, messaging, D2C channels — how to create the feel of a big brand on a small budget.",
     whatYouGet: [
       "4 hours recorded lessons",
       "Positioning worksheet",
@@ -210,13 +210,13 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 999,
     status: "live",
-    hook: "Online lo customers ni systematically teeskura — luck meeda kaadu.",
+    hook: "Get customers online systematically — not by luck.",
     description:
-      "Ads, content, funnels, WhatsApp marketing — Telugu market ki work ayye digital playbook antha okka chota. Agency ki ivvakunda nuvve nadipinchagalav.",
+      "Ads, content, funnels, WhatsApp marketing — the entire digital playbook in one place. Run it yourself instead of handing it to an agency.",
     whatYouGet: [
-      "6 hours recorded lessons",
+      "6 hours of recorded lessons",
       "Funnel templates",
-      "Ad-copy swipe file (Tinglish)",
+      "Ad-copy swipe file",
       "Certificate + community access",
     ],
     thumb: th("sell", 0),
@@ -227,9 +227,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 999,
     status: "live",
-    hook: "Opportunities skill valla kaadu — evariki telusu nuvvu unnavani.",
+    hook: "Opportunities don't come from skill alone — they come from who knows you exist.",
     description:
-      "Contacts leni valla talent waste avtundi. Introvert aina sare network build cheyyadam — events, DMs, follow-ups — awkward feel avvakunda.",
+      "Talent goes to waste without contacts. How to build a network even if you're an introvert — events, DMs, follow-ups — without it ever feeling awkward.",
     whatYouGet: [
       "3 hours recorded lessons",
       "Outreach message templates",
@@ -244,10 +244,10 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 499,
     status: "coming-soon",
-    hook: "Antha nuvve chesthe business kaadu adi — job. Team build cheyyi.",
+    hook: "If you do everything yourself, it's not a business — it's a job. Build a team.",
     description:
-      "First hire eppudu, evarini, entha ki — and manage ela. Chinna team tho pedda output teese playbook.",
-    whatYouGet: ["2+ hours recorded lessons", "Hiring scorecard template", "Certificate + community access"],
+      "Your first hire — when, who, for how much, and how to manage them. The playbook to get big output from a small team.",
+    whatYouGet: ["2+ hours of recorded lessons", "Hiring scorecard template", "Certificate + community access"],
     thumb: th("sell", 0),
   },
   {
@@ -256,9 +256,9 @@ export const COURSES: Course[] = [
     lane: "sell",
     price: 1499,
     status: "live",
-    hook: "'Aadapilla ki business enduku' anevaallaki answer — mee revenue.",
+    hook: "To everyone who asks 'why does a girl need a business' — let your revenue answer.",
     description:
-      "Family expectations, capital access, safety, credibility — women founders face chese real barriers ki practical answers. Business basics kuda covered.",
+      "Family expectations, access to capital, safety, credibility — practical answers to the real barriers women founders face. Business basics are covered too.",
     whatYouGet: [
       "4 hours recorded lessons",
       "Home-business starter checklist",
@@ -276,9 +276,9 @@ export const COURSES: Course[] = [
     price: 999,
     anchor: true,
     status: "live",
-    hook: "Nee peru vinagane 'aa person ah, superb' anali — adi asset.",
+    hook: "People should hear your name and say 'oh, that person — brilliant.' That's an asset.",
     description:
-      "Personal brand ante famous avvadam kaadu — nee field lo trusted name avvadam. Shashank 38 lakh+ reach build chesina exact approach, zero nunchi.",
+      "A personal brand isn't about being famous — it's about being a trusted name in your field. The exact approach Shashank used to build a 3.8M+ reach, from zero.",
     whatYouGet: [
       "5 hours recorded lessons",
       "Content pillar worksheet",
@@ -294,12 +294,12 @@ export const COURSES: Course[] = [
     lane: "brand",
     price: 999,
     status: "live",
-    hook: "Camera mundhu freeze avvakunda — scroll aapese content cheyyi.",
+    hook: "Stop freezing in front of the camera — make content that stops the scroll.",
     description:
-      "Ideas, hooks, scripting, shooting on a phone, editing basics — consistent ga content create chese full system. Perfection kaadu, consistency.",
+      "Ideas, hooks, scripting, shooting on a phone, editing basics — the full system to create content consistently. Not perfection, consistency.",
     whatYouGet: [
-      "4 hours recorded lessons",
-      "Hook formulas (Tinglish)",
+      "4 hours of recorded lessons",
+      "Hook formulas",
       "Phone-shooting setup guide",
       "Certificate + community access",
     ],
@@ -311,9 +311,9 @@ export const COURSES: Course[] = [
     lane: "brand",
     price: 999,
     status: "coming-soon",
-    hook: "Followers kaadu point — reach ni income ga marchadam.",
+    hook: "Followers aren't the point — turning reach into income is.",
     description:
-      "Algorithm, reels strategy, monetization — Instagram ni serious income channel ga treat chese course. Demand validate ayyaka shoot avtundi — waitlist lo join avvandi.",
+      "Algorithm, reels strategy, monetization — a course that treats Instagram as a serious income channel. It'll be filmed once demand is validated — join the waitlist.",
     whatYouGet: ["Reels growth system", "Monetization playbook", "Certificate + community access"],
     thumb: th("brand", 0),
   },
@@ -323,9 +323,9 @@ export const COURSES: Course[] = [
     lane: "brand",
     price: 1499,
     status: "coming-soon",
-    hook: "Skill undi, clients levu ante — adi skill problem kaadu, sales problem.",
+    hook: "You have the skill but no clients? That's not a skill problem — it's a sales problem.",
     description:
-      "Portfolio, pricing, proposals, retainers — freelancing ni side-hustle nunchi full income ga grow cheyyadam. Waitlist lo join avvandi.",
+      "Portfolio, pricing, proposals, retainers — how to grow freelancing from a side-hustle into a full income. Join the waitlist.",
     whatYouGet: ["Client-outreach system", "Pricing & proposal templates", "Certificate + community access"],
     thumb: th("brand", 1),
   },
@@ -339,11 +339,11 @@ export const COURSES: Course[] = [
     foundingPrice: 1499,
     anchor: true,
     status: "live",
-    hook: "Room lo ki enter avvagane overlooked avvadam aapeyyi.",
+    hook: "Stop being overlooked the moment you walk into the room.",
     description:
-      "English fluency kaadu point — clarity, presence, confidence. Meetings lo, interviews lo, life lo — matladite vinali, adigithe jaragali. Flagship communication course.",
+      "Fluency isn't the point — clarity, presence and confidence are. In meetings, in interviews, in life: when you speak, people should listen; when you ask, things should happen. Our flagship communication course.",
     whatYouGet: [
-      "7+ hours recorded lessons (Tinglish)",
+      "7+ hours of recorded lessons",
       "Speaking frameworks for meetings/interviews",
       "Practice assignments with community feedback",
       "Certificate + WhatsApp community",
@@ -360,11 +360,11 @@ export const COURSES: Course[] = [
     anchor: true,
     signature: true,
     status: "live",
-    hook: "'Emanukuntaro' ane bhayam nee life ni chinnadiga chestundi. Break it.",
+    hook: "The fear of 'what will people think' keeps your life small. Break it.",
     description:
-      "The signature course. Log evaluation fear, comfort zone, chinna-town conditioning — vaatini systematically break chese transformation program. Shashank philosophy antha idhe.",
+      "The signature course. Fear of judgment, the comfort zone, small-town conditioning — a transformation program that systematically breaks all of it. This is Shashank's entire philosophy.",
     whatYouGet: [
-      "8+ hours recorded lessons",
+      "8+ hours of recorded lessons",
       "Comfort-zone breaking challenges (weekly)",
       "Self-audit workbook",
       "Certificate + WhatsApp community",
@@ -378,10 +378,10 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "Confidence born-with kaadu — build chesukune skill.",
+    hook: "Confidence isn't something you're born with — it's a skill you build.",
     description:
-      "Stage fear, comparison, 'nenu saripovanu' feeling — confidence ni daily practice tho build chese starter course. First step ki perfect.",
-    whatYouGet: ["2+ hours recorded lessons", "Daily confidence drills", "Certificate + community access"],
+      "Stage fear, comparison, the feeling that 'I'm not good enough' — a starter course that builds confidence through daily practice. Perfect for a first step.",
+    whatYouGet: ["2+ hours of recorded lessons", "Daily confidence drills", "Certificate + community access"],
     thumb: th("grow", 0),
   },
   {
@@ -390,10 +390,10 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "Fail avvadam problem kaadu — akkade aagipodam problem.",
+    hook: "Failing isn't the problem — stopping there is.",
     description:
-      "Exam fail, business fail, breakup, rejection — bounce back avvadam oka process. Motivation kaadu, method.",
-    whatYouGet: ["2 hours recorded lessons", "Bounce-back action plan", "Certificate + community access"],
+      "A failed exam, a failed business, a breakup, a rejection — bouncing back is a process. Not motivation, a method.",
+    whatYouGet: ["2 hours of recorded lessons", "Bounce-back action plan", "Certificate + community access"],
     thumb: th("grow", 1),
   },
   {
@@ -402,9 +402,9 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "Interview lo reject avvadam talent valla kaadu — preparation valla.",
+    hook: "Getting rejected in an interview isn't about talent — it's about preparation.",
     description:
-      "HR rounds, 'tell me about yourself', salary negotiation — Telugu students/professionals ki interviews crack chese direct playbook.",
+      "HR rounds, 'tell me about yourself', salary negotiation — a direct playbook to help students and professionals crack interviews.",
     whatYouGet: [
       "3 hours recorded lessons",
       "Answer frameworks for top 20 questions",
@@ -419,10 +419,10 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "First job decision 10 years ni decide chestundi — random ga teesukoku.",
+    hook: "Your first job decides the next 10 years — don't pick it at random.",
     description:
-      "Package chusi kaadu — growth, learning, exposure chusi choose cheyyadam ela. Career start lo unna prathi okkariki.",
-    whatYouGet: ["2 hours recorded lessons", "Job evaluation scorecard", "Certificate + community access"],
+      "How to choose based on growth, learning and exposure — not just the package. For everyone at the start of their career.",
+    whatYouGet: ["2 hours of recorded lessons", "Job evaluation scorecard", "Certificate + community access"],
     thumb: th("grow", 1),
   },
   {
@@ -431,10 +431,10 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "Meeting lo silent ga unte promotion lo kuda silent ga untav.",
+    hook: "Stay silent in meetings and you'll be silent in the promotion list too.",
     description:
-      "Points cheppadaniki bhayam, seniors mundu freeze — meetings lo confident ga contribute chesi notice avvadam ela.",
-    whatYouGet: ["2 hours recorded lessons", "Meeting contribution frameworks", "Certificate + community access"],
+      "Afraid to make your point, freezing in front of seniors — how to contribute confidently in meetings and get noticed.",
+    whatYouGet: ["2 hours of recorded lessons", "Meeting contribution frameworks", "Certificate + community access"],
     thumb: th("grow", 0),
   },
   {
@@ -443,10 +443,10 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "Hard work okkate saripodu — visibility + politics navigate cheyyali.",
+    hook: "Hard work alone isn't enough — you have to navigate visibility and politics.",
     description:
-      "Appraisals, managers, office politics, promotions — corporate ladder ni smart ga ekkhadam. Ex-director experience nunchi direct ga.",
-    whatYouGet: ["3 hours recorded lessons", "Appraisal preparation kit", "Certificate + community access"],
+      "Appraisals, managers, office politics, promotions — how to climb the corporate ladder smartly. Straight from an ex-director's experience.",
+    whatYouGet: ["3 hours of recorded lessons", "Appraisal preparation kit", "Certificate + community access"],
     thumb: th("grow", 1),
   },
   {
@@ -455,10 +455,10 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "Luck kosam wait cheyyadam kaadu — opportunities create chesukovadam.",
+    hook: "Don't wait for luck — create your own opportunities.",
     description:
-      "Side projects, visibility, asking — opportunities attract chese habits and systems. Chinna town lo unna sare.",
-    whatYouGet: ["2 hours recorded lessons", "Opportunity pipeline tracker", "Certificate + community access"],
+      "Side projects, visibility, asking — the habits and systems that attract opportunities. Even if you're in a small town.",
+    whatYouGet: ["2 hours of recorded lessons", "Opportunity pipeline tracker", "Certificate + community access"],
     thumb: th("grow", 0),
   },
   {
@@ -467,10 +467,10 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 499,
     status: "live",
-    hook: "AI use chese vaadu, cheyyani vaadi kanna 10x fast — ye side lo untav?",
+    hook: "People who use AI move 10x faster than those who don't — which side will you be on?",
     description:
-      "Claude tho emails, content, research, automations — daily work lo AI ni practically use cheyyadam. Non-techies ki kuda.",
-    whatYouGet: ["3 hours recorded lessons", "Ready-to-use prompt library", "Certificate + community access"],
+      "Emails, content, research and automations with Claude — how to use AI practically in your daily work. Made for non-techies too.",
+    whatYouGet: ["3 hours of recorded lessons", "Ready-to-use prompt library", "Certificate + community access"],
     thumb: th("grow", 1),
   },
   {
@@ -479,9 +479,9 @@ export const COURSES: Course[] = [
     lane: "grow",
     price: 999,
     status: "coming-soon",
-    hook: "English radani kaadu — matladataniki bhayam. Rendu fix cheddam.",
+    hook: "It's not that you can't speak English — it's the fear of speaking. Let's fix both.",
     description:
-      "Grammar classes kaadu — real situations lo confident ga English matladatam. Telugu medium background unna vallaki design chesindi. Waitlist lo join avvandi.",
+      "Not grammar classes — speaking English confidently in real situations. Designed for people from a regional-medium background. Join the waitlist.",
     whatYouGet: ["Situation-based speaking practice", "Daily fluency drills", "Certificate + community access"],
     thumb: th("grow", 0),
   },

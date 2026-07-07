@@ -21,9 +21,9 @@ import { useAuth } from "@/lib/auth/dev-auth";
  */
 
 const BuyerSchema = z.object({
-  name: z.string().min(2, "Mee peru cheppandi"),
-  email: z.string().email("Correct email ivvandi — access ikkadike vastundi"),
-  phone: z.string().regex(/^[6-9]\d{9}$/, "10-digit mobile number ivvandi — WhatsApp community invite ki"),
+  name: z.string().min(2, "Enter your name"),
+  email: z.string().email("Enter a valid email — your access goes here"),
+  phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a 10-digit mobile number — for the WhatsApp community invite"),
 });
 type BuyerForm = z.infer<typeof BuyerSchema>;
 
@@ -55,8 +55,8 @@ export function CheckoutClient() {
   if (!isBundleOnly && !course) {
     return (
       <main className="flex min-h-dvh flex-col items-center justify-center bg-ink px-4 text-center">
-        <p className="text-muted">Course dorakaledu.</p>
-        <Link href="/" className="mt-4 text-cream underline">← Home ki vellandi</Link>
+        <p className="text-muted">Course not found.</p>
+        <Link href="/" className="mt-4 text-cream underline">← Go home</Link>
       </main>
     );
   }
@@ -91,15 +91,15 @@ export function CheckoutClient() {
               selected={option === "course"}
               onSelect={() => { setOption("course"); track("checkout_option_changed", { option: "course" }); }}
               title={course.title}
-              subtitle="Ee okka course · lifetime access"
+              subtitle="This course · lifetime access"
               price={coursePrice}
             />
           )}
           <OptionCard
             selected={option === "bundle"}
             onSelect={() => { setOption("bundle"); track("checkout_option_changed", { option: "bundle" }); }}
-            title={course ? `Idi + all ${TOTAL_COUNT} courses` : `All-access — anni ${TOTAL_COUNT} courses`}
-            subtitle={`${inr(catalogueValue())}+ value · lifetime · kotha courses free`}
+            title={course ? `This + all ${TOTAL_COUNT} courses` : `All-access — all ${TOTAL_COUNT} courses`}
+            subtitle={`${inr(catalogueValue())}+ value · lifetime · new courses free`}
             price={BUNDLE.price}
             gold
           />
@@ -115,11 +115,11 @@ export function CheckoutClient() {
 
         {/* ── Buyer details ── */}
         <form onSubmit={handleSubmit(pay)} className="mt-6 space-y-4" noValidate>
-          <Input label="Peru" error={formState.errors.name?.message}
-            inputProps={{ ...register("name"), autoComplete: "name", placeholder: "Mee full name" }} />
-          <Input label="Email (access ikkadike)" error={formState.errors.email?.message}
+          <Input label="Name" error={formState.errors.name?.message}
+            inputProps={{ ...register("name"), autoComplete: "name", placeholder: "Your full name" }} />
+          <Input label="Email (access goes here)" error={formState.errors.email?.message}
             inputProps={{ ...register("email"), type: "email", autoComplete: "email", inputMode: "email", placeholder: "you@example.com" }} />
-          <Input label="WhatsApp number (community invite ki)" error={formState.errors.phone?.message}
+          <Input label="WhatsApp number (for the community invite)" error={formState.errors.phone?.message}
             inputProps={{ ...register("phone"), type: "tel", autoComplete: "tel", inputMode: "numeric", placeholder: "98765 43210" }} />
 
           {/* THE action — lime, the one shock colour on this screen. */}
@@ -131,8 +131,8 @@ export function CheckoutClient() {
         {/* ── Trust badges ── */}
         <div className="mt-6 grid grid-cols-3 gap-2 text-center text-[11px] text-muted">
           <span className="rounded-xl bg-surface px-2 py-3">🔒 Razorpay secure<br />UPI · cards · netbanking</span>
-          <span className="rounded-xl bg-surface px-2 py-3">⚡ Instant access<br />payment ayyaka ventane</span>
-          <span className="rounded-xl bg-surface px-2 py-3">∞ Lifetime access<br />deadline ledu</span>
+          <span className="rounded-xl bg-surface px-2 py-3">⚡ Instant access<br />right after payment</span>
+          <span className="rounded-xl bg-surface px-2 py-3">∞ Lifetime access<br />no deadline</span>
         </div>
 
         {DEV_BYPASS && (
@@ -143,9 +143,8 @@ export function CheckoutClient() {
         )}
 
         <p className="mt-4 text-center text-xs text-muted">
-          Paying ante mee{" "}
-          <Link href="/terms" className="underline hover:text-cream">terms & no-refund policy</Link>{" "}
-          ki agree avtunnaru.
+          By paying, you agree to our{" "}
+          <Link href="/terms" className="underline hover:text-cream">terms & no-refund policy</Link>.
         </p>
       </div>
     </main>

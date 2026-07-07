@@ -24,21 +24,21 @@ export function SuccessClient() {
       <div className="max-w-md">
         <p className="font-display text-6xl" aria-hidden>🎉</p>
         <h1 className="mt-4 font-display text-3xl text-cream sm:text-4xl">
-          Done. <span className="text-lime">Mee journey start ayyindi.</span>
+          Done. <span className="text-lime">Your journey has started.</span>
         </h1>
         <p className="mt-4 text-muted">
-          <span className="text-cream">{title}</span> ippudu mee di. Access details mee email ki vastunnayi
-          (2 minutes lo — spam folder kuda check cheyyandi).
+          <span className="text-cream">{title}</span> is now yours. Access details are on their way to your email
+          (within 2 minutes — check your spam folder too).
         </p>
 
         <div className="mt-8 space-y-3 text-left">
-          <NextStep n={1} title="Email open cheyyandi" detail="Course access link + login details untayi." />
+          <NextStep n={1} title="Open your email" detail="Your course access link + login details are inside." />
           <NextStep
             n={2}
-            title="WhatsApp community lo join avvandi"
-            detail="Same journey lo unna Telugu vaallu — questions, wins, accountability."
+            title="Join the WhatsApp community"
+            detail="People on the same journey — questions, wins, accountability."
           />
-          <NextStep n={3} title="First lesson ee roju chudandi" detail="Momentum antha first 24 hours lo ne. Start now." />
+          <NextStep n={3} title="Watch the first lesson today" detail="All the momentum is in the first 24 hours. Start now." />
         </div>
 
         <div className="mt-8 flex flex-col gap-3">
