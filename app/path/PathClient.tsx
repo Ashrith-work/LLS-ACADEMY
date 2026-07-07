@@ -34,47 +34,47 @@ export function PathClient() {
   }, []);
 
   return (
-    <main className="min-h-dvh bg-ink pb-20">
+    <main className="min-h-dvh bg-bone pb-20">
       <header className="flex items-center justify-between px-4 py-4">
-        <Link href="/" className="font-display text-sm text-cream">
+        <Link href="/" className="font-display text-sm text-ink">
           LIVE LIFE <span className="text-ember">SHAMELESS</span>
         </Link>
-        <Link href="/start" className="text-xs text-muted hover:text-cream">
+        <Link href="/start" className="text-xs uppercase tracking-[0.18em] text-inkSoft hover:text-ink">
           ← Change goal
         </Link>
       </header>
 
       <div className="mx-auto max-w-3xl px-4 pt-8 text-center">
-        <p className={cn("text-xs font-semibold uppercase tracking-wider", styles.text)}>
+        <p className={cn("text-xs font-semibold uppercase tracking-[0.18em]", styles.text)}>
           Your goal: {lane.label}
         </p>
-        <h1 className="mt-3 font-display text-3xl text-cream sm:text-5xl">
+        <h1 className="mt-3 font-display font-semibold text-3xl text-ink sm:text-5xl">
           Your path is <span className="text-lime">ready</span>.
         </h1>
-        <p className="mt-3 text-sm text-muted sm:text-base">
+        <p className="mt-3 text-sm text-inkSoft sm:text-base">
           Based on your answers — start right here. Just one. No confusion.
         </p>
       </div>
 
       {/* THE recommendation — one card, full width, unmissable. */}
       <div className="mx-auto mt-10 max-w-3xl px-4">
-        <div className={cn("overflow-hidden rounded-3xl border-2 bg-card", styles.border)}>
+        <div className={cn("overflow-hidden rounded-2xl border border-ink/10 bg-card shadow-cardLift")}>
           <div
-            className="relative h-40 w-full sm:h-48"
+            className="relative h-40 w-full border-b border-ink/10 sm:h-48"
             style={{
               background: `linear-gradient(135deg, ${recommended.thumb.from}, ${recommended.thumb.to})`,
             }}
           >
-            <span className="absolute left-4 top-4 rounded-full bg-lime px-3 py-1 text-xs font-bold text-inkText">
+            <span className="absolute left-4 top-4 rounded-full border border-ink/10 bg-lime px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cream">
               Start here ★
             </span>
           </div>
           <div className="p-6 sm:p-8">
-            <h2 className="font-display text-2xl text-cream sm:text-3xl">{recommended.title}</h2>
+            <h2 className="font-display font-semibold text-2xl text-ink sm:text-3xl">{recommended.title}</h2>
             <p className="mt-2 text-base text-muted">{recommended.hook}</p>
             <ul className="mt-5 space-y-2">
               {recommended.whatYouGet.slice(0, 3).map((w) => (
-                <li key={w} className="flex items-start gap-2 text-sm text-cream/90">
+                <li key={w} className="flex items-start gap-2 text-sm text-ink/80">
                   <span className={styles.text} aria-hidden>✓</span> {w}
                 </li>
               ))}
@@ -89,7 +89,7 @@ export function PathClient() {
                 See the full course →
               </ButtonLink>
               <span className="text-sm text-muted">
-                from <span className="font-semibold text-cream">{inr(recommended.price)}</span> · lifetime access
+                from <span className="font-display font-semibold tabular-nums text-ink">{inr(recommended.price)}</span> · lifetime access
               </span>
             </div>
           </div>
@@ -99,8 +99,8 @@ export function PathClient() {
       {/* The lane ladder, cheap → premium. */}
       <div className="mx-auto mt-14 max-w-6xl">
         <div className="px-4">
-          <h3 className="font-display text-xl text-cream">The full ladder in your lane</h3>
-          <p className="mt-1 text-sm text-muted">
+          <h3 className="font-display font-semibold text-xl text-ink">The full ladder in your lane</h3>
+          <p className="mt-1 text-sm text-inkSoft">
             Want to start small? Take the cheaper side. Serious? Go straight for the anchor.
           </p>
         </div>
@@ -113,9 +113,9 @@ export function PathClient() {
 
       {/* Go deeper — the single upsell. Gold = premium value. */}
       <div className="mx-auto mt-14 max-w-3xl px-4">
-        <div className="rounded-3xl border border-gold/30 bg-surface p-6 text-center sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-wider text-gold">Go deeper</p>
-          <h3 className="mt-2 font-display text-2xl text-cream">
+        <div className="rounded-2xl border border-ink/10 bg-surface p-6 text-center shadow-brutal sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime">Go deeper</p>
+          <h3 className="mt-2 font-display font-semibold text-2xl text-ink">
             Not just one course — want it all?
           </h3>
           <p className="mt-2 text-sm text-muted">

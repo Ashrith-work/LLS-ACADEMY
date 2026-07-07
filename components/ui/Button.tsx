@@ -4,24 +4,25 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "lime" | "gold" | "ghost" | "onLight";
 
 /**
- * Button system, mapped to the colour psychology:
- *  primary (ember)  → the default action colour: courage, energy.
- *  lime             → RARE. The single most important action on a screen.
- *  gold             → bundle / premium value actions only.
- *  ghost            → secondary actions on dark.
- *  onLight          → actions on the bone (light) sections.
+ * Editorial button system — refined pills, solid ink/accent fills, quiet
+ * hover (colour shift + faint lift). No hard borders or offset shadows.
+ *  primary (ember)  → the default action: tomato accent.
+ *  lime             → RARE. The single most important action (deep red).
+ *  gold             → bundle / premium value actions only (ochre).
+ *  ghost            → secondary actions (hairline outline on paper).
+ *  onLight          → solid ink action for light sections.
  */
 const styles: Record<Variant, string> = {
   primary:
-    "bg-ember text-white hover:bg-ember-soft shadow-glow",
+    "bg-ember text-cream hover:bg-ember-soft",
   lime:
-    "bg-lime text-inkText hover:brightness-105 shadow-limeGlow",
+    "bg-lime text-cream hover:brightness-110",
   gold:
-    "bg-gold text-inkText hover:brightness-105",
+    "bg-gold text-cream hover:brightness-110",
   ghost:
-    "bg-transparent text-cream border border-cream/25 hover:border-cream/60",
+    "bg-transparent text-ink border border-ink/30 hover:border-ink/70 hover:bg-ink/[0.04]",
   onLight:
-    "bg-inkText text-bone hover:bg-black",
+    "bg-ink text-cream hover:bg-ink/90",
 };
 
 interface BaseProps {
@@ -32,7 +33,7 @@ interface BaseProps {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-all active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight shadow-brutal transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none";
 const sizes = { md: "px-6 py-3 text-sm", lg: "px-8 py-4 text-base" };
 
 export function Button({

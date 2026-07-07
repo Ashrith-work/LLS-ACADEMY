@@ -1,47 +1,25 @@
-"use client";
-
 import Link from "next/link";
-import { TOTAL_COUNT } from "@/lib/data/courses";
-import { track } from "@/lib/tracking";
 
 /**
- * Persistent top bar: express lane for ready buyers (skips the funnel)
- * + slim nav. Gold = premium value signal on the bundle line.
+ * Minimal top bar: logo on the left, Courses + Login on the right.
  */
 export function TopBar() {
   return (
-    <header className="sticky top-0 z-40">
-      {/* Express checkout strip — for warm buyers who already trust Shashank. */}
-      <Link
-        href="/checkout?item=all-access"
-        onClick={() => track("express_checkout_clicked")}
-        className="block bg-gold px-4 py-2 text-center text-xs font-bold text-inkText sm:text-sm"
-      >
-        Get all {TOTAL_COUNT} courses · lifetime access → express checkout
-      </Link>
-
-      <nav className="border-b border-cream/10 bg-ink/90 backdrop-blur" aria-label="Main">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <Link href="/" className="font-display text-lg tracking-tight text-cream">
-            LIVE LIFE <span className="text-ember">SHAMELESS</span>
+    <header className="sticky top-0 z-40 border-b border-line bg-bone/90 backdrop-blur">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-4" aria-label="Main">
+        <Link href="/" className="font-display text-xl font-semibold tracking-tight text-inkText">
+          Live Life <span className="italic text-ember">Shameless</span>
+        </Link>
+        <div className="flex items-center gap-5 sm:gap-7">
+          <Link href="/#courses" className="text-sm text-muted transition hover:text-ink">
+            Courses
           </Link>
-          <div className="flex items-center gap-2 sm:gap-5">
-            <Link href="/#courses" className="hidden text-sm text-muted hover:text-cream sm:block">
-              Courses
-            </Link>
-            <Link href="/all-access" className="hidden text-sm text-muted hover:text-cream sm:block">
-              All-access
-            </Link>
-            <Link href="/about" className="hidden text-sm text-muted hover:text-cream sm:block">
-              Shashank
-            </Link>
-            <Link
-              href="/start"
-              className="rounded-full bg-ember px-4 py-2 text-sm font-semibold text-white transition hover:bg-ember-soft"
-            >
-              Find your course
-            </Link>
-          </div>
+          <Link
+            href="/start"
+            className="rounded-full bg-ink px-5 py-2 text-sm font-medium text-cream transition-all hover:-translate-y-0.5 hover:bg-ink/90"
+          >
+            Login
+          </Link>
         </div>
       </nav>
     </header>

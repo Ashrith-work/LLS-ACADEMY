@@ -97,17 +97,17 @@ export function GoalRouter() {
       };
 
   return (
-    <div className="flex min-h-dvh flex-col bg-ink">
+    <div className="flex min-h-dvh flex-col bg-bone">
       {/* Slim header: logo home-link + progress. No nav — no distraction. */}
       <header className="flex items-center justify-between px-4 py-4">
-        <Link href="/" className="font-display text-sm text-cream">
+        <Link href="/" className="font-display text-sm text-ink">
           LIVE LIFE <span className="text-ember">SHAMELESS</span>
         </Link>
         <div className="flex gap-1.5" aria-label={`Step ${stepIndex + 1} of 4`}>
           {[0, 1, 2, 3].map((i) => (
             <span
               key={i}
-              className={cn("h-1.5 w-8 rounded-full", i <= stepIndex ? "bg-ember" : "bg-cream/15")}
+              className={cn("h-1.5 w-8 rounded-full", i <= stepIndex ? "bg-ember" : "bg-line")}
               aria-hidden
             />
           ))}
@@ -118,8 +118,8 @@ export function GoalRouter() {
         <AnimatePresence mode="wait">
           {step === "goal" && (
             <motion.div key="goal" {...anim} className="w-full max-w-2xl">
-              <h1 className="text-center font-display text-3xl text-cream sm:text-4xl">What do you want?</h1>
-              <p className="mt-3 text-center text-sm text-muted">Choose honestly — we'll build your path from it.</p>
+              <h1 className="text-center font-display text-3xl font-semibold text-ink sm:text-4xl">What do you want?</h1>
+              <p className="mt-3 text-center text-sm text-inkSoft">Choose honestly — we'll build your path from it.</p>
               <div className="mt-10 grid gap-4">
                 {LANES.map((lane) => {
                   const s = LANE_STYLES[lane.id];
@@ -128,12 +128,11 @@ export function GoalRouter() {
                       key={lane.id}
                       onClick={() => chooseGoal(lane.id)}
                       className={cn(
-                        "group flex items-center justify-between rounded-2xl border bg-card p-5 text-left transition hover:-translate-y-0.5",
-                        s.border,
+                        "group flex items-center justify-between rounded-2xl border border-ink/10 bg-card p-5 text-left shadow-cardLift transition hover:-translate-y-1",
                       )}
                     >
                       <span>
-                        <span className="block font-display text-lg text-cream">{lane.label}</span>
+                        <span className="block font-display text-lg font-semibold text-inkText">{lane.label}</span>
                         <span className="mt-1 block text-sm text-muted">{lane.hook}</span>
                       </span>
                       <span className={cn("text-xl transition group-hover:translate-x-1", s.text)} aria-hidden>
@@ -189,12 +188,12 @@ function QuestionHeader({ n, title, goal }: { n: number; title: string; goal: La
   return (
     <div className="text-center">
       {lane && (
-        <p className={cn("mb-2 text-xs font-semibold uppercase tracking-wider", LANE_STYLES[lane.id].text)}>
+        <p className={cn("mb-2 text-xs font-semibold uppercase tracking-[0.18em]", LANE_STYLES[lane.id].text)}>
           Goal: {lane.label}
         </p>
       )}
-      <h1 className="font-display text-3xl text-cream sm:text-4xl">
-        <span className="text-muted">{n}/2 · </span>
+      <h1 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+        <span className="text-inkSoft">{n}/2 · </span>
         {title}
       </h1>
     </div>
@@ -205,9 +204,9 @@ function OptionButton({ label, hint, onClick }: { label: string; hint: string; o
   return (
     <button
       onClick={onClick}
-      className="rounded-2xl border border-cream/15 bg-card p-4 text-left transition hover:-translate-y-0.5 hover:border-cream/40"
+      className="rounded-xl border border-ink/10 bg-card p-4 text-left shadow-cardLift transition hover:-translate-y-0.5"
     >
-      <span className="block font-semibold text-cream">{label}</span>
+      <span className="block font-semibold text-inkText">{label}</span>
       <span className="mt-0.5 block text-xs text-muted">{hint}</span>
     </button>
   );
@@ -216,7 +215,7 @@ function OptionButton({ label, hint, onClick }: { label: string; hint: string; o
 function SkipButton({ onClick }: { onClick: () => void }) {
   return (
     <div className="mt-6 text-center">
-      <button onClick={onClick} className="text-xs text-muted underline-offset-2 hover:text-cream hover:underline">
+      <button onClick={onClick} className="text-xs font-semibold uppercase tracking-[0.18em] text-inkSoft underline-offset-2 hover:text-ink hover:underline">
         Skip this question →
       </button>
     </div>

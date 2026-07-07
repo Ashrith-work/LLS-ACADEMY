@@ -1,46 +1,39 @@
 import { ButtonLink } from "@/components/ui/Button";
-import { HeroVisual } from "@/components/home/HeroVisual";
-import { TOTAL_COUNT } from "@/lib/data/courses";
-import { SITE } from "@/lib/data/site";
 
 /**
- * Hero — scale + boldness. Sells the transformation and the breadth.
- * Ink base, ember + lime accents, violet-lit visual.
- * The visual is absolutely-positioned decoration; text paints first, always.
+ * Hero — clean, centered editorial statement on limestone.
+ * One headline, one line of support, one action, and a scroll cue.
  */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink">
-      <HeroVisual />
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pb-24 pt-20 text-center sm:pb-32 sm:pt-28">
-        <p className="mb-5 rounded-full border border-cream/15 bg-surface/70 px-4 py-1.5 text-xs text-muted sm:text-sm">
-          From Shashank, who's reached {SITE.instagramReach} people
-        </p>
-
-        <h1 className="max-w-3xl font-display text-4xl leading-[1.08] text-cream sm:text-6xl">
-          Being born in a small town isn't your fault.{" "}
-          <span className="text-ember">Staying stuck there</span> is your choice.
+    <section className="relative flex min-h-[86vh] flex-col items-center justify-center overflow-hidden bg-bone px-5 py-24 text-center sm:px-4">
+      <div className="mx-auto flex max-w-4xl flex-col items-center">
+        <h1 className="font-display text-5xl font-semibold leading-[1.04] text-ink sm:text-7xl lg:text-8xl">
+          Learn Without Limits.
         </h1>
 
-        <p className="mt-6 max-w-xl text-base text-muted sm:text-lg">
-          Sales, communication, business, career — <span className="text-cream">{TOTAL_COUNT} courses</span> in
-          clear, simple English. Learn it, apply it, grow. Lifetime access.
+        <p className="mt-6 max-w-lg text-base text-inkSoft sm:text-lg">
+          Practical courses that help you build real skills.
         </p>
 
-        <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
-          {/* THE action on this screen — lime is reserved for exactly this. */}
-          <ButtonLink href="/start" variant="lime" size="lg">
-            Find your course →
-          </ButtonLink>
-          <ButtonLink href="/all-access" variant="ghost" size="lg">
-            Or get all {TOTAL_COUNT} · lifetime
+        <div className="mt-10">
+          <ButtonLink href="/#courses" variant="primary" size="lg">
+            Explore Courses
           </ButtonLink>
         </div>
-
-        <p className="mt-6 text-xs text-muted">
-          2 quick questions → the right course for your goal. 30 seconds.
-        </p>
       </div>
+
+      {/* Scroll cue — nudges the eye toward the course lanes below. */}
+      <a
+        href="#courses"
+        aria-label="Scroll to courses"
+        className="group absolute bottom-7 right-5 inline-flex flex-col items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition hover:text-ink sm:right-8 sm:text-xs"
+      >
+        Scroll
+        <span className="motion-safe:animate-bounce" aria-hidden>
+          ↓
+        </span>
+      </a>
     </section>
   );
 }

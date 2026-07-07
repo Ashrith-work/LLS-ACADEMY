@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Payment successful", robots: { index
 
 export default function SuccessPage() {
   return (
-    <Suspense fallback={<div className="min-h-dvh bg-ink" />}>
+    <Suspense fallback={<div className="min-h-dvh bg-bone" />}>
       <SuccessClient />
     </Suspense>
   );

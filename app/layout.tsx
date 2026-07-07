@@ -1,17 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Archivo_Black } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { AuthProvider } from "@/lib/auth/dev-auth";
 import { SITE } from "@/lib/data/site";
 import "./globals.css";
 
-/* Display: confident, heavy, distinctive. Body: clean + readable. */
-const display = Archivo_Black({
-  weight: "400",
+/* Editorial type system.
+   Display: Fraunces — expressive, high-contrast serif for headlines.
+   Body:    Inter — clean, neutral, highly readable sans for copy + labels. */
+const display = Fraunces({
+  weight: ["400", "500", "600", "700", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
-const body = Archivo({
+const body = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -49,7 +52,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="font-body bg-ink text-cream antialiased">
+      <body className="font-body bg-bone text-inkText antialiased">
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

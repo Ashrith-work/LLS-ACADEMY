@@ -2,19 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design tokens (mirrors tailwind.config.ts — "Bold Ink & Ember") ── */
+/* ── Design tokens (mirrors tailwind.config.ts — "Monochrome Limestone") ── */
 :root {
-  --ink: #0e0e14;
-  --surface: #17161f;
-  --card: #1e1c28;
-  --bone: #f6f1e7;
-  --ember: #ff4e2b;
-  --gold: #f5a623;
-  --lime: #c4f82a;
-  --violet: #7c5cff;
-  --teal: #12d6a6;
-  --cream: #ede9e0;
-  --muted: #a7a29a;
+  --ink: #1f1c17;
+  --ink-soft: #5c574e;
+  --surface: #fbfaf7;
+  --card: #fbfaf7;
+  --bone: #efece4;
+  --line: #dcd7cc;
+  --muted: #8a8377;
+  --cream: #fbfaf7;
+  /* Legacy accent vars → all monochrome ink. */
+  --ember: #1f1c17;
+  --gold: #1f1c17;
+  --lime: #1f1c17;
+  --violet: #1f1c17;
+  --teal: #1f1c17;
 }
 
 html {
@@ -23,24 +26,21 @@ html {
 }
 
 body {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--bone);
+  color: var(--ink);
   text-rendering: optimizeLegibility;
 }
 
-/* Accessible focus everywhere — lime ring on dark, ember on light. */
+/* Accessible focus everywhere — solid ink ring (monochrome). */
 :focus-visible {
-  outline: 2px solid var(--lime);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-.on-light :focus-visible {
-  outline-color: var(--ember);
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 ::selection {
-  background: var(--ember);
-  color: #fff;
+  background: var(--ink);
+  color: var(--cream);
 }
 
 /* Horizontal course rows: hide scrollbar, keep scrollability. */
@@ -62,12 +62,12 @@ body {
   will-change: transform;
 }
 
-/* 2D hero fallback tiles — pure CSS depth, zero JS cost. */
+/* Hero fallback tiles — near-white cards with a hairline rule + gentle shadow. */
 .hero-tile {
-  border-radius: 14px;
-  border: 1px solid rgba(237, 233, 224, 0.08);
-  background: linear-gradient(150deg, var(--card), var(--surface));
-  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.8);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 30px 60px -34px rgba(31, 28, 23, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {

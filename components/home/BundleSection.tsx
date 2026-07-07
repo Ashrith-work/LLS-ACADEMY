@@ -17,17 +17,17 @@ export function BundleSection() {
   const shown = stack.slice(0, 6);
 
   return (
-    <section className="bg-ink py-16 sm:py-24" aria-labelledby="bundle-heading">
+    <section className="bg-bone py-16 sm:py-24" aria-labelledby="bundle-heading">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
-          <div className="overflow-hidden rounded-3xl border border-gold/30 bg-surface">
+          <div className="overflow-hidden rounded-2xl border border-ink/10 bg-surface shadow-brutal">
             <div className="grid gap-0 lg:grid-cols-2">
               {/* Left: the pitch */}
               <div className="p-8 sm:p-12">
-                <p className="mb-3 w-fit rounded-full bg-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold">
+                <p className="mb-3 w-fit rounded-full bg-gold px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cream">
                   All-access · one-time · lifetime
                 </p>
-                <h2 id="bundle-heading" className="font-display text-3xl leading-tight text-cream sm:text-4xl">
+                <h2 id="bundle-heading" className="font-display font-semibold text-3xl leading-tight text-ink sm:text-4xl">
                   All {TOTAL_COUNT} courses.
                   <br />
                   One decision.
@@ -40,7 +40,7 @@ export function BundleSection() {
                   <div>
                     <p className="text-sm text-muted line-through">{inr(total)}+ total value</p>
                     {/* The big number — lime, the rare shock colour. */}
-                    <p className="font-display text-5xl text-lime">{inr(BUNDLE.price)}</p>
+                    <p className="font-display font-semibold text-5xl text-lime">{inr(BUNDLE.price)}</p>
                   </div>
                 </div>
                 <div className="mt-8">
@@ -56,21 +56,21 @@ export function BundleSection() {
               </div>
 
               {/* Right: the stack, premium-first */}
-              <div className="border-t border-gold/20 bg-card/60 p-8 sm:p-12 lg:border-l lg:border-t-0">
-                <p className="mb-4 text-sm font-semibold text-cream">Inside the bundle:</p>
+              <div className="border-t border-ink/10 bg-card p-8 sm:p-12 lg:border-l lg:border-t-0">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted">Inside the bundle:</p>
                 <ul className="space-y-3">
                   {shown.map((c) => (
                     <li key={c.id} className="flex items-baseline justify-between gap-4 text-sm">
-                      <span className="text-cream">
+                      <span className="text-ink">
                         {c.title}
-                        {c.anchor && <span className="ml-1.5 text-gold">★</span>}
+                        {c.anchor && <span className="ml-1.5 text-lime">★</span>}
                       </span>
                       <span className="shrink-0 text-muted">{inr(c.price)}</span>
                     </li>
                   ))}
-                  <li className="flex items-baseline justify-between gap-4 border-t border-cream/10 pt-3 text-sm">
+                  <li className="flex items-baseline justify-between gap-4 border-t border-ink/10 pt-3 text-sm">
                     <span className="text-muted">+ {TOTAL_COUNT - shown.length} more courses…</span>
-                    <span className="font-semibold text-gold">{inr(total)}+ value</span>
+                    <span className="font-semibold text-ink">{inr(total)}+ value</span>
                   </li>
                 </ul>
               </div>

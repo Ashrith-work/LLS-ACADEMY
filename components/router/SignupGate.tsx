@@ -78,10 +78,10 @@ export function SignupGate({
 
   return (
     <div className="mx-auto w-full max-w-md">
-      <h2 className="text-center font-display text-2xl text-cream sm:text-3xl">
+      <h2 className="text-center font-display text-2xl font-semibold text-ink sm:text-3xl">
         Your path is ready. Unlock it <span className="text-lime">free</span>.
       </h2>
-      <p className="mt-3 text-center text-sm text-muted">
+      <p className="mt-3 text-center text-sm text-inkSoft">
         We'll show you the course that matches your goal, plus the full roadmap. No spam — promise.
       </p>
 
@@ -91,7 +91,7 @@ export function SignupGate({
             {/* Google — primary, one tap. */}
             <button
               onClick={googleSignIn}
-              className="flex w-full items-center justify-center gap-3 rounded-full bg-cream px-6 py-3.5 font-semibold text-inkText transition hover:bg-white"
+              className="flex w-full items-center justify-center gap-3 rounded-xl border border-line bg-surface px-6 py-3.5 font-semibold text-ink shadow-brutal transition hover:-translate-y-0.5"
             >
               {/* Inline Google "G" — no icon library needed. */}
               <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden>
@@ -105,13 +105,13 @@ export function SignupGate({
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={() => setMode("email")}
-                className="rounded-full border border-cream/25 px-4 py-3 text-sm text-cream transition hover:border-cream/60"
+                className="rounded-xl border border-ink/20 px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink/40"
               >
                 Email
               </button>
               <button
                 onClick={() => setMode("phone")}
-                className="rounded-full border border-cream/25 px-4 py-3 text-sm text-cream transition hover:border-cream/60"
+                className="rounded-xl border border-ink/20 px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink/40"
               >
                 Phone
               </button>
@@ -178,7 +178,7 @@ export function SignupGate({
         )}
       </div>
 
-      <p className="mt-6 text-center text-xs text-muted">
+      <p className="mt-6 text-center text-xs text-inkSoft">
         Your details stay safe. We only use them for your courses.
       </p>
     </div>
@@ -197,21 +197,21 @@ function Field({
   const id = `gate-${label.toLowerCase().replace(/\s/g, "-")}`;
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-cream">
+      <label htmlFor={id} className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.18em] text-ink">
         {label}
       </label>
       <input
         id={id}
         className={cn(
-          "w-full rounded-xl border bg-surface px-4 py-3 text-cream placeholder:text-muted/60",
-          error ? "border-ember" : "border-cream/20 focus:border-cream/50",
+          "w-full rounded-xl border bg-card px-4 py-3 text-inkText placeholder:text-muted/60",
+          error ? "border-lime" : "border-ink/15",
         )}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         {...inputProps}
       />
       {error && (
-        <p id={`${id}-error`} className="mt-1 text-xs text-ember" role="alert">
+        <p id={`${id}-error`} className="mt-1 text-xs text-lime" role="alert">
           {error}
         </p>
       )}
@@ -221,7 +221,7 @@ function Field({
 
 function BackLink({ onClick }: { onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="w-full text-center text-xs text-muted hover:text-cream">
+    <button type="button" onClick={onClick} className="w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-inkSoft hover:text-ink">
       ← Choose a different option
     </button>
   );

@@ -45,7 +45,7 @@ function Shards() {
       </mesh>
       <mesh scale={1.02}>
         <icosahedronGeometry args={[1, 0]} />
-        <meshBasicMaterial color="#7C5CFF" wireframe transparent opacity={0.35} />
+        <meshBasicMaterial color="#6A5A96" wireframe transparent opacity={0.35} />
       </mesh>
 
       {/* Shards breaking away / coming home. */}
@@ -54,8 +54,8 @@ function Shards() {
           <mesh position={s.pos as unknown as THREE.Vector3} scale={s.scale}>
             <icosahedronGeometry args={[1, 0]} />
             <meshStandardMaterial
-              color={i % 2 === 0 ? "#FF4E2B" : "#7C5CFF"}
-              emissive={i % 2 === 0 ? "#FF4E2B" : "#7C5CFF"}
+              color={i % 2 === 0 ? "#C0402A" : "#6A5A96"}
+              emissive={i % 2 === 0 ? "#C0402A" : "#6A5A96"}
               emissiveIntensity={0.25}
               metalness={0.3}
               roughness={0.35}
@@ -79,8 +79,8 @@ export default function Hero3D() {
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[4, 4, 5]} intensity={1.1} color="#EDE9E0" />
-      <pointLight position={[-4, -2, 3]} intensity={6} color="#7C5CFF" />
-      <pointLight position={[3, -3, 2]} intensity={4} color="#FF4E2B" />
+      <pointLight position={[-4, -2, 3]} intensity={6} color="#6A5A96" />
+      <pointLight position={[3, -3, 2]} intensity={4} color="#C0402A" />
       <Shards />
     </Canvas>
   );

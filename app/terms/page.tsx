@@ -19,12 +19,12 @@ export default function TermsPage() {
       <TopBar />
       <main className="on-light bg-bone py-16 text-inkText">
         <div className="mx-auto max-w-2xl px-4">
-          <h1 className="font-display text-3xl sm:text-4xl">Terms &amp; refund policy</h1>
-          <p className="mt-2 text-sm text-inkText/60">Last updated: July 2026 · {SITE.company}</p>
+          <h1 className="font-display font-semibold text-3xl sm:text-4xl">Terms &amp; refund policy</h1>
+          <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted">Last updated: July 2026 · {SITE.company}</p>
 
           <section className="mt-10 space-y-8 leading-relaxed">
-            <div className="rounded-2xl border-2 border-ember/40 bg-white/60 p-6">
-              <h2 className="font-display text-xl">Refund policy — stated plainly</h2>
+            <div className="rounded-2xl border border-ink/10 bg-card p-6 shadow-cardLift">
+              <h2 className="font-display font-semibold text-xl">Refund policy — stated plainly</h2>
               <p className="mt-3">
                 <strong>We don't give refunds.</strong> Because these are digital courses, the full content opens up
                 to you the moment access is granted — so it can't be returned.
@@ -41,7 +41,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-xl">1. Access</h2>
+              <h2 className="font-display font-semibold text-xl">1. Access</h2>
               <p className="mt-2">
                 Once payment succeeds, access details arrive in your email instantly. Access is lifetime — personal to
                 your account, not to be shared. For bundle buyers, new courses are added automatically as soon as they
@@ -50,7 +50,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-xl">2. Content usage</h2>
+              <h2 className="font-display font-semibold text-xl">2. Content usage</h2>
               <p className="mt-2">
                 Course content (videos, worksheets, templates) is for your personal learning. Re-recording, reselling,
                 or distributing it publicly is a copyright violation — your account will be terminated, with no refund
@@ -59,7 +59,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-xl">3. Payments</h2>
+              <h2 className="font-display font-semibold text-xl">3. Payments</h2>
               <p className="mt-2">
                 All payments go through Razorpay — UPI, cards, netbanking. Prices are in INR, one-time. If a payment
                 fails but money is debited, your bank auto-reverses it within 5–7 working days.
@@ -67,7 +67,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-xl">4. Community conduct</h2>
+              <h2 className="font-display font-semibold text-xl">4. Community conduct</h2>
               <p className="mt-2">
                 Be respectful in the WhatsApp community. Spam, self-promotion without permission, and harassment are
                 grounds for removal. Community access is part of your course access, but it's a privilege.
@@ -75,7 +75,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-xl">5. Results disclaimer</h2>
+              <h2 className="font-display font-semibold text-xl">5. Results disclaimer</h2>
               <p className="mt-2">
                 The courses give you the tools — your results depend on how you apply them. We don't guarantee
                 &ldquo;you'll earn this much&rdquo;; don't trust anyone who makes those guarantees.
@@ -83,7 +83,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-xl">6. Contact</h2>
+              <h2 className="font-display font-semibold text-xl">6. Contact</h2>
               <p className="mt-2">
                 Questions? {/* TODO: real support email/WhatsApp */} Message support — we'll reply within 24–48 hours.
               </p>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PathPage() {
   return (
-    <Suspense fallback={<div className="min-h-dvh bg-ink" />}>
+    <Suspense fallback={<div className="min-h-dvh bg-bone" />}>
       <PathClient />
     </Suspense>
   );

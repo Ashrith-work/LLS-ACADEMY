@@ -16,7 +16,7 @@ export function GoalEntry() {
     <section className="bg-surface py-16 sm:py-20" aria-labelledby="goal-entry-heading">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
-          <h2 id="goal-entry-heading" className="text-center font-display text-2xl text-cream sm:text-4xl">
+          <h2 id="goal-entry-heading" className="text-center font-display text-3xl font-semibold text-ink sm:text-5xl">
             What do you want?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-center text-sm text-muted sm:text-base">
@@ -32,14 +32,13 @@ export function GoalEntry() {
                   href={`/start?goal=${lane.id}`}
                   onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
                   className={cn(
-                    "group flex h-full flex-col rounded-2xl border bg-card p-6 transition hover:-translate-y-1",
-                    s.border,
+                    "group flex h-full flex-col rounded-2xl border border-ink/10 bg-card p-6 shadow-cardLift transition hover:-translate-y-1",
                   )}
                 >
-                  <span className={cn("mb-4 h-2 w-10 rounded-full", s.bg)} aria-hidden />
-                  <h3 className="font-display text-xl text-cream">{lane.label}</h3>
+                  <span className={cn("mb-4 h-3 w-12 rounded-full", s.bg)} aria-hidden />
+                  <h3 className="font-display text-xl font-semibold text-ink">{lane.label}</h3>
                   <p className="mt-2 flex-1 text-sm text-muted">{lane.hook}</p>
-                  <span className={cn("mt-5 text-sm font-semibold", s.text)}>
+                  <span className={cn("mt-5 text-xs font-semibold uppercase tracking-[0.18em]", s.text)}>
                     Choose this goal <span className="inline-block transition group-hover:translate-x-1">→</span>
                   </span>
                 </Link>

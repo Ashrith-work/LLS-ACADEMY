@@ -42,29 +42,29 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* Minimal header — logo only. A conversion page has one exit: buy. */}
-      <header className="bg-ink px-4 py-4">
-        <Link href="/" className="font-display text-sm text-cream">
+      <header className="bg-bone px-4 py-4">
+        <Link href="/" className="font-display text-sm text-ink">
           LIVE LIFE <span className="text-ember">SHAMELESS</span>
         </Link>
       </header>
 
-      <main className="bg-ink">
+      <main className="bg-bone">
         {/* 1 · The job, not the topic. No price in sight. */}
         <section className="relative overflow-hidden px-4 pb-16 pt-12 sm:pb-24 sm:pt-20">
           <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-72 opacity-40 blur-3xl"
-            style={{ background: `radial-gradient(ellipse at top, ${course.thumb.to}, transparent 70%)` }}
+            className="pointer-events-none absolute inset-x-0 top-0 h-2"
+            style={{ background: course.thumb.to }}
             aria-hidden
           />
           <div className="relative mx-auto max-w-3xl text-center">
-            <p className={cn("mb-4 text-xs font-semibold uppercase tracking-wider", styles.text)}>
+            <p className={cn("mb-4 text-xs font-semibold uppercase tracking-[0.18em]", styles.text)}>
               {comingSoon ? "Coming soon · gauging demand" : "Recorded course · lifetime access"}
             </p>
-            <h1 className="font-display text-4xl leading-[1.1] text-cream sm:text-5xl">{course.hook}</h1>
-            <p className="mx-auto mt-5 max-w-xl text-base text-muted sm:text-lg">{course.description}</p>
+            <h1 className="font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">{course.hook}</h1>
+            <p className="mx-auto mt-5 max-w-xl text-base text-inkSoft sm:text-lg">{course.description}</p>
             {!comingSoon && (
-              <p className="mt-8 text-sm text-muted">
-                ↓ See what's inside first — <span className="text-cream">then decide</span>
+              <p className="mt-8 text-sm text-inkSoft">
+                ↓ See what's inside first — <span className="text-ink">then decide</span>
               </p>
             )}
           </div>
@@ -73,8 +73,8 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         {comingSoon ? (
           /* Coming-soon: the entire pitch becomes "join the waitlist". */
           <section className="px-4 pb-24">
-            <div className="mx-auto max-w-xl rounded-3xl border border-cream/15 bg-card p-8 text-center">
-              <h2 className="font-display text-2xl text-cream">Want this course?</h2>
+            <div className="mx-auto max-w-xl rounded-2xl border border-ink/10 bg-card p-8 text-center shadow-cardLift">
+              <h2 className="font-display text-2xl font-semibold text-inkText">Want this course?</h2>
               <p className="mt-3 text-sm text-muted">
                 Show your interest — a strong waitlist means we shoot this course faster. Waitlist members also
                 get the launch price first.
@@ -90,7 +90,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <section className="on-light bg-bone py-16 text-inkText sm:py-20">
               <div className="mx-auto max-w-3xl px-4">
                 <Reveal>
-                  <h2 className="font-display text-2xl sm:text-3xl">{STORY.headline}</h2>
+                  <h2 className="font-display text-2xl font-semibold sm:text-3xl">{STORY.headline}</h2>
                   <p className="mt-4 leading-relaxed text-inkText/75">
                     {STORY.beats[1].body} {STORY.beats[3].body}
                   </p>
@@ -104,7 +104,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
                 {/* One relevant testimonial — not a wall. TODO: map per-course testimonials. */}
                 <Reveal>
-                  <figure className="mt-10 rounded-2xl border border-inkText/10 bg-white/60 p-6">
+                  <figure className="mt-10 rounded-2xl border border-ink/10 bg-card p-6 shadow-cardLift">
                     <blockquote className="text-[15px] leading-relaxed">
                       &ldquo;{TESTIMONIALS[0].quote}&rdquo;
                     </blockquote>
@@ -121,16 +121,16 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <section className="py-16 sm:py-20">
               <div className="mx-auto max-w-3xl px-4">
                 <Reveal>
-                  <h2 className="font-display text-2xl text-cream sm:text-3xl">Exactly what's in this course:</h2>
+                  <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">Exactly what's in this course:</h2>
                 </Reveal>
                 <ul className="mt-8 space-y-3">
                   {course.whatYouGet.map((w, i) => (
                     <Reveal key={w} delay={i * 0.04}>
-                      <li className="flex items-start gap-3 rounded-2xl border border-cream/10 bg-card px-5 py-4">
+                      <li className="flex items-start gap-3 rounded-xl border border-ink/10 bg-card px-5 py-4">
                         <span className={cn("mt-0.5 font-bold", styles.text)} aria-hidden>
                           ✓
                         </span>
-                        <span className="text-cream/90">{w}</span>
+                        <span className="text-inkText">{w}</span>
                       </li>
                     </Reveal>
                   ))}
@@ -138,8 +138,8 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                 <Reveal>
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
                     {DELIVERABLES.slice(0, 4).map((d) => (
-                      <div key={d.title} className="rounded-2xl bg-surface px-5 py-4">
-                        <p className="text-sm font-semibold text-cream">{d.title}</p>
+                      <div key={d.title} className="rounded-xl border border-ink/10 bg-surface px-5 py-4">
+                        <p className="text-sm font-semibold text-inkText">{d.title}</p>
                         <p className="mt-1 text-xs text-muted">{d.detail}</p>
                       </div>
                     ))}
@@ -152,16 +152,16 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <section className="px-4 pb-8">
               <div className="mx-auto max-w-xl">
                 <Reveal>
-                  <div className={cn("rounded-3xl border-2 bg-card p-8 text-center", styles.border)}>
+                  <div className="rounded-2xl border border-ink/10 bg-card p-8 text-center shadow-cardLift">
                     {founding && (
-                      <p className="mb-1 text-xs font-bold uppercase tracking-wider text-gold">
+                      <p className="mb-3 inline-block rounded-full border border-ink/10 bg-gold px-3 py-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-ink">
                         Founding price — limited batch
                       </p>
                     )}
                     <div className="flex items-baseline justify-center gap-3">
                       {founding && <span className="text-lg text-muted line-through">{inr(course.price)}</span>}
                       {/* The big number — lime, reserved for this moment. */}
-                      <p className="font-display text-5xl text-lime">{inr(price)}</p>
+                      <p className="font-display text-5xl font-semibold text-lime">{inr(price)}</p>
                     </div>
                     <p className="mt-2 text-sm text-muted">One-time · lifetime access · all updates free</p>
                     <div className="mt-7">
@@ -180,9 +180,9 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           </>
         )}
 
-        <footer className="border-t border-cream/10 px-4 py-8 text-center text-xs text-muted">
+        <footer className="border-t border-line px-4 py-8 text-center text-xs text-inkSoft">
           © StartupWithShashank ·{" "}
-          <Link href="/terms" className="underline hover:text-cream">
+          <Link href="/terms" className="underline hover:text-ink">
             Terms &amp; refund policy
           </Link>
         </footer>

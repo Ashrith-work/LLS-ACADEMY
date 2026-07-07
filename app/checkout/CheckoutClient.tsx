@@ -54,9 +54,9 @@ export function CheckoutClient() {
 
   if (!isBundleOnly && !course) {
     return (
-      <main className="flex min-h-dvh flex-col items-center justify-center bg-ink px-4 text-center">
-        <p className="text-muted">Course not found.</p>
-        <Link href="/" className="mt-4 text-cream underline">← Go home</Link>
+      <main className="flex min-h-dvh flex-col items-center justify-center bg-bone px-4 text-center">
+        <p className="text-inkSoft">Course not found.</p>
+        <Link href="/" className="mt-4 text-ink underline">← Go home</Link>
       </main>
     );
   }
@@ -73,16 +73,16 @@ export function CheckoutClient() {
   };
 
   return (
-    <main className="min-h-dvh bg-ink pb-16">
+    <main className="min-h-dvh bg-bone pb-16">
       <header className="flex items-center justify-between px-4 py-4">
-        <Link href="/" className="font-display text-sm text-cream">
+        <Link href="/" className="font-display font-semibold text-sm text-ink">
           LIVE LIFE <span className="text-ember">SHAMELESS</span>
         </Link>
-        <span className="text-xs text-muted">🔒 Secure checkout</span>
+        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-inkSoft">🔒 Secure checkout</span>
       </header>
 
       <div className="mx-auto mt-6 max-w-lg px-4">
-        <h1 className="font-display text-2xl text-cream sm:text-3xl">Almost there.</h1>
+        <h1 className="font-display font-semibold text-2xl text-ink sm:text-3xl">Almost there.</h1>
 
         {/* ── The (max two) options ── */}
         <div className="mt-6 space-y-3" role="radiogroup" aria-label="Choose your plan">
@@ -106,10 +106,10 @@ export function CheckoutClient() {
         </div>
 
         {/* ── Order summary ── */}
-        <div className="mt-6 rounded-2xl border border-cream/10 bg-card px-5 py-4">
+        <div className="mt-6 rounded-2xl border border-ink/10 bg-card px-5 py-4 shadow-cardLift">
           <div className="flex items-baseline justify-between text-sm">
-            <span className="text-muted">Total (one-time, no hidden charges)</span>
-            <span className="font-display text-2xl text-cream">{inr(amount)}</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Total (one-time, no hidden charges)</span>
+            <span className="font-display text-2xl text-inkText">{inr(amount)}</span>
           </div>
         </div>
 
@@ -129,22 +129,22 @@ export function CheckoutClient() {
         </form>
 
         {/* ── Trust badges ── */}
-        <div className="mt-6 grid grid-cols-3 gap-2 text-center text-[11px] text-muted">
-          <span className="rounded-xl bg-surface px-2 py-3">🔒 Razorpay secure<br />UPI · cards · netbanking</span>
-          <span className="rounded-xl bg-surface px-2 py-3">⚡ Instant access<br />right after payment</span>
-          <span className="rounded-xl bg-surface px-2 py-3">∞ Lifetime access<br />no deadline</span>
+        <div className="mt-6 grid grid-cols-3 gap-2 text-center text-[11px] text-inkText">
+          <span className="rounded-xl border border-ink/10 bg-surface px-2 py-3">🔒 Razorpay secure<br />UPI · cards · netbanking</span>
+          <span className="rounded-xl border border-ink/10 bg-surface px-2 py-3">⚡ Instant access<br />right after payment</span>
+          <span className="rounded-xl border border-ink/10 bg-surface px-2 py-3">∞ Lifetime access<br />no deadline</span>
         </div>
 
         {DEV_BYPASS && (
-          <p className="mt-6 rounded-xl border border-gold/40 bg-gold/10 px-4 py-3 text-center text-xs text-gold">
+          <p className="mt-6 rounded-xl border border-ink/10 bg-gold px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-ink">
             DEV MODE: payment is simulated — the button goes straight to the success page.
             {/* TODO: wire Razorpay in lib/payments.ts + app/api/create-order/route.ts */}
           </p>
         )}
 
-        <p className="mt-4 text-center text-xs text-muted">
+        <p className="mt-4 text-center text-xs text-inkSoft">
           By paying, you agree to our{" "}
-          <Link href="/terms" className="underline hover:text-cream">terms & no-refund policy</Link>.
+          <Link href="/terms" className="underline hover:text-ink">terms & no-refund policy</Link>.
         </p>
       </div>
     </main>
@@ -163,24 +163,24 @@ function OptionCard({
       aria-checked={selected}
       onClick={onSelect}
       className={cn(
-        "flex w-full items-center justify-between gap-4 rounded-2xl border-2 bg-card p-5 text-left transition",
-        selected ? (gold ? "border-gold" : "border-ember") : "border-cream/10 hover:border-cream/30",
+        "flex w-full items-center justify-between gap-4 rounded-2xl border border-ink/10 bg-card p-5 text-left transition",
+        selected ? "shadow-brutal" : "shadow-cardLift hover:-translate-y-1",
       )}
     >
       <span className="flex items-start gap-3">
         <span
           className={cn(
-            "mt-1 h-4 w-4 shrink-0 rounded-full border-2",
-            selected ? (gold ? "border-gold bg-gold" : "border-ember bg-ember") : "border-cream/40",
+            "mt-1 h-4 w-4 shrink-0 rounded-full border border-ink/15",
+            selected ? (gold ? "bg-gold" : "bg-ember") : "bg-card",
           )}
           aria-hidden
         />
         <span>
-          <span className="block font-semibold text-cream">{title}</span>
+          <span className="block font-semibold text-inkText">{title}</span>
           <span className="mt-0.5 block text-xs text-muted">{subtitle}</span>
         </span>
       </span>
-      <span className={cn("shrink-0 font-display text-lg", gold ? "text-gold" : "text-cream")}>{inr(price)}</span>
+      <span className="shrink-0 font-display text-lg text-inkText">{inr(price)}</span>
     </button>
   );
 }
@@ -193,19 +193,19 @@ function Input({
   const id = `co-${label.split(" ")[0].toLowerCase()}`;
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-cream">{label}</label>
+      <label htmlFor={id} className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.18em] text-ink">{label}</label>
       <input
         id={id}
         className={cn(
-          "w-full rounded-xl border bg-surface px-4 py-3 text-cream placeholder:text-muted/60",
-          error ? "border-ember" : "border-cream/20 focus:border-cream/50",
+          "w-full rounded-xl border bg-card px-4 py-3 text-inkText placeholder:text-ink/40",
+          error ? "border-lime" : "border-ink/15",
         )}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         {...inputProps}
       />
       {error && (
-        <p id={`${id}-error`} className="mt-1 text-xs text-ember" role="alert">{error}</p>
+        <p id={`${id}-error`} className="mt-1 text-xs font-semibold text-lime" role="alert">{error}</p>
       )}
     </div>
   );

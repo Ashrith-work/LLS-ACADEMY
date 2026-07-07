@@ -13,7 +13,7 @@ export function Faq() {
     <section className="bg-surface py-16 sm:py-24" aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal>
-          <h2 id="faq-heading" className="text-center font-display text-3xl text-cream sm:text-4xl">
+          <h2 id="faq-heading" className="text-center font-display font-semibold text-3xl text-ink sm:text-4xl">
             Got doubts? Ask away
           </h2>
           <p className="mt-3 text-center text-sm text-muted">
@@ -24,12 +24,12 @@ export function Faq() {
           {FAQS.map((f) => (
             <Reveal key={f.q}>
               <details
-                className="group rounded-2xl border border-cream/10 bg-card px-5 py-4"
+                className="group rounded-xl border border-ink/10 bg-card px-5 py-4 shadow-brutal"
                 onToggle={(e) => {
                   if ((e.target as HTMLDetailsElement).open) track("faq_opened", { question: f.q });
                 }}
               >
-                <summary className="cursor-pointer list-none font-semibold text-cream marker:content-none">
+                <summary className="cursor-pointer list-none font-semibold text-ink marker:content-none">
                   <span className="flex items-center justify-between gap-4">
                     {f.q}
                     <span className="text-muted transition group-open:rotate-45" aria-hidden>

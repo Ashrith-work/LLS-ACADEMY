@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function StartPage() {
   return (
     // Suspense boundary required for useSearchParams during static build.
-    <Suspense fallback={<div className="min-h-dvh bg-ink" />}>
+    <Suspense fallback={<div className="min-h-dvh bg-bone" />}>
       <GoalRouter />
     </Suspense>
   );

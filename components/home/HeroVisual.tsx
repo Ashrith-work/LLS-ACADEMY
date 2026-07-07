@@ -34,23 +34,23 @@ function deviceCanAfford3D(): boolean {
 function Hero2D() {
   return (
     <div className="relative h-full w-full" aria-hidden>
-      <div className="hero-tile absolute left-[8%] top-[12%] h-24 w-40 rotate-[-6deg] animate-drift" />
+      <div className="hero-tile absolute left-[8%] top-[12%] h-24 w-40 rotate-[-2deg] animate-drift" />
       <div
-        className="hero-tile absolute right-[10%] top-[6%] h-28 w-44 rotate-[5deg] animate-drift"
-        style={{ animationDelay: "-2s", borderColor: "rgba(124,92,255,0.35)" }}
+        className="hero-tile absolute right-[10%] top-[6%] h-28 w-44 rotate-[2deg] animate-drift"
+        style={{ animationDelay: "-2s", borderColor: "#6A5A96" }}
       />
       <div
-        className="hero-tile absolute bottom-[18%] left-[16%] h-28 w-44 rotate-[4deg] animate-drift"
-        style={{ animationDelay: "-4s", borderColor: "rgba(18,214,166,0.3)" }}
+        className="hero-tile absolute bottom-[18%] left-[16%] h-28 w-44 rotate-[1.5deg] animate-drift"
+        style={{ animationDelay: "-4s", borderColor: "#2F6E57" }}
       />
       <div
-        className="hero-tile absolute bottom-[8%] right-[14%] h-24 w-40 rotate-[-4deg] animate-drift"
-        style={{ animationDelay: "-1s", borderColor: "rgba(255,78,43,0.4)" }}
+        className="hero-tile absolute bottom-[8%] right-[14%] h-24 w-40 rotate-[-1.5deg] animate-drift"
+        style={{ animationDelay: "-1s", borderColor: "#C0402A" }}
       />
-      {/* Central glow — the "breaking out" moment, in light instead of polys. */}
+      {/* Central accent glow — the "breaking out" moment, a soft plum halo. */}
       <div
-        className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(124,92,255,0.5), rgba(255,78,43,0.25), transparent 70%)" }}
+        className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-2xl"
+        style={{ background: "#6A5A96" }}
       />
     </div>
   );

@@ -20,14 +20,14 @@ export function SuccessClient() {
   }, []);
 
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center bg-ink px-4 py-16 text-center">
+    <main className="flex min-h-dvh flex-col items-center justify-center bg-bone px-4 py-16 text-center">
       <div className="max-w-md">
         <p className="font-display text-6xl" aria-hidden>🎉</p>
-        <h1 className="mt-4 font-display text-3xl text-cream sm:text-4xl">
-          Done. <span className="text-lime">Your journey has started.</span>
+        <h1 className="mt-4 font-display font-semibold text-3xl text-ink sm:text-4xl">
+          Done. <span className="text-teal">Your journey has started.</span>
         </h1>
-        <p className="mt-4 text-muted">
-          <span className="text-cream">{title}</span> is now yours. Access details are on their way to your email
+        <p className="mt-4 text-inkSoft">
+          <span className="text-ink">{title}</span> is now yours. Access details are on their way to your email
           (within 2 minutes — check your spam folder too).
         </p>
 
@@ -46,7 +46,7 @@ export function SuccessClient() {
           <ButtonLink href={SITE.whatsappInviteUrl} variant="lime" size="lg">
             Join the WhatsApp community →
           </ButtonLink>
-          <Link href="/" className="text-sm text-muted hover:text-cream">
+          <Link href="/" className="text-sm text-inkSoft hover:text-ink">
             ← Back to all courses
           </Link>
         </div>
@@ -57,10 +57,10 @@ export function SuccessClient() {
 
 function NextStep({ n, title, detail }: { n: number; title: string; detail: string }) {
   return (
-    <div className="flex gap-4 rounded-2xl border border-cream/10 bg-card px-5 py-4">
+    <div className="flex gap-4 rounded-2xl border border-ink/10 bg-card px-5 py-4 shadow-cardLift">
       <span className="font-display text-lg text-ember">{n}</span>
       <div>
-        <p className="font-semibold text-cream">{title}</p>
+        <p className="font-semibold text-inkText">{title}</p>
         <p className="mt-0.5 text-xs text-muted">{detail}</p>
       </div>
     </div>

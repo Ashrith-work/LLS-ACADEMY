@@ -35,7 +35,7 @@ export function WaitlistForm({ courseId }: { courseId: string }) {
 
   if (done) {
     return (
-      <p className="rounded-2xl border border-teal/40 bg-teal/10 px-5 py-4 text-sm text-cream" role="status">
+      <p className="rounded-xl border border-ink/10 bg-teal px-5 py-4 text-sm text-cream shadow-cardLift" role="status">
         ✓ You're on the list! We'll tell you first the moment the course launches.
       </p>
     );
@@ -54,14 +54,14 @@ export function WaitlistForm({ courseId }: { courseId: string }) {
           autoComplete="email"
           placeholder="Your email — we'll tell you at launch"
           className={cn(
-            "w-full rounded-full border bg-surface px-5 py-3.5 text-cream placeholder:text-muted/60",
-            formState.errors.email ? "border-ember" : "border-cream/20 focus:border-cream/50",
+            "w-full rounded-xl border bg-card px-5 py-3.5 text-inkText placeholder:text-muted/60",
+            formState.errors.email ? "border-lime" : "border-ink/15",
           )}
           aria-invalid={!!formState.errors.email}
           {...register("email")}
         />
         {formState.errors.email && (
-          <p className="mt-1 pl-4 text-xs text-ember" role="alert">
+          <p className="mt-1 pl-4 text-xs text-lime" role="alert">
             {formState.errors.email.message}
           </p>
         )}
