@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LANES, TOTAL_COUNT } from "@/lib/data/courses";
 import type { LaneId } from "@/lib/types";
+import { HeroParticles } from "./HeroParticles";
 
 /** Fresh, punchy track colours — persimmon / hot-pink / emerald pop on the dark hero. */
 const TRACK_COLOR: Record<LaneId, string> = {
@@ -31,6 +32,8 @@ export function Hero() {
           className="absolute inset-0"
           style={{ background: "radial-gradient(55% 55% at 22% 16%, rgba(231,178,75,0.22) 0%, rgba(231,178,75,0) 60%)" }}
         />
+        {/* WebGL spiral-galaxy particle field (desktop only; gated in HeroParticles) */}
+        <HeroParticles />
         {/* film grain */}
         <div
           className="absolute inset-0 opacity-[0.14] mix-blend-overlay"
