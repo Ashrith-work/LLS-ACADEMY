@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Course } from "@/lib/types";
 import { cn, inr, LANE_STYLES } from "@/lib/utils";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { track } from "@/lib/tracking";
 
 /**
@@ -65,9 +66,13 @@ export function CourseCard({
             <span className="text-xs text-muted">
               {comingSoon ? "Join waitlist →" : <>from <span className="font-semibold text-inkText">{inr(course.price)}</span></>}
             </span>
-            <span className={cn("text-lg transition group-hover:translate-x-1", lane.text)} aria-hidden>
-              →
-            </span>
+            {comingSoon ? (
+              <span className={cn("text-lg transition group-hover:translate-x-1", lane.text)} aria-hidden>
+                →
+              </span>
+            ) : (
+              <AddToCartButton courseId={course.id} compact />
+            )}
           </div>
         </div>
       </Link>

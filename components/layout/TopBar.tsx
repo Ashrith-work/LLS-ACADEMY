@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { CartButton } from "@/components/cart/CartButton";
 
 /**
- * Minimal top bar: logo on the left, Courses + Login on the right.
+ * Minimal top bar: logo on the left, Courses + Cart + Login on the right.
  */
 export function TopBar() {
   return (
@@ -14,6 +15,7 @@ export function TopBar() {
           <Link href="/#courses" className="text-sm text-muted transition hover:text-ink">
             Courses
           </Link>
+          <CartButton />
           <Link
             href="/start"
             className="rounded-full bg-ink px-5 py-2 text-sm font-medium text-cream transition-all hover:-translate-y-0.5 hover:bg-ink/90"

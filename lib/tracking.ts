@@ -30,6 +30,7 @@ export type TrackEvent =
   | "payment_succeeded"
   | "payment_failed"
   | "waitlist_joined" // props: { courseId }
+  | "add_to_cart" // props: { courseId }
   | "faq_opened"; // props: { question }
 
 export function track(event: TrackEvent, props: Record<string, unknown> = {}) {

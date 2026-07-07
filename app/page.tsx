@@ -1,7 +1,6 @@
 import { TopBar } from "@/components/layout/TopBar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
-import { GoalEntry } from "@/components/home/GoalEntry";
 import { LaneRow } from "@/components/home/LaneRow";
 import { BundleSection } from "@/components/home/BundleSection";
 import { ProofSection } from "@/components/home/ProofSection";
@@ -10,8 +9,8 @@ import { LANES } from "@/lib/data/courses";
 
 /**
  * The academy homepage — browse + abundance, for brand/organic traffic.
- * Section order is the trust arc: desire (hero) → routing (goal entry)
- * → abundance (lanes) → value (bundle) → trust (proof) → objections (FAQ).
+ * Section order is the trust arc: desire (hero) → abundance (lanes)
+ * → value (bundle) → trust (proof) → objections (FAQ).
  */
 export default function HomePage() {
   return (
@@ -19,7 +18,6 @@ export default function HomePage() {
       <TopBar />
       <main>
         <Hero />
-        <GoalEntry />
         <div id="courses" className="bg-surface py-10 border-y border-ink/10">
           {LANES.map((lane) => (
             <LaneRow key={lane.id} lane={lane} />
