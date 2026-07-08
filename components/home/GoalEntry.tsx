@@ -191,7 +191,7 @@ function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
         />
       </span>
       <span
-        className="text-center font-display text-sm font-semibold leading-tight text-inkSoft transition-colors duration-200 group-hover:text-ink"
+        className="text-center font-display text-base font-semibold leading-tight text-inkSoft transition-colors duration-200 group-hover:text-ink"
       >
         {lane.label}
       </span>
