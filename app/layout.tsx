@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { AuthProvider } from "@/lib/auth/dev-auth";
 import { CartProvider } from "@/lib/cart/cart";
+import { AddCourseBadge } from "@/components/ui/AddCourseBadge";
 import { SITE } from "@/lib/data/site";
 import "./globals.css";
 
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <CartProvider>{children}</CartProvider>
         </AuthProvider>
+        <AddCourseBadge />
       </body>
     </html>
   );
