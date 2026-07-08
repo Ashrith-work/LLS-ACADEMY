@@ -53,8 +53,8 @@ export function Hero() {
       {/* Orbit ring encircling the headline — decorative, desktop only. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15 md:block"
-        style={{ width: "min(78vh, 600px)", height: "min(78vh, 600px)" }}
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-white/60 md:block"
+        style={{ width: "min(78vh, 600px)", height: "min(78vh, 600px)", boxShadow: "0 0 40px rgba(255,255,255,0.15)" }}
       />
 
       {/* Direction labels orbiting the headline — North / West / East. Link to their track sections. Desktop only. */}
