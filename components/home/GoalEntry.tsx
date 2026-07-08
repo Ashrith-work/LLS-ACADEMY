@@ -94,7 +94,7 @@ export function GoalEntry() {
                 strokeWidth="0.4"
                 strokeDasharray="2 3"
                 strokeLinecap="round"
-                className="motion-safe:animate-spin-slow"
+                className="motion-safe:animate-spin-medium"
                 style={{ transformBox: "view-box", transformOrigin: "center" }}
               />
               {(["north", "east", "west"] as const).map((dir) => (

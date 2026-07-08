@@ -67,6 +67,7 @@ const config: Config = {
         drift: "drift 7s ease-in-out infinite",
         marquee: "marquee 45s linear infinite",
         "spin-slow": "spin 20s linear infinite",
+        "spin-medium": "spin 13s linear infinite",
       },
     },
   },
