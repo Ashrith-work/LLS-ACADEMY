@@ -18,7 +18,8 @@ import { track } from "@/lib/tracking";
  * mobile falls back to a simple vertical stack so nothing overlaps.
  */
 
-const BG = "#0E0E14"; // global dark theme colour (app/layout.tsx viewport.themeColor)
+const BG = "#EFECE4"; // warm cream limestone (bone token)
+const SURFACE = "#FBFAF7"; // near-white raised surface (card/surface token)
 
 /* Fresh launcher palette (replaces the former persimmon/pink/emerald set). */
 const ACCENT: Record<LaneId, string> = {
@@ -76,11 +77,11 @@ function GoalIcon({ id }: { id: LaneId }) {
 
 export function GoalEntry() {
   const focus =
-    "outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E14]";
+    "outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-[#EFECE4]";
 
   return (
     <section
-      className="flex min-h-[90vh] items-center border-b border-white/10 py-16 sm:py-24"
+      className="flex min-h-[90vh] items-center border-b border-ink/10 py-16 sm:py-24"
       style={{ backgroundColor: BG }}
       aria-labelledby="goal-entry-heading"
     >
@@ -88,11 +89,11 @@ export function GoalEntry() {
         <Reveal>
           <h2
             id="goal-entry-heading"
-            className="text-center font-display text-3xl font-semibold text-white sm:text-5xl"
+            className="text-center font-display text-3xl font-semibold text-ink sm:text-5xl"
           >
             What do you want?
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-center text-sm text-white/60 sm:text-base">
+          <p className="mx-auto mt-3 max-w-md text-center text-sm text-inkSoft sm:text-base">
             Pick one goal — we ask 2 questions and show you the right course.
           </p>
         </Reveal>
@@ -112,7 +113,7 @@ export function GoalEntry() {
             {/* Faint ring the nodes sit on. */}
             <div
               aria-hidden
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/12"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/15"
               style={{ width: RING, height: RING }}
             />
 
@@ -122,12 +123,12 @@ export function GoalEntry() {
               style={{
                 width: HUB_SIZE,
                 height: HUB_SIZE,
-                backgroundColor: "rgba(255,255,255,0.03)",
-                border: `1px solid ${HUB}59`, // magenta hub ring
-                boxShadow: `0 0 70px ${HUB}33`, // magenta halo
+                backgroundColor: SURFACE,
+                border: `1px solid ${HUB}80`, // magenta hub ring
+                boxShadow: `0 0 60px ${HUB}26`, // soft magenta halo
               }}
             >
-              <p className="px-3 text-center font-display text-3xl font-bold leading-[1.05] text-white sm:text-4xl">
+              <p className="px-3 text-center font-display text-3xl font-bold leading-[1.05] text-ink sm:text-4xl">
                 Prove them{" "}
                 <span className="italic" style={{ color: HUB }}>
                   wrong
@@ -169,9 +170,9 @@ function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
       className={`group flex w-[150px] flex-col items-center gap-2 rounded-2xl px-1 py-1 transition duration-200 ${focus}`}
     >
       <span
-        className="relative flex h-[92px] w-[92px] items-center justify-center rounded-full border border-white/15 transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-125 motion-reduce:transform-none"
+        className="relative flex h-[92px] w-[92px] items-center justify-center rounded-full border border-ink/12 shadow-glow transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-105 motion-reduce:transform-none"
         style={{
-          backgroundColor: "rgba(255,255,255,0.04)",
+          backgroundColor: SURFACE,
           color: accent, // tints the icon (currentColor)
         }}
       >
@@ -184,7 +185,7 @@ function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
         />
       </span>
       <span
-        className="text-center font-display text-sm font-semibold leading-tight text-white/85 transition-colors duration-200 group-hover:text-white"
+        className="text-center font-display text-sm font-semibold leading-tight text-inkSoft transition-colors duration-200 group-hover:text-ink"
       >
         {lane.label}
       </span>
@@ -199,18 +200,18 @@ function MobileGoal({ lane, focus }: { lane: Lane; focus: string }) {
     <Link
       href={`/start?goal=${lane.id}`}
       onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
-      className={`group flex items-center gap-4 rounded-2xl border border-white/10 p-4 transition duration-200 motion-safe:hover:-translate-y-1 ${focus}`}
-      style={{ backgroundColor: "rgba(255,255,255,0.03)" }}
+      className={`group flex items-center gap-4 rounded-2xl border border-ink/10 p-4 shadow-glow transition duration-200 motion-safe:hover:-translate-y-1 ${focus}`}
+      style={{ backgroundColor: SURFACE }}
     >
       <span
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/15"
-        style={{ backgroundColor: "rgba(255,255,255,0.04)", color: accent }}
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/12"
+        style={{ backgroundColor: BG, color: accent }}
       >
         <GoalIcon id={lane.id} />
       </span>
       <span className="min-w-0">
-        <span className="block font-display text-lg font-semibold text-white">{lane.label}</span>
-        <span className="mt-0.5 block text-sm text-white/60">{lane.hook}</span>
+        <span className="block font-display text-lg font-semibold text-ink">{lane.label}</span>
+        <span className="mt-0.5 block text-sm text-muted">{lane.hook}</span>
       </span>
     </Link>
   );
