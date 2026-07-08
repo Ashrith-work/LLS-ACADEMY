@@ -85,7 +85,18 @@ export function GoalEntry() {
               className="absolute inset-0 h-full w-full"
               aria-hidden
             >
-              <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="0.4" />
+              <circle
+                cx="50"
+                cy="50"
+                r="36"
+                fill="none"
+                stroke="rgba(255,255,255,0.18)"
+                strokeWidth="0.4"
+                strokeDasharray="2 3"
+                strokeLinecap="round"
+                className="motion-safe:animate-spin-slow"
+                style={{ transformBox: "view-box", transformOrigin: "center" }}
+              />
               {(["north", "east", "west"] as const).map((dir) => (
                 <line
                   key={dir}
