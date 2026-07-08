@@ -110,7 +110,7 @@ export function GoalEntry() {
               className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
               style={{ width: HUB_SIZE, height: HUB_SIZE }}
             >
-              <p className="px-3 text-center font-display text-4xl font-bold leading-[1.03] sm:text-5xl" style={{ color: "#4A3319" }}>
+              <p className="px-3 text-center font-display text-5xl font-bold leading-[1.02] sm:text-6xl" style={{ color: "#4A3319" }}>
                 Prove them{" "}
                 <span className="italic" style={{ color: HUB }}>
                   wrong
