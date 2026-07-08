@@ -73,10 +73,10 @@ export function GoalEntry() {
         </div>
 
         {/* ── Tablet / desktop (md+): radial orbital layout ── */}
-        <div className="mt-10 hidden justify-center md:flex">
+        <div className="mt-6 hidden justify-center md:flex">
           <div
             className="relative"
-            style={{ width: "min(78vw, 620px)", height: "min(78vw, 620px)" }}
+            style={{ width: "min(70vw, 560px, 56vh)", height: "min(70vw, 560px, 56vh)" }}
           >
             {/* Ring + connector spokes (single crisp SVG, scales with the stage). */}
             <svg
