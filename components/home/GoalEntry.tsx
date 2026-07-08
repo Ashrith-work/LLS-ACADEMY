@@ -129,7 +129,7 @@ export function GoalEntry() {
                 boxShadow: `0 0 60px ${HUB}26`, // soft magenta halo
               }}
             >
-              <p className="px-3 text-center font-display text-3xl font-bold leading-[1.05] text-ink sm:text-4xl">
+              <p className="px-3 text-center font-display text-4xl font-bold leading-[1.03] text-ink sm:text-5xl">
                 Prove them{" "}
                 <span className="italic" style={{ color: HUB }}>
                   wrong
