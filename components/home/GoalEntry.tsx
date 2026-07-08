@@ -31,10 +31,10 @@ const HUB = "#B0492B"; // terracotta rust hub accent (ring + "wrong" + hub halo)
 
 /* Geometry — all derived from one stage size so the ring stays circular and fits. */
 const STAGE = "min(72vw, 560px, 58vh)";
-const R = `calc(${STAGE} * 0.44)`; // node orbit radius
-const RING = `calc(${STAGE} * 0.88)`; // faint ring diameter (= 2R)
-const HUB_SIZE = `calc(${STAGE} * 0.46)`; // hub diameter
-const HUB_RING = `calc(${STAGE} * 0.51)`; // spinning accent ring around the hub
+const R = `calc(${STAGE} * 0.46)`; // node orbit radius
+const RING = `calc(${STAGE} * 0.92)`; // faint ring diameter (= 2R)
+const HUB_SIZE = `calc(${STAGE} * 0.52)`; // hub diameter
+const HUB_RING = `calc(${STAGE} * 0.57)`; // spinning accent ring around the hub
 
 /* Per-goal icon (stroke = currentColor, tinted by each node's accent). */
 function GoalIcon({ id }: { id: LaneId }) {
