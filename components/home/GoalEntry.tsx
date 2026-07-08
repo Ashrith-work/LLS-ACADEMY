@@ -34,7 +34,6 @@ const STAGE = "min(72vw, 560px, 58vh)";
 const R = `calc(${STAGE} * 0.46)`; // node orbit radius
 const RING = `calc(${STAGE} * 0.92)`; // faint ring diameter (= 2R)
 const HUB_SIZE = `calc(${STAGE} * 0.52)`; // hub diameter
-const HUB_RING = `calc(${STAGE} * 0.57)`; // spinning accent ring around the hub
 
 /* Per-goal icon (stroke = currentColor, tinted by each node's accent). */
 function GoalIcon({ id }: { id: LaneId }) {
@@ -106,30 +105,12 @@ export function GoalEntry() {
               style={{ width: RING, height: RING }}
             />
 
-            {/* Spinning dashed accent ring hugging the hub (visible hub "spin"). */}
+            {/* Center hub — text only, blended into the page (no white disc). */}
             <div
-              aria-hidden
-              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-              style={{ width: HUB_RING, height: HUB_RING }}
+              className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+              style={{ width: HUB_SIZE, height: HUB_SIZE }}
             >
-              <div
-                className="h-full w-full rounded-full border-2 border-dashed motion-safe:animate-spin-medium"
-                style={{ borderColor: `${HUB}66` }}
-              />
-            </div>
-
-            {/* Center hub. */}
-            <div
-              className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
-              style={{
-                width: HUB_SIZE,
-                height: HUB_SIZE,
-                backgroundColor: SURFACE,
-                border: `1px solid ${HUB}80`, // magenta hub ring
-                boxShadow: `0 0 60px ${HUB}26`, // soft magenta halo
-              }}
-            >
-              <p className="px-3 text-center font-display text-4xl font-bold leading-[1.03] text-ink sm:text-5xl">
+              <p className="px-3 text-center font-display text-4xl font-bold leading-[1.03] sm:text-5xl" style={{ color: "#4A3319" }}>
                 Prove them{" "}
                 <span className="italic" style={{ color: HUB }}>
                   wrong
