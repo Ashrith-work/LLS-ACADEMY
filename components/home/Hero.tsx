@@ -50,29 +50,32 @@ export function Hero() {
         />
       </div>
 
-      {/* Direction labels orbiting the headline — North / West / East. Decorative, desktop only. */}
-      <div className="pointer-events-none absolute inset-0 hidden md:block" aria-hidden>
-        {/* North */}
-        <span
-          className="absolute left-1/2 top-[19%] -translate-x-1/2 whitespace-nowrap rounded-full border px-5 py-2 font-display text-sm font-bold uppercase tracking-[0.1em]"
+      {/* Direction labels orbiting the headline — North / West / East. Link to their track sections. Desktop only. */}
+      <div className="pointer-events-none absolute inset-0 hidden md:block">
+        {/* North → Self Better */}
+        <Link
+          href="/#lane-sell"
+          className="pointer-events-auto absolute left-1/2 top-[19%] -translate-x-1/2 whitespace-nowrap rounded-full border px-5 py-2 font-display text-sm font-bold uppercase tracking-[0.1em] transition-all duration-200 hover:-translate-y-1 hover:brightness-110"
           style={{ color: "#FF5A36", borderColor: "rgba(255,90,54,0.45)" }}
         >
           Self Better
-        </span>
-        {/* West */}
-        <span
-          className="absolute left-[6%] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border px-5 py-2 font-display text-sm font-bold uppercase tracking-[0.1em]"
+        </Link>
+        {/* West → Build your Brand */}
+        <Link
+          href="/#lane-brand"
+          className="pointer-events-auto absolute left-[6%] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border px-5 py-2 font-display text-sm font-bold uppercase tracking-[0.1em] transition-all duration-200 hover:-translate-y-1 hover:brightness-110"
           style={{ color: "#F0468B", borderColor: "rgba(240,70,139,0.45)" }}
         >
           Build your Brand
-        </span>
-        {/* East */}
-        <span
-          className="absolute right-[6%] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border px-5 py-2 font-display text-sm font-bold uppercase tracking-[0.1em]"
+        </Link>
+        {/* East → Grow in career & life */}
+        <Link
+          href="/#lane-grow"
+          className="pointer-events-auto absolute right-[6%] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border px-5 py-2 font-display text-sm font-bold uppercase tracking-[0.1em] transition-all duration-200 hover:-translate-y-1 hover:brightness-110"
           style={{ color: "#1DC98C", borderColor: "rgba(29,201,140,0.45)" }}
         >
           Grow in career &amp; life
-        </span>
+        </Link>
       </div>
 
       {/* Course tracks — colour pills pinned top-left on large screens. */}
