@@ -163,8 +163,8 @@ function GoalCard({ lane, radial = false }: { lane: Lane; radial?: boolean }) {
       >
         <span
           aria-hidden
-          className="mb-1 h-2.5 w-2.5 rounded-full transition-transform duration-200 group-hover:scale-125"
-          style={{ backgroundColor: accent, boxShadow: `0 0 14px ${accent}` }}
+          className="mb-1 h-4 w-4 rounded-full transition-transform duration-200 group-hover:scale-125"
+          style={{ backgroundColor: accent, boxShadow: `0 0 18px ${accent}` }}
         />
         <span
           className="font-display text-lg font-semibold text-white underline-offset-4 group-hover:underline"
