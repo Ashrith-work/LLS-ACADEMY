@@ -62,12 +62,20 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        // Counter-rotation to keep orbiting children upright.
+        "spin-reverse": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(-360deg)" },
+        },
       },
       animation: {
         drift: "drift 7s ease-in-out infinite",
         marquee: "marquee 45s linear infinite",
         "spin-slow": "spin 20s linear infinite",
         "spin-medium": "spin 13s linear infinite",
+        // Paired orbit animations (same duration → children stay upright).
+        orbit: "spin 30s linear infinite",
+        "orbit-counter": "spin-reverse 30s linear infinite",
       },
     },
   },

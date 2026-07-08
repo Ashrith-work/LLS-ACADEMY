@@ -124,22 +124,27 @@ export function GoalEntry() {
               </p>
             </div>
 
-            {/* Nodes — evenly spaced by trig (angle = 360 / count). */}
-            {LANES.map((lane, i) => {
-              const angle = (360 / LANES.length) * i; // 0 = top, clockwise
-              return (
-                <div
-                  key={lane.id}
-                  className="absolute left-1/2 top-1/2"
-                  style={{
-                    // centre on hub → rotate to angle → push out by R → un-rotate so the node stays upright
-                    transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(${R} * -1)) rotate(${-angle}deg)`,
-                  }}
-                >
-                  <RadialNode lane={lane} focus={focus} />
-                </div>
-              );
-            })}
+            {/* Node ring — orbits slowly around the hub; each node counter-rotates
+                at the same rate so its icon + label stay upright. */}
+            <div className="absolute inset-0 origin-center motion-safe:animate-orbit">
+              {LANES.map((lane, i) => {
+                const angle = (360 / LANES.length) * i; // 0 = top, clockwise
+                return (
+                  <div
+                    key={lane.id}
+                    className="absolute left-1/2 top-1/2"
+                    style={{
+                      // centre on hub → rotate to angle → push out by R → un-rotate so the node stays upright
+                      transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(${R} * -1)) rotate(${-angle}deg)`,
+                    }}
+                  >
+                    <div className="origin-center motion-safe:animate-orbit-counter">
+                      <RadialNode lane={lane} focus={focus} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
