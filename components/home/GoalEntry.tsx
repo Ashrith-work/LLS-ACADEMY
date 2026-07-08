@@ -31,16 +31,16 @@ const HUB = "#B0492B"; // terracotta rust hub accent (ring + "wrong" + hub halo)
 
 /* Geometry — all derived from one stage size so the ring stays circular and fits. */
 const STAGE = "min(72vw, 560px, 58vh)";
-const R = `calc(${STAGE} * 0.40)`; // node orbit radius
-const RING = `calc(${STAGE} * 0.80)`; // faint ring diameter (= 2R)
+const R = `calc(${STAGE} * 0.44)`; // node orbit radius
+const RING = `calc(${STAGE} * 0.88)`; // faint ring diameter (= 2R)
 const HUB_SIZE = `calc(${STAGE} * 0.46)`; // hub diameter
 const HUB_RING = `calc(${STAGE} * 0.51)`; // spinning accent ring around the hub
 
 /* Per-goal icon (stroke = currentColor, tinted by each node's accent). */
 function GoalIcon({ id }: { id: LaneId }) {
   const common = {
-    width: 32,
-    height: 32,
+    width: 38,
+    height: 38,
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
@@ -173,10 +173,10 @@ function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
       href={`/start?goal=${lane.id}`}
       aria-label={lane.label}
       onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
-      className={`group flex w-[150px] flex-col items-center gap-2 rounded-2xl px-1 py-1 transition duration-200 ${focus}`}
+      className={`group flex w-[172px] flex-col items-center gap-2 rounded-2xl px-1 py-1 transition duration-200 ${focus}`}
     >
       <span
-        className="relative flex h-[92px] w-[92px] items-center justify-center rounded-full border border-black/5 shadow-glow transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-110 motion-reduce:transform-none"
+        className="relative flex h-[112px] w-[112px] items-center justify-center rounded-full border border-black/5 shadow-glow transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-110 motion-reduce:transform-none"
         style={{
           backgroundColor: accent, // earthy filled circle
           color: SURFACE, // cream icon (currentColor)
@@ -186,7 +186,7 @@ function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
         {/* accent ring that fades in on hover (kept as a sibling so we don't fight inline styles) */}
         <span
           aria-hidden
-          className="pointer-events-none absolute h-[92px] w-[92px] rounded-full opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          className="pointer-events-none absolute h-[112px] w-[112px] rounded-full opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           style={{ boxShadow: `0 0 0 2px ${accent}, 0 0 22px ${accent}66` }}
         />
       </span>
