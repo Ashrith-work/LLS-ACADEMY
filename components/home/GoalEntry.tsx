@@ -83,23 +83,11 @@ export function GoalEntry() {
     <section
       className="flex min-h-[90vh] items-center border-b border-ink/10 py-16 sm:py-24"
       style={{ backgroundColor: BG }}
-      aria-labelledby="goal-entry-heading"
+      aria-label="Choose your goal"
     >
       <div className="mx-auto w-full max-w-6xl px-4">
-        <Reveal>
-          <h2
-            id="goal-entry-heading"
-            className="text-center font-display text-3xl font-semibold text-ink sm:text-5xl"
-          >
-            What do you want?
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-center text-sm text-inkSoft sm:text-base">
-            Pick one goal — we ask 2 questions and show you the right course.
-          </p>
-        </Reveal>
-
         {/* ── Mobile (<md): vertical stack ── */}
-        <div className="mt-10 grid gap-4 md:hidden">
+        <div className="grid gap-4 md:hidden">
           {LANES.map((lane, i) => (
             <Reveal key={lane.id} delay={i * 0.08}>
               <MobileGoal lane={lane} focus={focus} />
@@ -108,7 +96,7 @@ export function GoalEntry() {
         </div>
 
         {/* ── Tablet / desktop (md+): radial launcher ── */}
-        <div className="mt-6 hidden justify-center md:flex">
+        <div className="hidden justify-center md:flex">
           <div className="relative" style={{ width: STAGE, height: STAGE }}>
             {/* Faint ring the nodes sit on. */}
             <div
