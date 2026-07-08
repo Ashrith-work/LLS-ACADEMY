@@ -10,7 +10,7 @@ import { track } from "@/lib/tracking";
  */
 export function Faq() {
   return (
-    <section className="bg-surface py-16 sm:py-24" aria-labelledby="faq-heading">
+    <section className="bg-bone py-16 sm:py-24" aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal>
           <h2 id="faq-heading" className="text-center font-display font-semibold text-3xl text-ink sm:text-4xl">

@@ -25,7 +25,7 @@ const config: Config = {
         inkSoft: "#5C574E",
         surface: "#FBFAF7",
         card: "#FBFAF7",
-        bone: "#EFECE4",
+        bone: "#E4D6BC",
         line: "#DCD7CC",
         ember: { DEFAULT: INK, soft: "#33302A" },
         gold: INK,

@@ -18,7 +18,7 @@ export default function HomePage() {
       <TopBar />
       <main>
         <GoalEntry />
-        <div id="courses" className="bg-surface py-10 border-y border-ink/10">
+        <div id="courses" className="bg-bone py-10 border-y border-ink/10">
           {LANES.map((lane) => (
             <LaneRow key={lane.id} lane={lane} />
           ))}
