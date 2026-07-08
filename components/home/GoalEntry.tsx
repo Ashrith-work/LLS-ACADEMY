@@ -33,7 +33,7 @@ const HUB = "#B0492B"; // terracotta rust hub accent (ring + "wrong" + hub halo)
 const STAGE = "min(72vw, 560px, 58vh)";
 const R = `calc(${STAGE} * 0.40)`; // node orbit radius
 const RING = `calc(${STAGE} * 0.80)`; // faint ring diameter (= 2R)
-const HUB_SIZE = `calc(${STAGE} * 0.38)`; // hub diameter
+const HUB_SIZE = `calc(${STAGE} * 0.46)`; // hub diameter
 
 /* Per-goal icon (stroke = currentColor, tinted by each node's accent). */
 function GoalIcon({ id }: { id: LaneId }) {
