@@ -74,8 +74,8 @@ const config: Config = {
         "spin-slow": "spin 20s linear infinite",
         "spin-medium": "spin 13s linear infinite",
         // Paired orbit animations (same duration → children stay upright).
-        orbit: "spin 30s linear infinite",
-        "orbit-counter": "spin-reverse 30s linear infinite",
+        orbit: "spin 20s linear infinite",
+        "orbit-counter": "spin-reverse 20s linear infinite",
       },
     },
   },
