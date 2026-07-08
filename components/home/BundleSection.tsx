@@ -17,7 +17,7 @@ export function BundleSection() {
   const shown = stack.slice(0, 6);
 
   return (
-    <section className="bg-bone py-16 sm:py-24" aria-labelledby="bundle-heading">
+    <section className="bg-[#E4D6BC] py-16 sm:py-24" aria-labelledby="bundle-heading">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <div className="overflow-hidden rounded-2xl border border-ink/10 bg-surface shadow-brutal">

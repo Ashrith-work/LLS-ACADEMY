@@ -8,9 +8,9 @@ import { track } from "@/lib/tracking";
  * FAQ — answers the REAL objections. Native <details> keeps it
  * zero-JS-cost, keyboard-accessible and screen-reader friendly.
  */
-export function Faq() {
+export function Faq({ bgClass = "bg-surface" }: { bgClass?: string }) {
   return (
-    <section className="bg-bone py-16 sm:py-24" aria-labelledby="faq-heading">
+    <section className={`${bgClass} py-16 sm:py-24`} aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal>
           <h2 id="faq-heading" className="text-center font-display font-semibold text-3xl text-ink sm:text-4xl">
