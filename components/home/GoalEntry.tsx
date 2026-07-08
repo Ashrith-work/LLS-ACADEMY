@@ -21,13 +21,13 @@ import { track } from "@/lib/tracking";
 const BG = "#EFECE4"; // warm cream limestone (bone token)
 const SURFACE = "#FBFAF7"; // near-white raised surface (card/surface token)
 
-/* Fresh launcher palette (replaces the former persimmon/pink/emerald set). */
+/* Earthy launcher palette — clay/ochre/olive earth tones on cream limestone. */
 const ACCENT: Record<LaneId, string> = {
-  sell: "#F5A524", // amber
-  brand: "#7C5CFF", // indigo-violet
-  grow: "#2DD4BF", // teal
+  sell: "#C0902F", // golden ochre
+  brand: "#8B5E3C", // warm brown
+  grow: "#6E7B3D", // moss olive
 };
-const HUB = "#FF3D9A"; // hot-magenta hub accent (ring + "wrong" + hub halo)
+const HUB = "#B0492B"; // terracotta rust hub accent (ring + "wrong" + hub halo)
 
 /* Geometry — all derived from one stage size so the ring stays circular and fits. */
 const STAGE = "min(72vw, 560px, 58vh)";
