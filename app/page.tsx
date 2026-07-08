@@ -1,6 +1,5 @@
 import { TopBar } from "@/components/layout/TopBar";
 import { Footer } from "@/components/layout/Footer";
-import { Hero } from "@/components/home/Hero";
 import { GoalEntry } from "@/components/home/GoalEntry";
 import { LaneRow } from "@/components/home/LaneRow";
 import { BundleSection } from "@/components/home/BundleSection";
@@ -18,7 +17,6 @@ export default function HomePage() {
     <>
       <TopBar />
       <main>
-        <Hero />
         <GoalEntry />
         <div id="courses" className="bg-surface py-10 border-y border-ink/10">
           {LANES.map((lane) => (

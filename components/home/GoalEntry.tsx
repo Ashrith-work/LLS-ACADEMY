@@ -46,11 +46,11 @@ const POINT: Record<"north" | "east" | "west", { left: number; top: number }> = 
 export function GoalEntry() {
   return (
     <section
-      className="border-y border-white/10 py-16 sm:py-24"
+      className="flex min-h-[90vh] items-center border-b border-white/10 py-16 sm:py-24"
       style={{ backgroundColor: BG }}
       aria-labelledby="goal-entry-heading"
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto w-full max-w-6xl px-4">
         <Reveal>
           <h2
             id="goal-entry-heading"
