@@ -7,43 +7,77 @@ import { Reveal } from "@/components/ui/Reveal";
 import { track } from "@/lib/tracking";
 
 /**
- * GoalEntry — the goal router's front door, as a radial "orbital" layout.
+ * GoalEntry — a launcher-style radial goal picker.
  *
- * A central hub ("Prove them wrong") with the three goals arranged around it on
- * a ring — Sell better (north), Build your brand (east), Grow in career & life
- * (west). South stays empty. Each goal is a Link to /start?goal=… (unchanged).
+ * A central hub ("Prove them wrong") ringed by circular icon nodes, one per
+ * goal, spaced EVENLY around a faint ring: angle per node = 360 / count, so the
+ * layout is driven by the LANES list (add a lane → it re-spaces automatically).
+ * No spokes — just the hub, the faint ring, and the nodes.
  *
- * The radial layout is tablet/desktop only (md+). On mobile it falls back to the
- * original vertical stack so nothing overlaps or overflows.
- *
- * Colours mirror the hero's per-track palette (already used in Hero.tsx) plus the
- * global dark theme-colour (#0E0E14 from app/layout.tsx) — no new colours here.
+ * Each node is a Link to /start?goal=…. Radial layout is tablet/desktop only;
+ * mobile falls back to a simple vertical stack so nothing overlaps.
  */
 
 const BG = "#0E0E14"; // global dark theme colour (app/layout.tsx viewport.themeColor)
 
-/** Per-lane accent — mirrors the hero track palette in Hero.tsx. */
+/* Fresh launcher palette (replaces the former persimmon/pink/emerald set). */
 const ACCENT: Record<LaneId, string> = {
-  sell: "#FF5A36", // persimmon
-  brand: "#F0468B", // magenta / hot pink accent
-  grow: "#1DC98C", // emerald
+  sell: "#F5A524", // amber
+  brand: "#7C5CFF", // indigo-violet
+  grow: "#2DD4BF", // teal
 };
+const HUB = "#FF3D9A"; // hot-magenta hub accent (ring + "wrong" + hub halo)
 
-/** Compass placement around the hub (south intentionally left empty). */
-const COMPASS: Record<LaneId, "north" | "east" | "west"> = {
-  sell: "north",
-  brand: "east",
-  grow: "west",
-};
+/* Geometry — all derived from one stage size so the ring stays circular and fits. */
+const STAGE = "min(72vw, 560px, 58vh)";
+const R = `calc(${STAGE} * 0.40)`; // node orbit radius
+const RING = `calc(${STAGE} * 0.80)`; // faint ring diameter (= 2R)
+const HUB_SIZE = `calc(${STAGE} * 0.38)`; // hub diameter
 
-/** Ring anchor points as [left%, top%] on the square stage (radius = 36%). */
-const POINT: Record<"north" | "east" | "west", { left: number; top: number }> = {
-  north: { left: 50, top: 14 },
-  east: { left: 94, top: 50 },
-  west: { left: 6, top: 50 },
-};
+/* Per-goal icon (stroke = currentColor, tinted by each node's accent). */
+function GoalIcon({ id }: { id: LaneId }) {
+  const common = {
+    width: 26,
+    height: 26,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.8,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
+  if (id === "sell") {
+    // trending-up
+    return (
+      <svg {...common}>
+        <path d="M3 17l6-6 4 4 8-8" />
+        <path d="M17 7h4v4" />
+      </svg>
+    );
+  }
+  if (id === "brand") {
+    // star
+    return (
+      <svg {...common}>
+        <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L5.5 9.7l5.9-.9L12 3.5z" />
+      </svg>
+    );
+  }
+  // grow — sprout
+  return (
+    <svg {...common}>
+      <path d="M12 20v-8" />
+      <path d="M12 12c0-3 2.5-5 6-5 0 3-2.5 5-6 5z" />
+      <path d="M12 13c0-2.5-2-4.5-5-4.5 0 2.5 2 4.5 5 4.5z" />
+    </svg>
+  );
+}
 
 export function GoalEntry() {
+  const focus =
+    "outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E14]";
+
   return (
     <section
       className="flex min-h-[90vh] items-center border-b border-white/10 py-16 sm:py-24"
@@ -63,81 +97,57 @@ export function GoalEntry() {
           </p>
         </Reveal>
 
-        {/* ── Mobile (<md): original vertical stacked layout ── */}
+        {/* ── Mobile (<md): vertical stack ── */}
         <div className="mt-10 grid gap-4 md:hidden">
           {LANES.map((lane, i) => (
             <Reveal key={lane.id} delay={i * 0.08}>
-              <GoalCard lane={lane} />
+              <MobileGoal lane={lane} focus={focus} />
             </Reveal>
           ))}
         </div>
 
-        {/* ── Tablet / desktop (md+): radial orbital layout ── */}
+        {/* ── Tablet / desktop (md+): radial launcher ── */}
         <div className="mt-6 hidden justify-center md:flex">
-          <div
-            className="relative"
-            style={{ width: "min(70vw, 560px, 56vh)", height: "min(70vw, 560px, 56vh)" }}
-          >
-            {/* Ring + connector spokes (single crisp SVG, scales with the stage). */}
-            <svg
-              viewBox="0 0 100 100"
-              preserveAspectRatio="xMidYMid meet"
-              className="absolute inset-0 h-full w-full"
+          <div className="relative" style={{ width: STAGE, height: STAGE }}>
+            {/* Faint ring the nodes sit on. */}
+            <div
               aria-hidden
-            >
-              <circle
-                cx="50"
-                cy="50"
-                r="36"
-                fill="none"
-                stroke="rgba(255,255,255,0.18)"
-                strokeWidth="0.4"
-                strokeDasharray="2 3"
-                strokeLinecap="round"
-                className="motion-safe:animate-spin-medium"
-                style={{ transformBox: "view-box", transformOrigin: "center" }}
-              />
-              {(["north", "east", "west"] as const).map((dir) => (
-                <line
-                  key={dir}
-                  x1="50"
-                  y1="50"
-                  x2={POINT[dir].left}
-                  y2={POINT[dir].top}
-                  stroke="rgba(255,255,255,0.1)"
-                  strokeWidth="0.3"
-                />
-              ))}
-            </svg>
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/12"
+              style={{ width: RING, height: RING }}
+            />
 
             {/* Center hub. */}
             <div
-              className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/15"
+              className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
               style={{
-                width: "44%",
-                height: "44%",
+                width: HUB_SIZE,
+                height: HUB_SIZE,
                 backgroundColor: "rgba(255,255,255,0.03)",
-                boxShadow: `0 0 70px ${ACCENT.brand}26`, // faint magenta halo
+                border: `1px solid ${HUB}59`, // magenta hub ring
+                boxShadow: `0 0 70px ${HUB}33`, // magenta halo
               }}
             >
               <p className="px-3 text-center font-display text-3xl font-bold leading-[1.05] text-white sm:text-4xl">
                 Prove them{" "}
-                <span className="italic" style={{ color: ACCENT.brand }}>
+                <span className="italic" style={{ color: HUB }}>
                   wrong
                 </span>
               </p>
             </div>
 
-            {/* Goals seated on the ring. */}
-            {LANES.map((lane) => {
-              const { left, top } = POINT[COMPASS[lane.id]];
+            {/* Nodes — evenly spaced by trig (angle = 360 / count). */}
+            {LANES.map((lane, i) => {
+              const angle = (360 / LANES.length) * i; // 0 = top, clockwise
               return (
                 <div
                   key={lane.id}
-                  className="absolute w-[220px] max-w-[42vw] -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: `${left}%`, top: `${top}%` }}
+                  className="absolute left-1/2 top-1/2"
+                  style={{
+                    // centre on hub → rotate to angle → push out by R → un-rotate so the node stays upright
+                    transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(${R} * -1)) rotate(${-angle}deg)`,
+                  }}
                 >
-                  <GoalCard lane={lane} radial />
+                  <RadialNode lane={lane} focus={focus} />
                 </div>
               );
             })}
@@ -148,51 +158,59 @@ export function GoalEntry() {
   );
 }
 
-/** A single goal — one component, two presentations (radial chip vs stacked card). */
-function GoalCard({ lane, radial = false }: { lane: Lane; radial?: boolean }) {
+/** A round icon button + label beneath — the whole thing is the link. */
+function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
   const accent = ACCENT[lane.id];
-  const focus =
-    "outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E14]";
-
-  if (radial) {
-    return (
-      <Link
-        href={`/start?goal=${lane.id}`}
-        onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
-        className={`group flex flex-col items-center gap-1 rounded-2xl px-3 py-2 text-center transition duration-200 motion-safe:hover:-translate-y-1 ${focus}`}
+  return (
+    <Link
+      href={`/start?goal=${lane.id}`}
+      aria-label={lane.label}
+      onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
+      className={`group flex w-[128px] flex-col items-center gap-2 rounded-2xl px-1 py-1 transition duration-200 ${focus}`}
+    >
+      <span
+        className="relative flex h-[72px] w-[72px] items-center justify-center rounded-full border border-white/15 transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-125 motion-reduce:transform-none"
+        style={{
+          backgroundColor: "rgba(255,255,255,0.04)",
+          color: accent, // tints the icon (currentColor)
+        }}
       >
+        <GoalIcon id={lane.id} />
+        {/* accent ring that fades in on hover (kept as a sibling so we don't fight inline styles) */}
         <span
           aria-hidden
-          className="mb-1 h-4 w-4 rounded-full transition-transform duration-200 group-hover:scale-125"
-          style={{ backgroundColor: accent, boxShadow: `0 0 18px ${accent}` }}
+          className="pointer-events-none absolute h-[72px] w-[72px] rounded-full opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          style={{ boxShadow: `0 0 0 2px ${accent}, 0 0 22px ${accent}66` }}
         />
-        <span
-          className="font-display text-lg font-semibold text-white underline-offset-4 group-hover:underline"
-          style={{ textDecorationColor: accent }}
-        >
-          {lane.label}
-        </span>
-        <span className="max-w-[220px] text-xs leading-snug text-white/55">{lane.hook}</span>
-      </Link>
-    );
-  }
+      </span>
+      <span
+        className="text-center font-display text-sm font-semibold leading-tight text-white/85 transition-colors duration-200 group-hover:text-white"
+      >
+        {lane.label}
+      </span>
+    </Link>
+  );
+}
 
-  // Mobile: original card structure (accent bar → title → hook → CTA), dark-themed.
+/** Mobile fallback — a simple stacked card with the same icon + accent. */
+function MobileGoal({ lane, focus }: { lane: Lane; focus: string }) {
+  const accent = ACCENT[lane.id];
   return (
     <Link
       href={`/start?goal=${lane.id}`}
       onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
-      className={`group flex h-full flex-col rounded-2xl border border-white/10 p-6 transition duration-200 motion-safe:hover:-translate-y-1 ${focus}`}
+      className={`group flex items-center gap-4 rounded-2xl border border-white/10 p-4 transition duration-200 motion-safe:hover:-translate-y-1 ${focus}`}
       style={{ backgroundColor: "rgba(255,255,255,0.03)" }}
     >
-      <span className="mb-4 h-3 w-12 rounded-full" style={{ backgroundColor: accent }} aria-hidden />
-      <h3 className="font-display text-xl font-semibold text-white">{lane.label}</h3>
-      <p className="mt-2 flex-1 text-sm text-white/60">{lane.hook}</p>
       <span
-        className="mt-5 text-xs font-semibold uppercase tracking-[0.18em]"
-        style={{ color: accent }}
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/15"
+        style={{ backgroundColor: "rgba(255,255,255,0.04)", color: accent }}
       >
-        Choose this goal <span className="inline-block transition group-hover:translate-x-1">→</span>
+        <GoalIcon id={lane.id} />
+      </span>
+      <span className="min-w-0">
+        <span className="block font-display text-lg font-semibold text-white">{lane.label}</span>
+        <span className="mt-0.5 block text-sm text-white/60">{lane.hook}</span>
       </span>
     </Link>
   );
