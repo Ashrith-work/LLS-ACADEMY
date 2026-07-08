@@ -39,8 +39,8 @@ const COMPASS: Record<LaneId, "north" | "east" | "west"> = {
 /** Ring anchor points as [left%, top%] on the square stage (radius = 36%). */
 const POINT: Record<"north" | "east" | "west", { left: number; top: number }> = {
   north: { left: 50, top: 14 },
-  east: { left: 86, top: 50 },
-  west: { left: 14, top: 50 },
+  east: { left: 94, top: 50 },
+  west: { left: 6, top: 50 },
 };
 
 export function GoalEntry() {
