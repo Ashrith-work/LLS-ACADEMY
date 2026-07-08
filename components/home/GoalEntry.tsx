@@ -114,13 +114,13 @@ export function GoalEntry() {
             <div
               className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/15"
               style={{
-                width: "40%",
-                height: "40%",
+                width: "44%",
+                height: "44%",
                 backgroundColor: "rgba(255,255,255,0.03)",
                 boxShadow: `0 0 70px ${ACCENT.brand}26`, // faint magenta halo
               }}
             >
-              <p className="px-5 text-center font-display text-xl font-semibold leading-tight text-white sm:text-2xl">
+              <p className="px-3 text-center font-display text-3xl font-bold leading-[1.05] text-white sm:text-4xl">
                 Prove them{" "}
                 <span className="italic" style={{ color: ACCENT.brand }}>
                   wrong
