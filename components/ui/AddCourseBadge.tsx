@@ -7,10 +7,10 @@ export function AddCourseBadge() {
     <Link
       href="/#courses"
       aria-label="Add a course — browse courses"
-      className="fixed bottom-6 left-6 z-50 inline-flex items-center gap-2.5 rounded-lg px-7 py-4 text-2xl font-semibold text-white shadow-cardLift transition-all hover:-translate-y-0.5 hover:brightness-95 select-none"
+      className="fixed bottom-6 left-6 z-50 inline-flex items-center gap-2.5 rounded-lg px-5 py-2.5 text-base font-semibold text-white shadow-cardLift transition-all hover:-translate-y-0.5 hover:brightness-95 select-none"
       style={{ backgroundColor: "#E8622C" }}
     >
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </svg>
       Add Course
