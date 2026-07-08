@@ -25,7 +25,7 @@ const SURFACE = "#FBFAF7"; // near-white raised surface (card/surface token)
 const ACCENT: Record<LaneId, string> = {
   sell: "#C0902F", // golden ochre
   brand: "#8B5E3C", // warm brown
-  grow: "#6E7B3D", // moss olive
+  grow: "#5F7A1E", // rich olive
 };
 const HUB = "#B0492B"; // terracotta rust hub accent (ring + "wrong" + hub halo)
 
