@@ -158,10 +158,10 @@ function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
       className={`group flex w-[150px] flex-col items-center gap-2 rounded-2xl px-1 py-1 transition duration-200 ${focus}`}
     >
       <span
-        className="relative flex h-[92px] w-[92px] items-center justify-center rounded-full border border-ink/12 shadow-glow transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-105 motion-reduce:transform-none"
+        className="relative flex h-[92px] w-[92px] items-center justify-center rounded-full border border-black/5 shadow-glow transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-110 motion-reduce:transform-none"
         style={{
-          backgroundColor: SURFACE,
-          color: accent, // tints the icon (currentColor)
+          backgroundColor: accent, // earthy filled circle
+          color: SURFACE, // cream icon (currentColor)
         }}
       >
         <GoalIcon id={lane.id} />
@@ -192,8 +192,8 @@ function MobileGoal({ lane, focus }: { lane: Lane; focus: string }) {
       style={{ backgroundColor: SURFACE }}
     >
       <span
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/12"
-        style={{ backgroundColor: BG, color: accent }}
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/5"
+        style={{ backgroundColor: accent, color: SURFACE }}
       >
         <GoalIcon id={lane.id} />
       </span>
