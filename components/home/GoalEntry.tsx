@@ -34,6 +34,7 @@ const STAGE = "min(72vw, 560px, 58vh)";
 const R = `calc(${STAGE} * 0.40)`; // node orbit radius
 const RING = `calc(${STAGE} * 0.80)`; // faint ring diameter (= 2R)
 const HUB_SIZE = `calc(${STAGE} * 0.46)`; // hub diameter
+const HUB_RING = `calc(${STAGE} * 0.51)`; // spinning accent ring around the hub
 
 /* Per-goal icon (stroke = currentColor, tinted by each node's accent). */
 function GoalIcon({ id }: { id: LaneId }) {
@@ -104,6 +105,18 @@ export function GoalEntry() {
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/15"
               style={{ width: RING, height: RING }}
             />
+
+            {/* Spinning dashed accent ring hugging the hub (visible hub "spin"). */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={{ width: HUB_RING, height: HUB_RING }}
+            >
+              <div
+                className="h-full w-full rounded-full border-2 border-dashed motion-safe:animate-spin-medium"
+                style={{ borderColor: `${HUB}66` }}
+              />
+            </div>
 
             {/* Center hub. */}
             <div
