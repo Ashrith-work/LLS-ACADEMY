@@ -18,14 +18,14 @@ export default function HomePage() {
       <TopBar />
       <main>
         <GoalEntry />
-        <div id="courses" className="bg-[#E4D6BC] py-10 border-y border-ink/10">
+        <div id="courses" className="bg-[#F1EAD9] py-10 border-y border-ink/10">
           {LANES.map((lane) => (
             <LaneRow key={lane.id} lane={lane} />
           ))}
         </div>
         <BundleSection />
         <ProofSection />
-        <Faq bgClass="bg-[#E4D6BC]" />
+        <Faq bgClass="bg-[#F1EAD9]" />
       </main>
       <Footer />
     </>

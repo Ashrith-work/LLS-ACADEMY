@@ -18,7 +18,7 @@ import { track } from "@/lib/tracking";
  * mobile falls back to a simple vertical stack so nothing overlaps.
  */
 
-const BG = "#E4D6BC"; // warm earthy sand / tan
+const BG = "#F1EAD9"; // warm earthy sand / tan
 const SURFACE = "#FBFAF7"; // near-white raised surface (card/surface token)
 
 /* Earthy launcher palette — clay/ochre/olive earth tones on cream limestone. */
@@ -77,7 +77,7 @@ function GoalIcon({ id }: { id: LaneId }) {
 
 export function GoalEntry() {
   const focus =
-    "outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-[#E4D6BC]";
+    "outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-[#F1EAD9]";
 
   return (
     <section
