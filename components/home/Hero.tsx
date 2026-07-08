@@ -50,6 +50,13 @@ export function Hero() {
         />
       </div>
 
+      {/* Orbit ring encircling the headline — decorative, desktop only. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15 md:block"
+        style={{ width: "min(78vh, 600px)", height: "min(78vh, 600px)" }}
+      />
+
       {/* Direction labels orbiting the headline — North / West / East. Link to their track sections. Desktop only. */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
         {/* North → Self Better */}
