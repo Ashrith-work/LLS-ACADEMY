@@ -50,12 +50,17 @@ export function Hero() {
         />
       </div>
 
-      {/* Orbit ring encircling the headline — decorative, desktop only. */}
+      {/* Orbit ring encircling the headline — slow-spinning, decorative, desktop only. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-white/60 md:block"
-        style={{ width: "min(78vh, 600px)", height: "min(78vh, 600px)", boxShadow: "0 0 40px rgba(255,255,255,0.15)" }}
-      />
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block"
+        style={{ width: "min(78vh, 600px)", height: "min(78vh, 600px)" }}
+      >
+        <div
+          className="h-full w-full rounded-full border-[3px] border-dashed border-white/60 motion-safe:animate-spin-slow"
+          style={{ boxShadow: "0 0 40px rgba(255,255,255,0.15)" }}
+        />
+      </div>
 
       {/* Direction labels orbiting the headline — North / West / East. Link to their track sections. Desktop only. */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">

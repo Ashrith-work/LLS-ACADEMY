@@ -66,6 +66,7 @@ const config: Config = {
       animation: {
         drift: "drift 7s ease-in-out infinite",
         marquee: "marquee 45s linear infinite",
+        "spin-slow": "spin 32s linear infinite",
       },
     },
   },
