@@ -82,7 +82,7 @@ const config: Config = {
         // Paired orbit animations (same duration → children stay upright).
         orbit: "spin 20s linear infinite",
         "orbit-counter": "spin-reverse 20s linear infinite",
-        "carousel-spin": "carousel-spin 6s linear infinite",
+        "carousel-spin": "carousel-spin 12s linear infinite",
       },
     },
   },
