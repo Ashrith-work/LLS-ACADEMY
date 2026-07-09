@@ -21,6 +21,15 @@ import { track } from "@/lib/tracking";
 const BG = "#F1EAD9"; // warm earthy sand / tan
 const SURFACE = "#FBFAF7"; // near-white raised surface (card/surface token)
 
+/* Subtle earthy texture layered over the cream base:
+   a faint fractal-noise film grain (inline SVG, no asset) blended in soft-light,
+   plus two soft warm radial washes (ochre top-left, olive bottom-right). Kept low
+   enough that the launcher hub + nodes stay fully legible. */
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\")";
+const BG_IMAGE = `${GRAIN}, radial-gradient(1200px 600px at 15% 8%, rgba(192,144,47,0.10), transparent 60%), radial-gradient(1000px 700px at 85% 92%, rgba(95,122,30,0.09), transparent 60%)`;
+const BG_BLEND = "soft-light, normal, normal";
+
 /* Earthy launcher palette — clay/ochre/olive earth tones on cream limestone. */
 const ACCENT: Record<LaneId, string> = {
   sell: "#C0902F", // golden ochre
@@ -82,7 +91,7 @@ export function GoalEntry() {
   return (
     <section
       className="flex min-h-[90vh] items-center border-b border-ink/10 py-16 sm:py-24"
-      style={{ backgroundColor: BG }}
+      style={{ backgroundColor: BG, backgroundImage: BG_IMAGE, backgroundBlendMode: BG_BLEND }}
       aria-label="Choose your goal"
     >
       <div className="mx-auto w-full max-w-6xl px-4">
@@ -105,10 +114,15 @@ export function GoalEntry() {
               style={{ width: RING, height: RING }}
             />
 
-            {/* Center hub — text only, blended into the page (no white disc). */}
+            {/* Center hub — earthy text on a soft cream disc that fades into the page,
+                raised above the orbit so passing node labels tuck behind it cleanly. */}
             <div
-              className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
-              style={{ width: HUB_SIZE, height: HUB_SIZE }}
+              className="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+              style={{
+                width: HUB_SIZE,
+                height: HUB_SIZE,
+                background: "radial-gradient(circle, #F1EAD9 52%, rgba(241,234,217,0) 72%)",
+              }}
             >
               <p className="px-3 text-center font-display text-5xl font-bold leading-[1.02] sm:text-6xl" style={{ color: "#4A3319" }}>
                 Prove them{" "}
