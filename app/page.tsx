@@ -1,6 +1,7 @@
 import { TopBar } from "@/components/layout/TopBar";
 import { Footer } from "@/components/layout/Footer";
 import { GoalEntry } from "@/components/home/GoalEntry";
+import { CourseFinderHero } from "@/components/CourseFinderHero";
 import { LaneRow } from "@/components/home/LaneRow";
 import { BundleSection } from "@/components/home/BundleSection";
 import { ProofSection } from "@/components/home/ProofSection";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <TopBar />
       <main>
         <GoalEntry />
+        <CourseFinderHero />
         <div id="courses" className="bg-[#F1EAD9] py-10 border-y border-ink/10">
           {LANES.map((lane) => (
             <LaneRow key={lane.id} lane={lane} />
