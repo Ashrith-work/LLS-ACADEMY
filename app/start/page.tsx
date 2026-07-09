@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: "Search or pick a goal and jump straight into the courses.",
 };
 
+// Rendered per-request so the ?q= / ?goal= course list is present in the SSR HTML
+// (useSearchParams reads the real query on the server), not just after hydration.
+export const dynamic = "force-dynamic";
+
 export default function StartPage() {
   // No questions, no gating — /start shows courses directly.
   // SearchResults handles ?q= (search), ?goal= (category), or browse-all.
