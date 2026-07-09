@@ -122,8 +122,13 @@ export function GoalEntry() {
             <img
               src={CAROUSEL.src}
               alt="A rotating 3D carousel of course cards"
-              className="pointer-events-none absolute left-0 top-0 max-w-none select-none"
-              style={{ width: CAROUSEL.imgWidth, transform: CAROUSEL.imgShift, mixBlendMode: "multiply" }}
+              className="pointer-events-none absolute left-0 top-0 max-w-none select-none motion-safe:animate-carousel-spin"
+              style={{
+                width: CAROUSEL.imgWidth,
+                transform: CAROUSEL.imgShift, // static crop (also the reduced-motion fallback)
+                transformOrigin: "48.75% 21%", // centre of the visible card band → pivot for the spin
+                mixBlendMode: "multiply",
+              }}
             />
           </div>
         </Reveal>
