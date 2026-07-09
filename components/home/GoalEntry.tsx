@@ -26,7 +26,7 @@ const SURFACE = "#FBFAF7"; // near-white raised surface (card/surface token)
    plus two soft warm radial washes (ochre top-left, olive bottom-right). Kept low
    enough that the launcher hub + nodes stay fully legible. */
 const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.85'/%3E%3C/svg%3E\")";
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.65'/%3E%3C/svg%3E\")";
 const BG_IMAGE = `${GRAIN}, radial-gradient(1200px 600px at 15% 8%, rgba(192,144,47,0.10), transparent 60%), radial-gradient(1000px 700px at 85% 92%, rgba(95,122,30,0.09), transparent 60%)`;
 const BG_BLEND = "soft-light, normal, normal";
 
