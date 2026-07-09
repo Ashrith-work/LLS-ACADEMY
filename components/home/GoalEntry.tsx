@@ -90,7 +90,7 @@ export function GoalEntry() {
 
   return (
     <section
-      className="flex min-h-[90vh] items-center border-b border-ink/10 py-16 sm:py-24"
+      className="flex min-h-[90vh] items-center py-16 sm:py-24"
       style={{ backgroundColor: BG, backgroundImage: BG_IMAGE, backgroundBlendMode: BG_BLEND }}
       aria-label="Choose your goal"
     >
