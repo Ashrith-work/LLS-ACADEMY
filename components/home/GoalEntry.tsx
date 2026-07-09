@@ -38,12 +38,14 @@ const ACCENT: Record<LaneId, string> = {
 const HUB = "#B0492B"; // terracotta rust hub accent (the "wrong")
 
 /* Carousel crop — the source render is 1000×476 with the scene framed in white.
-   These show only that white frame (x 280–695, y 0–246), dropping the grey canvas. */
+   Show only the cards' band (x 280–695, y 10–188): drops the grey editor canvas,
+   the faint top frame-edge line, and the empty white below the cards. The white
+   that remains is multiplied away into the cream. Shift is a % of the image itself. */
 const CAROUSEL = {
   src: "/hero-carousel.jpg",
-  aspect: "415 / 246", // crop width / height
-  imgWidth: "240.96%", // 1000 / 415
-  imgLeft: "-67.47%", // -280 / 415
+  aspect: "415 / 178", // crop width / height
+  imgWidth: "240.96%", // container width × 1000/415 so the crop fills it
+  imgShift: "translate(-28%, -2.1%)", // -280/1000, -10/476 → top-left of crop
 };
 
 /* Per-goal icon (stroke = currentColor, tinted by each link's accent). */
@@ -120,8 +122,8 @@ export function GoalEntry() {
             <img
               src={CAROUSEL.src}
               alt="A rotating 3D carousel of course cards"
-              className="pointer-events-none absolute top-0 max-w-none select-none"
-              style={{ width: CAROUSEL.imgWidth, left: CAROUSEL.imgLeft, mixBlendMode: "multiply" }}
+              className="pointer-events-none absolute left-0 top-0 max-w-none select-none"
+              style={{ width: CAROUSEL.imgWidth, transform: CAROUSEL.imgShift, mixBlendMode: "multiply" }}
             />
           </div>
         </Reveal>
