@@ -4,20 +4,33 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { ArrowUp, ArrowLeft, Star } from "lucide-react";
-import { searchCourses, CATEGORIES, type Course } from "@/lib/courses";
+import {
+  searchCourses,
+  CATEGORIES,
+  COURSES,
+  type Course,
+  type CategoryKey,
+} from "@/lib/courses";
 
 /**
- * SearchResults — the /start?q=<text> destination for the CourseFinderHero.
- *
- * Reads the free-text query, runs the zero-dep intent search from lib/courses,
- * and shows a recommended "starter" course + related results (or popular
- * starters as a fallback). Dark theme + coral accent to match the finder.
+ * SearchResults — the /start destination. No questions, no gating: it just
+ * shows courses directly.
+ *   ?q=<text>   → intent search (starter + related)
+ *   ?goal=sell  → that category's courses
+ *   (neither)   → browse all courses by category
+ * Every card links straight to /courses/<slug>. Dark theme + coral accent.
  */
 
 const ACCENT = "#E8622C";
+const ALL_CATS: CategoryKey[] = ["sell", "brand", "grow"];
 
 function priceLabel(price: number | null): string {
   return price == null ? "Coming soon" : `₹${price.toLocaleString("en-IN")}`;
+}
+
+/** start-here first, then live courses, then coming-soon. */
+function sortCat(a: Course, b: Course): number {
+  return (a.start ? 0 : 1) - (b.start ? 0 : 1) || (a.soon ? 1 : 0) - (b.soon ? 1 : 0);
 }
 
 function ResultCard({ course, starter = false }: { course: Course; starter?: boolean }) {
@@ -60,11 +73,34 @@ function ResultCard({ course, starter = false }: { course: Course; starter?: boo
   );
 }
 
+/** A titled grid of every course in one category. */
+function CategorySection({ cat }: { cat: CategoryKey }) {
+  const list = COURSES.filter((c) => c.cat === cat).sort(sortCat);
+  return (
+    <section className="mt-10">
+      <div className="mb-4 flex items-center gap-2">
+        <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: CATEGORIES[cat].color }} aria-hidden />
+        <h2 className="font-display text-xl font-semibold text-white">{CATEGORIES[cat].label}</h2>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {list.map((c) => (
+          <ResultCard key={c.slug} course={c} starter={!!c.start && !c.soon} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function SearchResults() {
   const params = useSearchParams();
   const router = useRouter();
+
   const q = params.get("q") ?? "";
-  const { starter, results, phrase, fallback } = searchCourses(q);
+  const goalParam = params.get("goal");
+  const goal: CategoryKey | null =
+    goalParam && goalParam in CATEGORIES ? (goalParam as CategoryKey) : null;
+  const hasQuery = q.trim().length > 0;
+
   const [value, setValue] = useState(q);
 
   function refine(e: React.FormEvent) {
@@ -73,7 +109,8 @@ export function SearchResults() {
     if (v) router.push(`/start?q=${encodeURIComponent(v)}`);
   }
 
-  const hasQuery = q.trim().length > 0;
+  // Free-text search result (only used when there's a query).
+  const search = hasQuery ? searchCourses(q) : null;
 
   return (
     <main className="min-h-dvh w-full" style={{ backgroundColor: "#0E0E14" }}>
@@ -88,15 +125,15 @@ export function SearchResults() {
           </span>
         </div>
 
-        {/* Refine search */}
+        {/* Search box */}
         <form onSubmit={refine} className="mb-9">
           <div className="flex items-center gap-3 rounded-3xl border border-white/10 bg-[#16161f] px-5 py-3 transition-all duration-200 focus-within:border-[#E8622C]/50 focus-within:ring-4 focus-within:ring-[#E8622C]/15">
             <input
               type="text"
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              aria-label="Refine your search"
-              placeholder="Search again — e.g. 'close more sales'…"
+              aria-label="Search courses"
+              placeholder="Search courses — e.g. 'close more sales'…"
               enterKeyHint="search"
               className="min-w-0 flex-1 bg-transparent py-1.5 text-base text-white placeholder:text-white/35 focus:outline-none"
             />
@@ -112,36 +149,52 @@ export function SearchResults() {
           </div>
         </form>
 
-        {!hasQuery ? (
-          <p className="text-white/60">Type what you want to get better at above and press enter.</p>
-        ) : (
+        {/* --- Body --- */}
+        {search ? (
+          // Free-text search results
           <>
             <h1 className="font-display text-2xl font-semibold leading-snug text-white sm:text-3xl">
-              {fallback ? (
-                <>No exact match for “{phrase}”. Here’s where most people start.</>
+              {search.fallback ? (
+                <>No exact match for “{search.phrase}”. Here’s where most people start.</>
               ) : (
-                <>Your path for “{phrase}”.</>
+                <>Your path for “{search.phrase}”.</>
               )}
             </h1>
-
-            {starter && (
+            {search.starter && (
               <div className="mt-6">
-                <ResultCard course={starter} starter />
+                <ResultCard course={search.starter} starter />
               </div>
             )}
-
-            {results.length > 0 && (
+            {search.results.length > 0 && (
               <>
                 <h2 className="mb-4 mt-10 text-sm font-medium uppercase tracking-wide text-white/40">
-                  {fallback ? "Popular starting points" : "More that fit"}
+                  {search.fallback ? "Popular starting points" : "More that fit"}
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  {results.map((c) => (
+                  {search.results.map((c) => (
                     <ResultCard key={c.slug} course={c} />
                   ))}
                 </div>
               </>
             )}
+          </>
+        ) : goal ? (
+          // One goal → that category's courses
+          <>
+            <h1 className="font-display text-2xl font-semibold leading-snug text-white sm:text-3xl">
+              {CATEGORIES[goal].label}
+            </h1>
+            <CategorySection cat={goal} />
+          </>
+        ) : (
+          // No params → browse everything
+          <>
+            <h1 className="font-display text-2xl font-semibold leading-snug text-white sm:text-3xl">
+              All courses
+            </h1>
+            {ALL_CATS.map((c) => (
+              <CategorySection key={c} cat={c} />
+            ))}
           </>
         )}
       </div>

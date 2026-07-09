@@ -1,26 +1,19 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { GoalRouter } from "@/components/router/GoalRouter";
 import { SearchResults } from "@/components/router/SearchResults";
 
 export const metadata: Metadata = {
-  title: "Find your course — your path in 30 seconds",
-  description: "One goal + 2 questions — we'll recommend the right course for your situation.",
+  title: "Find your course — browse the LLS catalog",
+  description: "Search or pick a goal and jump straight into the courses.",
 };
 
-export default function StartPage({
-  searchParams,
-}: {
-  searchParams: { q?: string; goal?: string };
-}) {
-  // Free-text search (from the CourseFinderHero) -> results view.
-  // Otherwise the gated goal router.
-  const hasQuery = typeof searchParams?.q === "string" && searchParams.q.trim().length > 0;
-
+export default function StartPage() {
+  // No questions, no gating — /start shows courses directly.
+  // SearchResults handles ?q= (search), ?goal= (category), or browse-all.
   return (
     // Suspense boundary required for useSearchParams during static build.
-    <Suspense fallback={<div className="min-h-dvh bg-bone" />}>
-      {hasQuery ? <SearchResults /> : <GoalRouter />}
+    <Suspense fallback={<div className="min-h-dvh" style={{ backgroundColor: "#0E0E14" }} />}>
+      <SearchResults />
     </Suspense>
   );
 }
