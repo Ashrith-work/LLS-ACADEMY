@@ -7,24 +7,23 @@ import { Reveal } from "@/components/ui/Reveal";
 import { track } from "@/lib/tracking";
 
 /**
- * GoalEntry — a launcher-style radial goal picker.
+ * GoalEntry — hero with a 3D course carousel and goal shortcuts.
  *
- * A central hub ("Prove them wrong") ringed by circular icon nodes, one per
- * goal, spaced EVENLY around a faint ring: angle per node = 360 / count, so the
- * layout is driven by the LANES list (add a lane → it re-spaces automatically).
- * No spokes — just the hub, the faint ring, and the nodes.
+ * The visual is a Spline "3D Carousel" (exported as a still). The source is a
+ * white-framed render; we crop out the surrounding editor canvas via CSS and
+ * drop the white into the page with `mix-blend-mode: multiply`, so the cream
+ * shows through and the portraits pick up a warm, on-brand wash.
  *
- * Each node is a Link to /start?goal=…. Radial layout is tablet/desktop only;
- * mobile falls back to a simple vertical stack so nothing overlaps.
+ * Beneath it sit three small goal links (one per LANE) into /start?goal=… so the
+ * hero keeps its click-through navigation even though the radial launcher is gone.
  */
 
 const BG = "#F1EAD9"; // warm earthy sand / tan
-const SURFACE = "#FBFAF7"; // near-white raised surface (card/surface token)
 
 /* Subtle earthy texture layered over the cream base:
    a faint fractal-noise film grain (inline SVG, no asset) blended in soft-light,
    plus two soft warm radial washes (ochre top-left, olive bottom-right). Kept low
-   enough that the launcher hub + nodes stay fully legible. */
+   enough that the carousel + links stay fully legible. */
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.65'/%3E%3C/svg%3E\")";
 const BG_IMAGE = `${GRAIN}, radial-gradient(1200px 600px at 15% 8%, rgba(192,144,47,0.10), transparent 60%), radial-gradient(1000px 700px at 85% 92%, rgba(95,122,30,0.09), transparent 60%)`;
@@ -36,19 +35,22 @@ const ACCENT: Record<LaneId, string> = {
   brand: "#8B5E3C", // warm brown
   grow: "#5F7A1E", // rich olive
 };
-const HUB = "#B0492B"; // terracotta rust hub accent (ring + "wrong" + hub halo)
+const HUB = "#B0492B"; // terracotta rust hub accent (the "wrong")
 
-/* Geometry — all derived from one stage size so the ring stays circular and fits. */
-const STAGE = "min(72vw, 560px, 58vh)";
-const R = `calc(${STAGE} * 0.46)`; // node orbit radius
-const RING = `calc(${STAGE} * 0.92)`; // faint ring diameter (= 2R)
-const HUB_SIZE = `calc(${STAGE} * 0.52)`; // hub diameter
+/* Carousel crop — the source render is 1000×476 with the scene framed in white.
+   These show only that white frame (x 280–695, y 0–246), dropping the grey canvas. */
+const CAROUSEL = {
+  src: "/hero-carousel.jpg",
+  aspect: "415 / 246", // crop width / height
+  imgWidth: "240.96%", // 1000 / 415
+  imgLeft: "-67.47%", // -280 / 415
+};
 
-/* Per-goal icon (stroke = currentColor, tinted by each node's accent). */
-function GoalIcon({ id }: { id: LaneId }) {
+/* Per-goal icon (stroke = currentColor, tinted by each link's accent). */
+function GoalIcon({ id, size = 20 }: { id: LaneId; size?: number }) {
   const common = {
-    width: 38,
-    height: 38,
+    width: size,
+    height: size,
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
@@ -94,126 +96,65 @@ export function GoalEntry() {
       style={{ backgroundColor: BG, backgroundImage: BG_IMAGE, backgroundBlendMode: BG_BLEND }}
       aria-label="Choose your goal"
     >
-      <div className="mx-auto w-full max-w-6xl px-4">
-        {/* ── Mobile (<md): vertical stack ── */}
-        <div className="grid gap-4 md:hidden">
-          {LANES.map((lane, i) => (
-            <Reveal key={lane.id} delay={i * 0.08}>
-              <MobileGoal lane={lane} focus={focus} />
-            </Reveal>
-          ))}
-        </div>
+      <div className="mx-auto w-full max-w-5xl px-4">
+        {/* Headline */}
+        <Reveal>
+          <h1
+            className="text-center font-display text-5xl font-bold leading-[1.02] sm:text-6xl"
+            style={{ color: "#4A3319" }}
+          >
+            Prove them{" "}
+            <span className="italic" style={{ color: HUB }}>
+              wrong
+            </span>
+          </h1>
+        </Reveal>
 
-        {/* ── Tablet / desktop (md+): radial launcher ── */}
-        <div className="hidden justify-center md:flex">
-          <div className="relative" style={{ width: STAGE, height: STAGE }}>
-            {/* Faint ring the nodes sit on. */}
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/15"
-              style={{ width: RING, height: RING }}
+        {/* 3D carousel — cropped to the scene frame, white multiplied into the cream. */}
+        <Reveal delay={0.08}>
+          <div
+            className="relative mx-auto mt-8 w-full max-w-3xl overflow-hidden sm:mt-10"
+            style={{ aspectRatio: CAROUSEL.aspect }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={CAROUSEL.src}
+              alt="A rotating 3D carousel of course cards"
+              className="pointer-events-none absolute top-0 max-w-none select-none"
+              style={{ width: CAROUSEL.imgWidth, left: CAROUSEL.imgLeft, mixBlendMode: "multiply" }}
             />
-
-            {/* Center hub — earthy text on a soft cream disc that fades into the page,
-                raised above the orbit so passing node labels tuck behind it cleanly. */}
-            <div
-              className="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
-              style={{
-                width: HUB_SIZE,
-                height: HUB_SIZE,
-                background: "radial-gradient(circle, #F1EAD9 52%, rgba(241,234,217,0) 72%)",
-              }}
-            >
-              <p className="px-3 text-center font-display text-5xl font-bold leading-[1.02] sm:text-6xl" style={{ color: "#4A3319" }}>
-                Prove them{" "}
-                <span className="italic" style={{ color: HUB }}>
-                  wrong
-                </span>
-              </p>
-            </div>
-
-            {/* Node ring — orbits slowly around the hub; each node counter-rotates
-                at the same rate so its icon + label stay upright. */}
-            <div className="absolute inset-0 origin-center motion-safe:animate-orbit">
-              {LANES.map((lane, i) => {
-                const angle = (360 / LANES.length) * i; // 0 = top, clockwise
-                return (
-                  <div
-                    key={lane.id}
-                    className="absolute left-1/2 top-1/2"
-                    style={{
-                      // centre on hub → rotate to angle → push out by R → un-rotate so the node stays upright
-                      transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(${R} * -1)) rotate(${-angle}deg)`,
-                    }}
-                  >
-                    <div className="origin-center motion-safe:animate-orbit-counter">
-                      <RadialNode lane={lane} focus={focus} />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
-        </div>
+        </Reveal>
+
+        {/* Goal shortcuts — keep the click-through into /start?goal=… */}
+        <Reveal delay={0.16}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:mt-12">
+            {LANES.map((lane) => (
+              <GoalLink key={lane.id} lane={lane} focus={focus} />
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
 }
 
-/** A round icon button + label beneath — the whole thing is the link. */
-function RadialNode({ lane, focus }: { lane: Lane; focus: string }) {
-  const accent = ACCENT[lane.id];
-  return (
-    <Link
-      href={`/start?goal=${lane.id}`}
-      aria-label={lane.label}
-      onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
-      className={`group flex w-[172px] flex-col items-center gap-2 rounded-2xl px-1 py-1 transition duration-200 ${focus}`}
-    >
-      <span
-        className="relative flex h-[112px] w-[112px] items-center justify-center rounded-full border border-black/5 shadow-glow transition-all duration-200 group-hover:-translate-y-1 group-hover:brightness-110 motion-reduce:transform-none"
-        style={{
-          backgroundColor: accent, // earthy filled circle
-          color: SURFACE, // cream icon (currentColor)
-        }}
-      >
-        <GoalIcon id={lane.id} />
-        {/* accent ring that fades in on hover (kept as a sibling so we don't fight inline styles) */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute h-[112px] w-[112px] rounded-full opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-          style={{ boxShadow: `0 0 0 2px ${accent}, 0 0 22px ${accent}66` }}
-        />
-      </span>
-      <span
-        className="text-center font-display text-base font-semibold leading-tight text-inkSoft transition-colors duration-200 group-hover:text-ink"
-      >
-        {lane.label}
-      </span>
-    </Link>
-  );
-}
-
-/** Mobile fallback — a simple stacked card with the same icon + accent. */
-function MobileGoal({ lane, focus }: { lane: Lane; focus: string }) {
+/** A small pill link — accent icon chip + label — into the goal's start flow. */
+function GoalLink({ lane, focus }: { lane: Lane; focus: string }) {
   const accent = ACCENT[lane.id];
   return (
     <Link
       href={`/start?goal=${lane.id}`}
       onClick={() => track("router_goal_chosen", { goal: lane.id, from: "home" })}
-      className={`group flex items-center gap-4 rounded-2xl border border-ink/10 p-4 shadow-glow transition duration-200 motion-safe:hover:-translate-y-1 ${focus}`}
-      style={{ backgroundColor: SURFACE }}
+      className={`group flex items-center gap-2.5 rounded-full border border-ink/10 bg-[#FBFAF7] px-4 py-2.5 shadow-glow transition duration-200 motion-safe:hover:-translate-y-0.5 hover:brightness-[1.03] ${focus}`}
     >
       <span
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/5"
-        style={{ backgroundColor: accent, color: SURFACE }}
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/5"
+        style={{ backgroundColor: accent, color: "#FBFAF7" }}
       >
-        <GoalIcon id={lane.id} />
+        <GoalIcon id={lane.id} size={18} />
       </span>
-      <span className="min-w-0">
-        <span className="block font-display text-lg font-semibold text-ink">{lane.label}</span>
-        <span className="mt-0.5 block text-sm text-muted">{lane.hook}</span>
-      </span>
+      <span className="font-display text-sm font-semibold text-ink">{lane.label}</span>
     </Link>
   );
 }
