@@ -67,11 +67,11 @@ const config: Config = {
           from: { transform: "rotate(0deg)" },
           to: { transform: "rotate(-360deg)" },
         },
-        // Hero carousel: a gentle 3D turn back-and-forth. The translate() keeps the
-        // still cropped to its card band (see GoalEntry CAROUSEL); rotateY does the spin.
+        // Hero carousel: a full 360° 3D flip. The translate() keeps the still cropped
+        // to its card band (see GoalEntry CAROUSEL); rotateY does the continuous spin.
         "carousel-spin": {
-          "0%, 100%": { transform: "perspective(1200px) rotateY(-7deg) translate(-28%, -2.1%)" },
-          "50%": { transform: "perspective(1200px) rotateY(7deg) translate(-28%, -2.1%)" },
+          from: { transform: "perspective(1200px) rotateY(0deg) translate(-28%, -2.1%)" },
+          to: { transform: "perspective(1200px) rotateY(360deg) translate(-28%, -2.1%)" },
         },
       },
       animation: {
@@ -82,7 +82,7 @@ const config: Config = {
         // Paired orbit animations (same duration → children stay upright).
         orbit: "spin 20s linear infinite",
         "orbit-counter": "spin-reverse 20s linear infinite",
-        "carousel-spin": "carousel-spin 5s ease-in-out infinite",
+        "carousel-spin": "carousel-spin 6s linear infinite",
       },
     },
   },
