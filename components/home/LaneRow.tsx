@@ -57,7 +57,7 @@ export function LaneRow({ lane }: { lane: Lane }) {
   // nav also gets a full interval. Paused on hover/focus and under reduced motion.
   useEffect(() => {
     if (paused || reduced || n <= 1) return;
-    const id = setTimeout(() => setActive((a) => (a + 1) % n), 3200);
+    const id = setTimeout(() => setActive((a) => (a + 1) % n), 2200);
     return () => clearTimeout(id);
   }, [active, paused, reduced, n]);
 
