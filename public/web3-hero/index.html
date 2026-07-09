@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover Web 3.0 Creations</title>
+
+  <!-- Google Font: Chakra Petch -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      background: #000;
+      overflow: hidden;
+      color: #fff;
+      font-family: "Chakra Petch", system-ui, sans-serif;
+    }
+
+    /* ── Full-screen hero, pure black ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100svh; /* better on mobile browser chrome */
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Rotating burst layer ──
+       Bigger than the screen (150vmax square) and centered, so its inscribed
+       circle always covers the viewport — no black corners as it turns.
+       Centering is done with top/left + margin so the rotate animation's
+       transform doesn't fight a centering transform. */
+    .hero__spin {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150vmax;
+      height: 150vmax;
+      margin: -75vmax 0 0 -75vmax;
+      transform-origin: center center;
+      animation: hero-spin 50s linear infinite;
+      will-change: transform;
+    }
+    .hero__spin img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;   /* fill the square; image colors untouched */
+      /* No filter/tint — colors stay exactly as the source image. */
+    }
+
+    @keyframes hero-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ── Center veil: soft dark radial gradient to hide the baked-in title
+       so we can re-add crisp static text on top. ── */
+    .hero__veil {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        ellipse 42% 38% at 50% 50%,
+        rgba(0, 0, 0, 0.94) 0%,
+        rgba(0, 0, 0, 0.88) 32%,
+        rgba(0, 0, 0, 0.55) 55%,
+        rgba(0, 0, 0, 0) 72%
+      );
+    }
+
+    /* ── Static title (does NOT rotate) ── */
+    .hero__title {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .hero__title .line {
+      display: block;
+      font-weight: 700;
+      font-size: clamp(2.75rem, 11vw, 8rem);
+      line-height: 0.96;
+      letter-spacing: 0.02em;
+      text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.45),
+        0 0 28px rgba(255, 255, 255, 0.28),
+        0 0 60px rgba(150, 190, 255, 0.18);
+    }
+    .hero__title .sub {
+      display: block;
+      margin-top: clamp(0.9rem, 2.4vw, 1.6rem);
+      font-weight: 500;
+      font-size: clamp(0.8rem, 2.3vw, 1.4rem);
+      letter-spacing: 0.62em;
+      /* nudge right so the wide tracking stays visually centered */
+      padding-left: 0.62em;
+      text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.4),
+        0 0 20px rgba(255, 255, 255, 0.22);
+    }
+
+    /* ── Respect reduced-motion: stop the spin ── */
+    @media (prefers-reduced-motion: reduce) {
+      .hero__spin { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero" aria-label="Discover Web 3.0 Creations">
+    <!-- Rotating background burst -->
+    <div class="hero__spin" aria-hidden="true">
+      <img src="images/web3-hero.png" alt="" />
+    </div>
+
+    <!-- Dark veil over the center to mask the image's baked-in text -->
+    <div class="hero__veil" aria-hidden="true"></div>
+
+    <!-- Crisp static title on top -->
+    <h1 class="hero__title">
+      <span class="line">Discover</span>
+      <span class="line">Web 3.0</span>
+      <span class="sub">Creations</span>
+    </h1>
+  </section>
+</body>
+</html>
