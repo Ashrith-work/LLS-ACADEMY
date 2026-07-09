@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hero Banner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { min-height: 100%; }
+
+    /* Dark page background */
+    body {
+      background: #0b0b0d;
+      /* padding around the centered content */
+      padding: clamp(20px, 5vw, 64px) 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Centered max-width wrapper (~1120px) — NOT edge-to-edge */
+    .wrap {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* Framed image: rounded corners, soft shadow, thin subtle border */
+    .frame {
+      border-radius: 16px;
+      overflow: hidden;                         /* clips image to rounded corners */
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 24px 70px -24px rgba(0, 0, 0, 0.75),
+        0 6px 18px rgba(0, 0, 0, 0.45);
+      background: #0b0b0d;
+      line-height: 0;                            /* removes inline-image gap */
+    }
+
+    /* Image fills the frame width, nothing cropped, colors untouched */
+    .frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      /* no filter / no recolor */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="frame">
+      <img src="images/hero-banner.png" alt="Hero banner" />
+    </div>
+  </div>
+</body>
+</html>
