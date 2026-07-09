@@ -9,27 +9,32 @@ import { CourseCard } from "@/components/course/CourseCard";
 import { Reveal } from "@/components/ui/Reveal";
 
 /**
- * Lane row as a 3D "coverflow" carousel.
+ * Lane row as a 3D "coverflow" carousel that auto-rotates one card at a time.
  *
- * One FIXED center slot — cards animate THROUGH it. The active card sits center
- * (full size, upright); the previous card peeks left and the next peeks right
- * (smaller, tilted inward, dimmed). Everything is transform-only (no layout
- * shift): all cards are absolutely positioned in the same track, so the centre
- * never moves — only the transforms change.
+ * One FIXED center slot — cards animate THROUGH it. Active card sits center
+ * (full size, upright); previous peeks left, next peeks right (smaller, tilted,
+ * dimmed). Transform-only (all cards absolutely positioned in one track, so the
+ * centre never moves). Layout is a RING (circular delta) so autoplay loops
+ * seamlessly — the wrap happens in the hidden zone and its transform transition
+ * is skipped so nothing sweeps across the stage.
  *
- * Same data + same CourseCard as before — only the layout/animation changed.
- * Center click opens the course (the card's own link); side click centres it.
+ * Same data + same CourseCard as before — only layout/animation changed.
+ * Centre click opens the course (the card's own link); side click centres it.
+ * Autoplay pauses on hover/focus and is disabled under prefers-reduced-motion.
  */
 export function LaneRow({ lane }: { lane: Lane }) {
   const styles = LANE_STYLES[lane.id];
   const courses = [...coursesByLane(lane.id)].sort((a, b) =>
     a.status === b.status ? Number(!!b.anchor) - Number(!!a.anchor) : a.status === "live" ? -1 : 1,
   );
+  const n = courses.length;
 
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
   const [compact, setCompact] = useState(false);
   const [reduced, setReduced] = useState(false);
   const dragX = useRef<number | null>(null);
+  const prevDeltas = useRef<number[]>([]);
 
   // Environment-aware tuning (mobile offsets + reduced motion).
   useEffect(() => {
@@ -48,10 +53,17 @@ export function LaneRow({ lane }: { lane: Lane }) {
     };
   }, []);
 
-  const last = courses.length - 1;
-  const go = (i: number) => setActive((prev) => Math.min(last, Math.max(0, i)));
-  const next = () => go(active + 1);
-  const prev = () => go(active - 1);
+  // Autoplay — advance one card at a time; resets on every change so manual
+  // nav also gets a full interval. Paused on hover/focus and under reduced motion.
+  useEffect(() => {
+    if (paused || reduced || n <= 1) return;
+    const id = setTimeout(() => setActive((a) => (a + 1) % n), 3200);
+    return () => clearTimeout(id);
+  }, [active, paused, reduced, n]);
+
+  const go = (i: number) => setActive(((i % n) + n) % n);
+  const next = () => setActive((a) => (a + 1) % n);
+  const prev = () => setActive((a) => (a - 1 + n) % n);
 
   function onKeyDown(e: React.KeyboardEvent) {
     if (e.key === "ArrowRight") { e.preventDefault(); next(); }
@@ -77,23 +89,37 @@ export function LaneRow({ lane }: { lane: Lane }) {
 
   const cx = (x: number) => (x === 0 ? "-50%" : x < 0 ? `calc(-50% - ${-x}%)` : `calc(-50% + ${x}%)`);
 
-  function slot(delta: number) {
-    let x = 0, scale = 1, rot = 0, opacity = 1, z = 30, clickable = false, isCenter = false;
-    if (delta === 0) { isCenter = true; z = 30; }
-    else if (delta === -1) { x = -OFFSET; scale = NEIGHBOR_SCALE; rot = TILT; opacity = 0.55; z = 20; clickable = true; }
-    else if (delta === 1) { x = OFFSET; scale = NEIGHBOR_SCALE; rot = -TILT; opacity = 0.55; z = 20; clickable = true; }
+  // Circular (ring) delta: nearest signed distance to the active index.
+  const deltas = courses.map((_, i) => {
+    let d = ((i - active) % n + n) % n; // 0..n-1
+    if (d > n / 2) d -= n; // shift far cards to the negative side
+    return d;
+  });
+  // A card whose delta jumped by more than 1 wrapped around the ring — skip its
+  // transform transition so it repositions instantly instead of sweeping across.
+  const wrapped = deltas.map((d, i) => {
+    const p = prevDeltas.current[i];
+    return p != null && Math.abs(d - p) > 1;
+  });
+  useEffect(() => {
+    prevDeltas.current = deltas;
+  });
+
+  function slotStyle(delta: number, skip: boolean): React.CSSProperties {
+    let x = 0, scale = 1, rot = 0, opacity = 1, z = 30;
+    if (delta === 0) { z = 30; }
+    else if (delta === -1) { x = -OFFSET; scale = NEIGHBOR_SCALE; rot = TILT; opacity = 0.55; z = 20; }
+    else if (delta === 1) { x = OFFSET; scale = NEIGHBOR_SCALE; rot = -TILT; opacity = 0.55; z = 20; }
     else if (delta < 0) { x = -FAR; scale = 0.7; rot = TILT; opacity = 0; z = 10; }
     else { x = FAR; scale = 0.7; rot = -TILT; opacity = 0; z = 10; }
     return {
-      isCenter,
-      clickable,
-      style: {
-        transform: `translate(${cx(x)}, -50%) scale(${scale}) rotateY(${rot}deg)`,
-        opacity,
-        zIndex: z,
-        transition: `transform ${DURATION}ms cubic-bezier(0.22,0.61,0.36,1), opacity ${DURATION}ms ease`,
-        pointerEvents: (Math.abs(delta) <= 1 ? "auto" : "none") as "auto" | "none",
-      } as React.CSSProperties,
+      transform: `translate(${cx(x)}, -50%) scale(${scale}) rotateY(${rot}deg)`,
+      opacity,
+      zIndex: z,
+      transition: skip
+        ? `opacity ${DURATION}ms ease`
+        : `transform ${DURATION}ms cubic-bezier(0.22,0.61,0.36,1), opacity ${DURATION}ms ease`,
+      pointerEvents: (Math.abs(delta) <= 1 ? "auto" : "none") as "auto" | "none",
     };
   }
 
@@ -118,17 +144,22 @@ export function LaneRow({ lane }: { lane: Lane }) {
             onKeyDown={onKeyDown}
             onPointerDown={onPointerDown}
             onPointerUp={onPointerUp}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
             className="relative h-[400px] select-none rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
             style={{ perspective: "1200px", touchAction: "pan-y" }}
           >
             {courses.map((c, i) => {
-              const delta = i - active;
-              const { style, isCenter, clickable } = slot(delta);
+              const delta = deltas[i];
+              const isCenter = delta === 0;
+              const clickable = Math.abs(delta) === 1;
               return (
                 <div
                   key={c.id}
                   className="absolute left-1/2 top-1/2 w-64 sm:w-72"
-                  style={style}
+                  style={slotStyle(delta, wrapped[i])}
                   aria-hidden={!isCenter}
                 >
                   {/* Card unchanged. Non-centre cards are inert (centre stays interactive).
@@ -156,21 +187,19 @@ export function LaneRow({ lane }: { lane: Lane }) {
             <button
               type="button"
               onClick={prev}
-              disabled={active === 0}
               aria-label="Previous course"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink transition hover:border-ink/60 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink transition hover:-translate-y-0.5 hover:border-ink/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
             >
               <ChevronLeft size={18} aria-hidden />
             </button>
             <span className="min-w-[3.5rem] text-center text-sm tabular-nums text-muted" aria-live="polite">
-              {active + 1} / {courses.length}
+              {active + 1} / {n}
             </span>
             <button
               type="button"
               onClick={next}
-              disabled={active === last}
               aria-label="Next course"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink transition hover:border-ink/60 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink transition hover:-translate-y-0.5 hover:border-ink/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
             >
               <ChevronRight size={18} aria-hidden />
             </button>
