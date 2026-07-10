@@ -27,7 +27,7 @@ const config: Config = {
         surface: "#FFFFFF", // raised white panel
         card: "#FFFFFF", // white card
         bone: "#FFFFFF", // page / section base
-        mist: "#F3F1EC", // subtle grey band for alternating sections
+        mist: "#EAE6DC", // grey band for alternating sections
         line: "#E6E3DB", // light hairline
         ember: { DEFAULT: ACCENT, soft: "#33302A" },
         gold: ACCENT,
