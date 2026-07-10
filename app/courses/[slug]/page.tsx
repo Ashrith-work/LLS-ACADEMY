@@ -48,7 +48,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         </Link>
       </header>
 
-      <main className="bg-bone/80">
+      <main className="bg-bone/88">
         {/* 1 · The job, not the topic. No price in sight. */}
         <section className="relative overflow-hidden px-4 pb-16 pt-12 sm:pb-24 sm:pt-20">
           <div

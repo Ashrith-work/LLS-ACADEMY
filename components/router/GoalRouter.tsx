@@ -97,7 +97,7 @@ export function GoalRouter() {
       };
 
   return (
-    <div className="flex min-h-dvh flex-col bg-bone/80">
+    <div className="flex min-h-dvh flex-col bg-bone/88">
       {/* Slim header: logo home-link + progress. No nav — no distraction. */}
       <header className="flex items-center justify-between px-4 py-4">
         <Link href="/" className="font-display text-sm text-ink">
