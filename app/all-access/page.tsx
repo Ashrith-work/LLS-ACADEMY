@@ -83,7 +83,7 @@ export default function AllAccessPage() {
         </section>
 
         {/* What comes with it. */}
-        <section className="on-light border-t border-ink/10 bg-bone py-16 text-inkText">
+        <section className="on-light border-t border-ink/10 bg-mist py-16 text-inkText">
           <div className="mx-auto max-w-4xl px-4">
             <Reveal>
               <h2 className="text-center font-display font-semibold text-3xl">With every course, you also get:</h2>

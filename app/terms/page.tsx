@@ -17,7 +17,7 @@ export default function TermsPage() {
   return (
     <>
       <TopBar />
-      <main className="on-light bg-bone py-16 text-inkText">
+      <main className="on-light bg-mist py-16 text-inkText">
         <div className="mx-auto max-w-2xl px-4">
           <h1 className="font-display font-semibold text-3xl sm:text-4xl">Terms &amp; refund policy</h1>
           <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted">Last updated: July 2026 · {SITE.company}</p>

@@ -43,7 +43,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* Minimal header — logo only. A conversion page has one exit: buy. */}
-      <header className="bg-bone px-4 py-4">
+      <header className="bg-mist px-4 py-4">
         <Link href="/" className="font-display text-sm text-ink">
           LIVE LIFE <span className="text-ember">SHAMELESS</span>
         </Link>
@@ -88,7 +88,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         ) : (
           <>
             {/* 2 · Who's teaching — proof on the calm bone canvas. */}
-            <section className="on-light bg-bone py-16 text-inkText sm:py-20">
+            <section className="on-light bg-mist py-16 text-inkText sm:py-20">
               <div className="mx-auto max-w-3xl px-4">
                 <Reveal>
                   <h2 className="font-display text-2xl font-semibold sm:text-3xl">{STORY.headline}</h2>

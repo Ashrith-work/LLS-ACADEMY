@@ -49,7 +49,7 @@ export function ReelsRail() {
   };
 
   return (
-    <section id="reels" aria-labelledby="reels-heading" className="bg-bone/60 py-14">
+    <section id="reels" aria-labelledby="reels-heading" className="bg-mist py-14">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-2 flex items-baseline gap-3">
           <span className="h-3 w-3 rounded-full bg-ember" aria-hidden />

@@ -20,7 +20,7 @@ export default function AboutPage() {
     <>
       <TopBar />
       <main>
-        <section className="bg-bone px-4 py-16 text-center sm:py-24">
+        <section className="bg-mist px-4 py-16 text-center sm:py-24">
           <Reveal>
             {/* TODO: real photo of Shashank via next/image — candid, not studio-polished. */}
             <div
@@ -38,7 +38,7 @@ export default function AboutPage() {
           </Reveal>
         </section>
 
-        <section className="on-light border-t border-ink/10 bg-bone py-16 text-inkText sm:py-24">
+        <section className="on-light border-t border-ink/10 bg-mist py-16 text-inkText sm:py-24">
           <div className="mx-auto max-w-2xl px-4">
             <ol className="relative space-y-12 border-l border-ink/10 pl-8">
               {STORY.beats.map((b, i) => (
