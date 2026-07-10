@@ -26,7 +26,7 @@ export default function AllAccessPage() {
   return (
     <>
       <TopBar />
-      <main className="bg-bone/80">
+      <main className="bg-bone/90">
         <section className="px-4 pb-16 pt-14 text-center sm:pt-20">
           <Reveal>
             <p className="mx-auto mb-4 w-fit rounded-full border border-ink/10 bg-gold px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-cream">

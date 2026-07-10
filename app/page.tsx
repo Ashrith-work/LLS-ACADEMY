@@ -21,7 +21,7 @@ export default function HomePage() {
       <main>
         <GoalEntry />
         <CourseFinderHero />
-        <div id="courses" className="bg-[#F1EAD9]/80 py-10 border-y border-ink/10">
+        <div id="courses" className="bg-[#F1EAD9]/90 py-10 border-y border-ink/10">
           {LANES.map((lane) => (
             <LaneRow key={lane.id} lane={lane} />
           ))}
@@ -29,7 +29,7 @@ export default function HomePage() {
         <ReelsRail />
         <BundleSection />
         <ProofSection />
-        <Faq bgClass="bg-[#F1EAD9]/80" />
+        <Faq bgClass="bg-[#F1EAD9]/90" />
       </main>
       <Footer />
     </>

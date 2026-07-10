@@ -41,7 +41,7 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(rgba(239, 236, 228, 0.55), rgba(239, 236, 228, 0.55)),
+    linear-gradient(rgba(239, 236, 228, 0.8), rgba(239, 236, 228, 0.8)),
     url("/hero-banner.webp") center / cover no-repeat;
 }
 

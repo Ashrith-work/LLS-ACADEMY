@@ -34,7 +34,7 @@ export function PathClient() {
   }, []);
 
   return (
-    <main className="min-h-dvh bg-bone/80 pb-20">
+    <main className="min-h-dvh bg-bone/90 pb-20">
       <header className="flex items-center justify-between px-4 py-4">
         <Link href="/" className="font-display text-sm text-ink">
           LIVE LIFE <span className="text-ember">SHAMELESS</span>
