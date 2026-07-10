@@ -21,9 +21,9 @@ export default function HomePage() {
       <main>
         <GoalEntry />
         <CourseFinderHero />
-        <div id="courses" className="bg-bone/60 py-10 border-y border-ink/10">
-          {LANES.map((lane) => (
-            <LaneRow key={lane.id} lane={lane} />
+        <div id="courses" className="border-y border-ink/10 py-4">
+          {LANES.map((lane, i) => (
+            <LaneRow key={lane.id} lane={lane} index={i} />
           ))}
         </div>
         <ReelsRail />

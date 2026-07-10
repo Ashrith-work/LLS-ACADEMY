@@ -15,33 +15,44 @@ import type { Config } from "tailwindcss";
  * The former accent tokens (ember/lime/gold/violet/teal) are all mapped to
  * ink so any legacy `text-ember` / `bg-lime` etc. renders monochrome.
  */
-const ACCENT = "#1F1C17"; // monochrome — accents render as ink (no colour)
+const ACCENT = "#0E0E14"; // strong ink — used for legacy accent tokens
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Light theme — white surfaces, dark text, crimson accent.
-        ink: "#1F1C17", // primary text + hairline borders (dark on white)
-        inkSoft: "#5C574E", // secondary text
-        surface: "#FFFFFF", // raised white panel
-        card: "#FFFFFF", // white card
-        bone: "#FFFFFF", // page / section base
-        mist: "#EAE6DC", // grey band for alternating sections
-        line: "#E6E3DB", // light hairline
-        ember: { DEFAULT: ACCENT, soft: "#33302A" },
+        // Warm editorial palette — cream paper, ink "chapter" surfaces,
+        // magenta + champagne as the only accents (used sparingly).
+        ink: "#0E0E14", // dark "chapter" surfaces + strong headlines
+        inkText: "#2A2622", // body text on cream
+        inkSoft: "#5C544C", // secondary text
+        surface: "#FBF6EA", // warm off-white raised surface
+        card: "#FBF6EA", // warm card (never pure white)
+        bone: "#F4EEE2", // paper — page / section base
+        paper: "#F4EEE2", // explicit alias for --paper
+        mist: "#ECE3D2", // warm banding for alternating sections
+        line: "#D8CEBC", // warm hairline on cream
+        magenta: "#BE185D", // accent — hover underlines, "Start here", one hairline
+        champagne: "#C9A96A", // premium accent — bundle + "Start here" moments
+        ember: { DEFAULT: ACCENT, soft: "#22222B" },
         gold: ACCENT,
         lime: ACCENT,
         violet: ACCENT,
         teal: ACCENT,
-        cream: "#FFFFFF", // text on accent / dark surfaces (stays light)
-        muted: "#8A8377", // captions
-        inkText: "#1F1C17", // primary text alias
+        cream: "#F7F1E6", // warm light text on ink surfaces
+        muted: "#8A8074", // kickers / captions / meta
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
         mono: ["var(--font-body)", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        // Editorial fluid scale.
+        kicker: ["0.75rem", { letterSpacing: "0.2em", lineHeight: "1" }],
+        display: ["clamp(2.5rem, 6vw, 5rem)", { lineHeight: "1.02", letterSpacing: "-0.02em" }],
+        pullquote: ["clamp(1.75rem, 3.5vw, 2.75rem)", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
+        standfirst: ["clamp(1.0625rem, 1.5vw, 1.25rem)", { lineHeight: "1.55" }],
       },
       borderWidth: {
         3: "3px",

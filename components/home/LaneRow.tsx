@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Lane } from "@/lib/types";
 import { coursesByLane } from "@/lib/data/courses";
-import { LANE_STYLES, cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { CourseCard } from "@/components/course/CourseCard";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -22,8 +22,7 @@ import { Reveal } from "@/components/ui/Reveal";
  * Centre click opens the course (the card's own link); side click centres it.
  * Autoplay pauses on hover/focus and is disabled under prefers-reduced-motion.
  */
-export function LaneRow({ lane }: { lane: Lane }) {
-  const styles = LANE_STYLES[lane.id];
+export function LaneRow({ lane, index }: { lane: Lane; index: number }) {
   const courses = [...coursesByLane(lane.id)].sort((a, b) =>
     a.status === b.status ? Number(!!b.anchor) - Number(!!a.anchor) : a.status === "live" ? -1 : 1,
   );
@@ -125,15 +124,22 @@ export function LaneRow({ lane }: { lane: Lane }) {
 
   return (
     <Reveal>
-      <section aria-labelledby={`lane-${lane.id}`} className="py-6">
+      <section aria-labelledby={`lane-${lane.id}`} className="py-10 sm:py-14">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-4 flex items-baseline gap-3">
-            <span className={cn("h-3 w-3 rounded-full", styles.bg)} aria-hidden />
-            <h2 id={`lane-${lane.id}`} className="font-display text-xl font-semibold text-ink sm:text-2xl">
+          {/* Editorial collection header — numbered kicker, serif headline, standfirst. */}
+          <div className="mb-8 max-w-2xl sm:mb-10">
+            <p className="font-body text-kicker uppercase text-muted">
+              <span className="text-inkText">{String(index + 1).padStart(2, "0")}</span>
+              <span className="mx-2 text-ink/30">—</span>Collection
+            </p>
+            <h2
+              id={`lane-${lane.id}`}
+              className="mt-4 font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
+            >
               {lane.label}
             </h2>
+            <p className="mt-4 font-body text-standfirst text-inkText/75">{lane.hook}</p>
           </div>
-          <p className="mb-5 text-sm text-muted">{lane.hook}</p>
 
           {/* Coverflow stage — fixed centre, cards animate through it. */}
           <div

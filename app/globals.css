@@ -4,20 +4,27 @@
 
 /* ── Design tokens (mirrors tailwind.config.ts — "Monochrome Limestone") ── */
 :root {
-  --ink: #1f1c17;
-  --ink-soft: #5c574e;
-  --surface: #ffffff;
-  --card: #ffffff;
-  --bone: #ffffff;
-  --line: #e6e3db;
-  --muted: #8a8377;
-  --cream: #ffffff;
-  /* Accent vars → monochrome ink (no colour). */
-  --ember: #1f1c17;
-  --gold: #1f1c17;
-  --lime: #1f1c17;
-  --violet: #1f1c17;
-  --teal: #1f1c17;
+  /* Warm editorial palette. */
+  --ink: #0e0e14; /* dark chapter surfaces + strong headlines */
+  --paper: #f4eee2; /* warm cream — never pure white */
+  --body: #2a2622; /* body text on cream */
+  --ink-soft: #5c544c;
+  --surface: #fbf6ea;
+  --card: #fbf6ea;
+  --bone: #f4eee2;
+  --line: #d8cebc;
+  --muted: #8a8074;
+  --cream: #f7f1e6;
+  --magenta: #be185d; /* accent — underlines, "Start here", one hairline */
+  --champagne: #c9a96a; /* premium accent — bundle + "Start here" moments */
+  --hairline: rgba(0, 0, 0, 0.12); /* on cream */
+  --hairline-invert: rgba(255, 255, 255, 0.14); /* on ink */
+  /* Legacy accent vars → strong ink. */
+  --ember: #0e0e14;
+  --gold: #0e0e14;
+  --lime: #0e0e14;
+  --violet: #0e0e14;
+  --teal: #0e0e14;
 }
 
 html {
@@ -26,9 +33,31 @@ html {
 }
 
 body {
-  background: var(--bone);
-  color: var(--ink);
+  background: var(--paper);
+  color: var(--body);
   text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+/* Scroll-reveal (IntersectionObserver toggles .is-visible). Reduced-motion safe. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Accessible focus everywhere — solid ink ring (monochrome). */
