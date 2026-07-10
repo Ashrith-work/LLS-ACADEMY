@@ -15,9 +15,10 @@ import { getCourse } from "@/lib/data/courses";
  *     .eq('is_published', true).order('sort_order');
  * map the snake_case rows to Reel and delete the REELS array below.
  *
- * videoUrl is null for now — no footage yet. The player renders the poster
- * and the "Start course" CTA, and autoplays real video the moment a videoUrl
- * is filled in here (or returned from the DB).
+ * videoUrl currently points at TEMPORARY public sample clips (generic,
+ * landscape — the 9:16 player center-crops them) purely so playback is
+ * visible. TODO: replace every videoUrl below with the real vertical footage;
+ * set it back to null to fall back to the poster + CTA.
  * ─────────────────────────────────────────────────────────────────
  */
 export const REELS: Reel[] = [
@@ -26,10 +27,10 @@ export const REELS: Reel[] = [
     title: "Stop caring what they think",
     hook: "The fear of judgment is what keeps your life small. Here's the first crack in it.",
     courseSlug: "live-life-shameless",
-    videoUrl: null,
+    videoUrl: "https://download.samplelib.com/mp4/sample-30s.mp4", // TODO: temporary demo clip
     posterUrl: null,
     captionsUrl: null,
-    durationSeconds: 47,
+    durationSeconds: 30,
     ctaLabel: "Start the signature course",
   },
   {
@@ -37,10 +38,10 @@ export const REELS: Reel[] = [
     title: "Selling isn't being pushy",
     hook: "It's a system — from the cold open to the close. 60 seconds on the first move.",
     courseSlug: "art-of-selling",
-    videoUrl: null,
+    videoUrl: "https://download.samplelib.com/mp4/sample-15s.mp4", // TODO: temporary demo clip
     posterUrl: null,
     captionsUrl: null,
-    durationSeconds: 58,
+    durationSeconds: 15,
     ctaLabel: "Start course",
   },
   {
@@ -48,10 +49,10 @@ export const REELS: Reel[] = [
     title: "Stop being overlooked",
     hook: "Clarity beats fluency. The one shift that makes a room actually listen to you.",
     courseSlug: "art-of-communication",
-    videoUrl: null,
+    videoUrl: "https://download.samplelib.com/mp4/sample-10s.mp4", // TODO: temporary demo clip
     posterUrl: null,
     captionsUrl: null,
-    durationSeconds: 52,
+    durationSeconds: 10,
     ctaLabel: "Start course",
   },
   {
@@ -59,10 +60,10 @@ export const REELS: Reel[] = [
     title: "Your name should be an asset",
     hook: "Not fame — trust. How a small-town account grew to 3.8M reach, from zero.",
     courseSlug: "build-a-personal-brand",
-    videoUrl: null,
+    videoUrl: "https://download.samplelib.com/mp4/sample-20s.mp4", // TODO: temporary demo clip
     posterUrl: null,
     captionsUrl: null,
-    durationSeconds: 44,
+    durationSeconds: 20,
     ctaLabel: "Start course",
   },
   {
@@ -70,10 +71,10 @@ export const REELS: Reel[] = [
     title: "You don't need lakhs to start",
     hook: "Clarity matters more than capital. The first customer comes before the funding.",
     courseSlug: "start-business-minimum-money",
-    videoUrl: null,
+    videoUrl: "https://download.samplelib.com/mp4/sample-5s.mp4", // TODO: temporary demo clip
     posterUrl: null,
     captionsUrl: null,
-    durationSeconds: 55,
+    durationSeconds: 5,
     ctaLabel: "Start course",
   },
   {
@@ -81,10 +82,10 @@ export const REELS: Reel[] = [
     title: "Rejection isn't about talent",
     hook: "It's about preparation. How to answer 'tell me about yourself' so it lands.",
     courseSlug: "crack-an-interview",
-    videoUrl: null,
+    videoUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", // TODO: temporary demo clip
     posterUrl: null,
     captionsUrl: null,
-    durationSeconds: 49,
+    durationSeconds: 6,
     ctaLabel: "Start course",
   },
 ];
