@@ -4,15 +4,15 @@
 
 /* ── Design tokens (mirrors tailwind.config.ts — "Monochrome Limestone") ── */
 :root {
-  --ink: #ece4e1;
-  --ink-soft: #b4a9a5;
-  --surface: #1c1116;
-  --card: #1c1116;
-  --bone: #160a0e;
-  --line: #3a2b30;
-  --muted: #9b8f8a;
-  --cream: #f7f2f0;
-  /* Accent vars → crimson (matches the backdrop ribbon). */
+  --ink: #1f1c17;
+  --ink-soft: #5c574e;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --bone: #ffffff;
+  --line: #e6e3db;
+  --muted: #8a8377;
+  --cream: #ffffff;
+  /* Accent vars → crimson. */
   --ember: #e23c46;
   --gold: #e23c46;
   --lime: #e23c46;
@@ -26,31 +26,9 @@ html {
 }
 
 body {
-  background: transparent;
+  background: var(--bone);
   color: var(--ink);
   text-rendering: optimizeLegibility;
-}
-
-/* Site-wide premium backdrop — deep crimson-to-black with a glossy red light
-   ribbon curving through pure black (public/bg-premium.svg). Upper-left stays
-   dark for headline negative space. Fixed pseudo-element avoids iOS jank. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: url("/bg-premium.svg") center / cover no-repeat, #050203;
-}
-
-/* Fine film grain over the backdrop for a matte, cinematic finish. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Accessible focus everywhere — solid ink ring (monochrome). */

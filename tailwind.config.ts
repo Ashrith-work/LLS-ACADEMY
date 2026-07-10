@@ -21,21 +21,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark theme — content reads as premium dark glass over the crimson backdrop.
-        ink: "#ECE4E1", // primary text + hairline borders (light on dark)
-        inkSoft: "#B4A9A5", // secondary text
-        surface: "#1C1116", // raised dark panel
-        card: "#1C1116", // dark card
-        bone: "#160A0E", // section base — used translucent so the backdrop shows through
-        line: "#3A2B30", // dark hairline
+        // Light theme — white surfaces, dark text, crimson accent.
+        ink: "#1F1C17", // primary text + hairline borders (dark on white)
+        inkSoft: "#5C574E", // secondary text
+        surface: "#FFFFFF", // raised white panel
+        card: "#FFFFFF", // white card
+        bone: "#FFFFFF", // page / section base
+        line: "#E6E3DB", // light hairline
         ember: { DEFAULT: ACCENT, soft: "#C22F39" },
         gold: ACCENT,
         lime: ACCENT,
         violet: ACCENT,
         teal: ACCENT,
-        cream: "#F7F2F0", // text on accent / dark surfaces (stays light)
-        muted: "#9B8F8A", // captions
-        inkText: "#ECE4E1", // primary text alias
+        cream: "#FFFFFF", // text on accent / dark surfaces (stays light)
+        muted: "#8A8377", // captions
+        inkText: "#1F1C17", // primary text alias
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
