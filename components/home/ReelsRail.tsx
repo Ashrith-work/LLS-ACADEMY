@@ -49,10 +49,10 @@ export function ReelsRail() {
   };
 
   return (
-    <section id="reels" aria-labelledby="reels-heading" className="bg-bone/82 py-14">
+    <section id="reels" aria-labelledby="reels-heading" className="bg-bone/60 py-14">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-2 flex items-baseline gap-3">
-          <span className="h-3 w-3 rounded-full bg-ink" aria-hidden />
+          <span className="h-3 w-3 rounded-full bg-ember" aria-hidden />
           <h2 id="reels-heading" className="font-display text-xl font-semibold text-ink sm:text-2xl">
             60-second reels
           </h2>
@@ -102,14 +102,14 @@ function ReelCard({ reel, onOpen }: { reel: Reel; onOpen: () => void }) {
 
       {/* Play affordance */}
       <span
-        className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cream/90 text-ink shadow-glow transition-transform group-hover:scale-110"
+        className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cream/90 text-[#170b0f] shadow-glow transition-transform group-hover:scale-110"
         aria-hidden
       >
         <Play size={20} className="translate-x-[1px]" fill="currentColor" />
       </span>
 
       {dur && (
-        <span className="absolute right-2 top-2 rounded-full bg-ink/70 px-2 py-0.5 text-[11px] font-medium tabular-nums text-cream">
+        <span className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-medium tabular-nums text-cream">
           {dur}
         </span>
       )}
@@ -141,7 +141,7 @@ function ReelPlayer({
       role="dialog"
       aria-modal="true"
       aria-label={reel.title}
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/85 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm"
       onClick={onClose}
     >
       {/* Close */}
@@ -175,7 +175,7 @@ function ReelPlayer({
       {/* Vertical frame — stop propagation so clicks inside don't close */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative aspect-[9/16] h-[86vh] max-h-[86vh] max-w-[92vw] overflow-hidden rounded-2xl bg-ink shadow-brutalLg"
+        className="relative aspect-[9/16] h-[86vh] max-h-[86vh] max-w-[92vw] overflow-hidden rounded-2xl bg-[#0c0507] shadow-brutalLg"
         style={poster.image || reel.videoUrl ? undefined : { background: poster.gradient }}
       >
         {reel.videoUrl ? (
@@ -200,7 +200,7 @@ function ReelPlayer({
             )}
             {/* No footage yet — honest placeholder, CTA still routes to the course. */}
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cream/90 text-ink shadow-glow">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cream/90 text-[#170b0f] shadow-glow">
                 <Play size={26} className="translate-x-[1px]" fill="currentColor" />
               </span>
               <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-cream/70">
@@ -223,7 +223,7 @@ function ReelPlayer({
             <Link
               href={`/courses/${course.id}`}
               onClick={() => track("reel_cta_clicked", { reelId: reel.id, courseId: course.id })}
-              className="pointer-events-auto mt-3 inline-flex items-center gap-1.5 rounded-full bg-cream px-4 py-2 text-sm font-medium text-ink transition hover:-translate-y-0.5"
+              className="pointer-events-auto mt-3 inline-flex items-center gap-1.5 rounded-full bg-cream px-4 py-2 text-sm font-medium text-[#170b0f] transition hover:-translate-y-0.5"
             >
               {reel.ctaLabel}
               <span aria-hidden>→</span>

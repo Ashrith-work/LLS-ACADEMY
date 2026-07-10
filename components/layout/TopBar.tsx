@@ -22,7 +22,7 @@ export function TopBar() {
           <CartButton />
           <Link
             href="/start"
-            className="rounded-full bg-ink px-5 py-2 text-sm font-medium text-cream transition-all hover:-translate-y-0.5 hover:bg-ink/90"
+            className="rounded-full bg-ember px-5 py-2 text-sm font-medium text-cream transition-all hover:-translate-y-0.5 hover:bg-ember-soft"
           >
             Login
           </Link>

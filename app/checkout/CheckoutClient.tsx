@@ -73,7 +73,7 @@ export function CheckoutClient() {
   };
 
   return (
-    <main className="min-h-dvh bg-bone/88 pb-16">
+    <main className="min-h-dvh bg-bone/75 pb-16">
       <header className="flex items-center justify-between px-4 py-4">
         <Link href="/" className="font-display font-semibold text-sm text-ink">
           LIVE LIFE <span className="text-ember">SHAMELESS</span>

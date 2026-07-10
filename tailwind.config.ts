@@ -15,26 +15,27 @@ import type { Config } from "tailwindcss";
  * The former accent tokens (ember/lime/gold/violet/teal) are all mapped to
  * ink so any legacy `text-ember` / `bg-lime` etc. renders monochrome.
  */
-const INK = "#1F1C17";
+const ACCENT = "#E23C46"; // crimson accent — matches the backdrop's red ribbon
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        ink: INK,
-        inkSoft: "#5C574E",
-        surface: "#FBFAF7",
-        card: "#FBFAF7",
-        bone: "#EFECE4",
-        line: "#DCD7CC",
-        ember: { DEFAULT: INK, soft: "#33302A" },
-        gold: INK,
-        lime: INK,
-        violet: INK,
-        teal: INK,
-        cream: "#FBFAF7",
-        muted: "#8A8377",
-        inkText: INK,
+        // Dark theme — content reads as premium dark glass over the crimson backdrop.
+        ink: "#ECE4E1", // primary text + hairline borders (light on dark)
+        inkSoft: "#B4A9A5", // secondary text
+        surface: "#1C1116", // raised dark panel
+        card: "#1C1116", // dark card
+        bone: "#160A0E", // section base — used translucent so the backdrop shows through
+        line: "#3A2B30", // dark hairline
+        ember: { DEFAULT: ACCENT, soft: "#C22F39" },
+        gold: ACCENT,
+        lime: ACCENT,
+        violet: ACCENT,
+        teal: ACCENT,
+        cream: "#F7F2F0", // text on accent / dark surfaces (stays light)
+        muted: "#9B8F8A", // captions
+        inkText: "#ECE4E1", // primary text alias
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],

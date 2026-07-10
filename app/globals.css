@@ -4,20 +4,20 @@
 
 /* ── Design tokens (mirrors tailwind.config.ts — "Monochrome Limestone") ── */
 :root {
-  --ink: #1f1c17;
-  --ink-soft: #5c574e;
-  --surface: #fbfaf7;
-  --card: #fbfaf7;
-  --bone: #efece4;
-  --line: #dcd7cc;
-  --muted: #8a8377;
-  --cream: #fbfaf7;
-  /* Legacy accent vars → all monochrome ink. */
-  --ember: #1f1c17;
-  --gold: #1f1c17;
-  --lime: #1f1c17;
-  --violet: #1f1c17;
-  --teal: #1f1c17;
+  --ink: #ece4e1;
+  --ink-soft: #b4a9a5;
+  --surface: #1c1116;
+  --card: #1c1116;
+  --bone: #160a0e;
+  --line: #3a2b30;
+  --muted: #9b8f8a;
+  --cream: #f7f2f0;
+  /* Accent vars → crimson (matches the backdrop ribbon). */
+  --ember: #e23c46;
+  --gold: #e23c46;
+  --lime: #e23c46;
+  --violet: #e23c46;
+  --teal: #e23c46;
 }
 
 html {
@@ -61,7 +61,7 @@ body::after {
 }
 
 ::selection {
-  background: var(--ink);
+  background: var(--ember);
   color: var(--cream);
 }
 

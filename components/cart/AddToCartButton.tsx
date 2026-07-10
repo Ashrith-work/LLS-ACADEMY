@@ -36,7 +36,7 @@ export function AddToCartButton({
         "inline-flex items-center justify-center gap-1.5 rounded-full border font-medium transition-all",
         compact ? "px-3 py-1 text-xs" : "px-6 py-3 text-sm",
         added
-          ? "border-ink bg-ink text-cream hover:brightness-110"
+          ? "border-ember bg-ember text-cream hover:brightness-110"
           : "border-ink/30 text-ink hover:border-ink hover:-translate-y-0.5",
         className,
       )}

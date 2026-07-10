@@ -63,7 +63,7 @@ export function NavDrawer() {
       <div
         onClick={() => setOpen(false)}
         aria-hidden
-        className={`fixed inset-0 z-50 bg-ink/40 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />

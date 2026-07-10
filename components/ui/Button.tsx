@@ -22,7 +22,7 @@ const styles: Record<Variant, string> = {
   ghost:
     "bg-transparent text-ink border border-ink/30 hover:border-ink/70 hover:bg-ink/[0.04]",
   onLight:
-    "bg-ink text-cream hover:bg-ink/90",
+    "bg-ember text-cream hover:bg-ember-soft",
 };
 
 interface BaseProps {

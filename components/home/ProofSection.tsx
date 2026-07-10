@@ -9,7 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
  */
 export function ProofSection() {
   return (
-    <section className="on-light bg-[#F1EAD9] py-16 text-inkText sm:py-24" aria-labelledby="proof-heading">
+    <section className="on-light bg-bone/60 py-16 text-inkText sm:py-24" aria-labelledby="proof-heading">
       <div className="mx-auto max-w-6xl px-4">
         {/* Shashank's story */}
         <Reveal>
