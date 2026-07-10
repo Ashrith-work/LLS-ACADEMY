@@ -5,41 +5,44 @@ import { Reveal } from "@/components/ui/Reveal";
 import { track } from "@/lib/tracking";
 
 /**
- * FAQ — answers the REAL objections. Native <details> keeps it
+ * FAQ — elegant accordion. Serif questions, generous spacing, hairline rules;
+ * the open row gets a magenta top hairline. Native <details> keeps it
  * zero-JS-cost, keyboard-accessible and screen-reader friendly.
  */
-export function Faq({ bgClass = "bg-surface" }: { bgClass?: string }) {
+export function Faq({ bgClass = "bg-paper" }: { bgClass?: string }) {
   return (
-    <section className={`${bgClass} py-16 sm:py-24`} aria-labelledby="faq-heading">
+    <section className={`${bgClass} py-20 sm:py-28`} aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal>
-          <h2 id="faq-heading" className="text-center font-display font-semibold text-3xl text-ink sm:text-4xl">
+          <p className="text-kicker uppercase text-muted">Questions</p>
+          <h2
+            id="faq-heading"
+            className="mt-4 font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
+          >
             Got doubts? Ask away
           </h2>
-          <p className="mt-3 text-center text-sm text-muted">
-            These are the real questions people ask us — answered straight, no dodging.
-          </p>
         </Reveal>
-        <div className="mt-10 space-y-3">
+
+        <div className="mt-12 border-b border-ink/10">
           {FAQS.map((f) => (
-            <Reveal key={f.q}>
-              <details
-                className="group rounded-xl border border-ink/10 bg-card px-5 py-4 shadow-brutal"
-                onToggle={(e) => {
-                  if ((e.target as HTMLDetailsElement).open) track("faq_opened", { question: f.q });
-                }}
-              >
-                <summary className="cursor-pointer list-none font-semibold text-ink marker:content-none">
-                  <span className="flex items-center justify-between gap-4">
-                    {f.q}
-                    <span className="text-muted transition group-open:rotate-45" aria-hidden>
-                      +
-                    </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{f.a}</p>
-              </details>
-            </Reveal>
+            <details
+              key={f.q}
+              className="group border-t border-ink/10 open:border-magenta"
+              onToggle={(e) => {
+                if ((e.target as HTMLDetailsElement).open) track("faq_opened", { question: f.q });
+              }}
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 font-display text-lg font-medium text-ink marker:content-none sm:text-xl">
+                {f.q}
+                <span
+                  className="shrink-0 text-2xl font-light text-muted transition-transform duration-200 group-open:rotate-45"
+                  aria-hidden
+                >
+                  +
+                </span>
+              </summary>
+              <p className="max-w-2xl pb-7 text-inkText/75">{f.a}</p>
+            </details>
           ))}
         </div>
       </div>

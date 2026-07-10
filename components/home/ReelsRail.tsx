@@ -49,17 +49,18 @@ export function ReelsRail() {
   };
 
   return (
-    <section id="reels" aria-labelledby="reels-heading" className="bg-mist py-14">
+    <section id="reels" aria-labelledby="reels-heading" className="bg-mist py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mb-2 flex items-baseline gap-3">
-          <span className="h-3 w-3 rounded-full bg-ember" aria-hidden />
-          <h2 id="reels-heading" className="font-display text-xl font-semibold text-ink sm:text-2xl">
-            60-second reels
+        <div className="mb-8 max-w-2xl sm:mb-10">
+          <p className="text-kicker uppercase text-muted">In motion</p>
+          <h2
+            id="reels-heading"
+            className="mt-4 font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
+          >
+            A taste of the teaching
           </h2>
+          <p className="mt-4 text-standfirst text-inkText/75">One idea, one minute. Tap any card to watch.</p>
         </div>
-        <p className="mb-6 text-sm text-muted">
-          A taste of the teaching — one idea, one minute. Tap to watch.
-        </p>
 
         <ul
           className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"

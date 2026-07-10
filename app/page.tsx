@@ -29,7 +29,7 @@ export default function HomePage() {
         <ReelsRail />
         <BundleSection />
         <ProofSection />
-        <Faq bgClass="bg-bone/60" />
+        <Faq bgClass="bg-mist" />
       </main>
       <Footer />
     </>
