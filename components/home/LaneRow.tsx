@@ -148,7 +148,7 @@ export function LaneRow({ lane }: { lane: Lane }) {
             onMouseLeave={() => setPaused(false)}
             onFocus={() => setPaused(true)}
             onBlur={() => setPaused(false)}
-            className="relative h-[400px] select-none rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
+            className="relative h-[400px] select-none overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
             style={{ perspective: "1200px", touchAction: "pan-y" }}
           >
             {courses.map((c, i) => {
