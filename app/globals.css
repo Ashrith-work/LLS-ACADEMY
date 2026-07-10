@@ -12,12 +12,12 @@
   --line: #e6e3db;
   --muted: #8a8377;
   --cream: #ffffff;
-  /* Accent vars → crimson. */
-  --ember: #e23c46;
-  --gold: #e23c46;
-  --lime: #e23c46;
-  --violet: #e23c46;
-  --teal: #e23c46;
+  /* Accent vars → monochrome ink (no colour). */
+  --ember: #1f1c17;
+  --gold: #1f1c17;
+  --lime: #1f1c17;
+  --violet: #1f1c17;
+  --teal: #1f1c17;
 }
 
 html {

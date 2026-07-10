@@ -15,7 +15,7 @@ import type { Config } from "tailwindcss";
  * The former accent tokens (ember/lime/gold/violet/teal) are all mapped to
  * ink so any legacy `text-ember` / `bg-lime` etc. renders monochrome.
  */
-const ACCENT = "#E23C46"; // crimson accent — matches the backdrop's red ribbon
+const ACCENT = "#1F1C17"; // monochrome — accents render as ink (no colour)
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
   theme: {
@@ -28,7 +28,7 @@ const config: Config = {
         card: "#FFFFFF", // white card
         bone: "#FFFFFF", // page / section base
         line: "#E6E3DB", // light hairline
-        ember: { DEFAULT: ACCENT, soft: "#C22F39" },
+        ember: { DEFAULT: ACCENT, soft: "#33302A" },
         gold: ACCENT,
         lime: ACCENT,
         violet: ACCENT,
