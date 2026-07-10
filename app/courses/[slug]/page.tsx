@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { COURSES, getCourse, effectivePrice, FOUNDING_PRICING } from "@/lib/data/courses";
-import { DELIVERABLES, TESTIMONIALS, STORY } from "@/lib/data/site";
+import { GUARANTEES, TESTIMONIALS, STORY } from "@/lib/data/site";
+import { GuaranteeIcon } from "@/components/ui/GuaranteeIcon";
 import { inr, LANE_STYLES, cn } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaitlistForm } from "@/components/course/WaitlistForm";
@@ -110,7 +111,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                     </blockquote>
                     <figcaption className="mt-3 text-sm">
                       <span className="font-semibold">{TESTIMONIALS[0].name}</span>
-                      <span className="text-inkText/60"> · {TESTIMONIALS[0].place}</span>
+                      <span className="text-inkText/60"> · {TESTIMONIALS[0].city}</span>
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -137,10 +138,11 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                 </ul>
                 <Reveal>
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {DELIVERABLES.slice(0, 4).map((d) => (
+                    {GUARANTEES.slice(0, 4).map((d) => (
                       <div key={d.title} className="rounded-xl border border-ink/10 bg-surface px-5 py-4">
+                        <GuaranteeIcon name={d.icon} className="mb-2 h-4 w-4 text-ember" />
                         <p className="text-sm font-semibold text-inkText">{d.title}</p>
-                        <p className="mt-1 text-xs text-muted">{d.detail}</p>
+                        <p className="mt-1 text-xs text-muted">{d.desc}</p>
                       </div>
                     ))}
                   </div>

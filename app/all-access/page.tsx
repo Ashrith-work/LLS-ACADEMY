@@ -5,7 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { BUNDLE, catalogueValue, valueStack, TOTAL_COUNT, LIVE_COUNT } from "@/lib/data/courses";
-import { DELIVERABLES } from "@/lib/data/site";
+import { GUARANTEES } from "@/lib/data/site";
+import { GuaranteeIcon } from "@/components/ui/GuaranteeIcon";
 import { inr } from "@/lib/utils";
 import { Faq } from "@/components/home/Faq";
 
@@ -88,11 +89,12 @@ export default function AllAccessPage() {
               <h2 className="text-center font-display font-semibold text-3xl">With every course, you also get:</h2>
             </Reveal>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {DELIVERABLES.map((d, i) => (
+              {GUARANTEES.map((d, i) => (
                 <Reveal key={d.title} delay={i * 0.04}>
                   <div className="h-full rounded-xl border border-ink/10 bg-card p-5 shadow-brutal">
+                    <GuaranteeIcon name={d.icon} className="mb-3 h-5 w-5 text-ember" />
                     <p className="font-semibold">{d.title}</p>
-                    <p className="mt-1 text-sm text-inkText/70">{d.detail}</p>
+                    <p className="mt-1 text-sm text-inkText/70">{d.desc}</p>
                   </div>
                 </Reveal>
               ))}

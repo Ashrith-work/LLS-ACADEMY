@@ -56,11 +56,19 @@ export type Reel = {
 };
 
 export interface Testimonial {
-  name: string;
-  place: string;
   /** Telugu/Tinglish quote. */
   quote: string;
-  result: string;
+  name: string;
+  city: string;
+  outcome: string;
+}
+
+/** One concrete thing every buyer gets — shown with a lucide icon. */
+export interface Guarantee {
+  title: string;
+  desc: string;
+  /** lucide-react icon name, e.g. "award" (see components/ui/GuaranteeIcon). */
+  icon: string;
 }
 
 export interface FaqItem {

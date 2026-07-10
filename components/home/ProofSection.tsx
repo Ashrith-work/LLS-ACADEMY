@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { DELIVERABLES, STORY, TESTIMONIALS, SITE } from "@/lib/data/site";
+import { GUARANTEES, STORY, TESTIMONIALS, SITE } from "@/lib/data/site";
 import { Reveal } from "@/components/ui/Reveal";
+import { GuaranteeIcon } from "@/components/ui/GuaranteeIcon";
 
 /**
  * Trust + proof — deliberately on the warm BONE canvas: calm, credible,
@@ -47,8 +48,8 @@ export function ProofSection() {
                 <blockquote className="flex-1 text-[15px] leading-relaxed">&ldquo;{t.quote}&rdquo;</blockquote>
                 <figcaption className="mt-4 border-t border-ink/10 pt-3 text-sm">
                   <span className="font-semibold">{t.name}</span>
-                  <span className="text-inkText/60"> · {t.place}</span>
-                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-ember">{t.result}</p>
+                  <span className="text-inkText/60"> · {t.city}</span>
+                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-ember">{t.outcome}</p>
                 </figcaption>
               </figure>
             </Reveal>
@@ -63,11 +64,12 @@ export function ProofSection() {
           </p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {DELIVERABLES.map((d, i) => (
+          {GUARANTEES.map((d, i) => (
             <Reveal key={d.title} delay={i * 0.04}>
               <div className="h-full rounded-2xl border border-ink/10 bg-card p-5 shadow-cardLift">
+                <GuaranteeIcon name={d.icon} className="mb-3 h-5 w-5 text-ember" />
                 <p className="font-semibold">{d.title}</p>
-                <p className="mt-1 text-sm text-inkText/70">{d.detail}</p>
+                <p className="mt-1 text-sm text-inkText/70">{d.desc}</p>
               </div>
             </Reveal>
           ))}

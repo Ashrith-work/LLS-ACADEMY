@@ -1,4 +1,4 @@
-import type { FaqItem, Testimonial } from "@/lib/types";
+import type { FaqItem, Guarantee, Testimonial } from "@/lib/types";
 
 /**
  * Site-wide copy — testimonials, FAQ, Shashank's story, deliverables.
@@ -17,74 +17,90 @@ export const SITE = {
 };
 
 /** Everything a buyer gets with ANY course — concrete, no fluff. */
-export const DELIVERABLES = [
-  { title: "Recorded video lessons", detail: "Clear, plain-English lessons — learn at your own pace, with lifetime access." },
-  { title: "Certificate of completion", detail: "Finish the course and get a certificate you can add to LinkedIn." },
-  { title: "WhatsApp community", detail: "People on the same journey as you — questions, wins, and accountability." },
-  { title: "Monthly live Q&A with Shashank", detail: "A live session every month — direct answers to your doubts." },
-  { title: "Weekly teardown feedback", detail: "Community teardowns of your pitch, content, and answers — real feedback, real improvement." },
-  { title: "Points toward 1:1 with Shashank", detail: "Complete a course and stay active to earn points toward a 1:1 call with Shashank." },
+export const GUARANTEES: Guarantee[] = [
+  { title: "Recorded lessons", desc: "Plain English, self-paced, lifetime access.", icon: "play-circle" },
+  { title: "Certificate", desc: "Finish, then add it to LinkedIn.", icon: "award" },
+  { title: "WhatsApp community", desc: "Same journey — questions, wins, accountability.", icon: "users" },
+  { title: "Monthly live Q&A with Shashank", desc: "Your doubts, answered live.", icon: "radio" },
+  { title: "Weekly teardowns", desc: "Real feedback on your pitch, content, and answers.", icon: "message-square" },
+  { title: "Points toward a 1:1 with Shashank", desc: "Finish and stay active to earn a call.", icon: "star" },
 ];
 
 /** TODO: SAMPLE testimonials — replace with real, permissioned ones (video > text). */
 export const TESTIMONIALS: Testimonial[] = [
   {
+    quote:
+      "Expected another motivation video. Instead it told me exactly what to do — step by step. Closed 2 deals my first month.",
     name: "Ravi Teja",
-    place: "Karimnagar",
-    quote:
-      "I expected another motivation video. It wasn't — it told me exactly what to do, step by step. After Art of Selling, I closed 2 deals in the first month itself.",
-    result: "Field sales → team lead in 8 months",
+    city: "Karimnagar",
+    outcome: "Field sales → team lead in 8 months",
   },
   {
+    quote:
+      "Always the silent one in meetings. Used the Communication frameworks to present to managers for the first time — it became my appraisal highlight.",
     name: "Sandhya",
-    place: "Vijayawada",
-    quote:
-      "I was always silent in meetings. I used the frameworks from the Communication course to present in front of managers for the first time — that became the highlight of my appraisal.",
-    result: "First promotion in 3 years",
+    city: "Vijayawada",
+    outcome: "First promotion in 3 years",
   },
   {
+    quote:
+      "Stalled 4 years worrying what people would think. The course challenges broke that fear. Now I run my own tuition business — and it's profitable.",
     name: "Prashanth",
-    place: "Nizamabad",
-    quote:
-      "I stalled for 4 years worrying about what people would think. The LLS course challenges broke that fear. Now I run my own tuition business — and it's actually profitable.",
-    result: "Started his own coaching business",
+    city: "Nizamabad",
+    outcome: "Started his own coaching business",
   },
   {
-    name: "Divya",
-    place: "Hyderabad",
     quote:
-      "I used to avoid interviews because my English wasn't perfect. I practised the scripts in Crack an Interview and got an offer on my third attempt. I didn't expect this much value for ₹499.",
-    result: "Placed at an MNC, 40% above expected package",
+      "Avoided interviews because my English wasn't perfect. Practised the Crack an Interview scripts, got an offer on my third try. Didn't expect this much for ₹499.",
+    name: "Divya",
+    city: "Hyderabad",
+    outcome: "Placed at an MNC — 40% above target",
   },
 ];
 
 /** FAQ — answers the REAL objections, plainly. No dodging the no-refund policy. */
 export const FAQS: FaqItem[] = [
   {
-    q: "Is this just more 'motivational gyaan'?",
-    a: "No. Every course comes with frameworks, scripts, templates and assignments — the goal isn't to inspire you, it's to get you to implement. We've listed exactly what you get on every course page — go look, and judge for yourself.",
+    q: "Is this just motivational gyaan?",
+    a: "No. Every course ships with frameworks, scripts, templates and assignments. The goal isn't to inspire you — it's to get you to do. Everything you get is listed on each course page. Go check.",
   },
   {
-    q: "Will I actually finish it? I've dropped courses before...",
-    a: "That's exactly why you get lifetime access, a WhatsApp community and a monthly live Q&A. Lessons are kept short and practical so they never feel heavy. The weekly teardowns keep you accountable to your progress. This isn't about watching — it's about doing.",
+    q: "Will I actually finish it? I've dropped courses before.",
+    a: "Built for it: short lessons, WhatsApp accountability, weekly teardowns. Lifetime access means no pressure — but the community keeps you moving.",
   },
   {
     q: "How do I get access after paying?",
-    a: "The moment your payment succeeds, you instantly get your access details and a WhatsApp community invite. If anything goes wrong, message us in the community or via support — we'll resolve it within 24 hours.",
+    a: "Instant. Pay, your account unlocks, and you start right away — on any device.",
   },
   {
     q: "What's the refund policy?",
-    a: "No refunds — we're upfront about this. Because it's a digital course, we can't take back access once it's granted. That's why we show you everything a course contains, and give you free previews too. Buy only when you're sure — we won't pressure you.",
+    a: "No refunds on digital courses. That's exactly why we list everything you get, upfront.",
   },
   {
-    q: "Does it work on a phone? How much data do I need?",
-    a: "It's fully designed for mobile. Videos are also available in a data-friendly quality, so you can watch even on a patchy network. Download options are available inside the course platform.",
+    q: "Does it work on a phone? How much data?",
+    a: "Any phone. Lessons stream light; download over WiFi to watch data-free later.",
   },
   {
     q: "What if my English isn't strong?",
-    a: "That's completely fine — that's the whole point. The lessons are taught in clear, simple English with no jargon, so you never need to be fluent to follow along. You'll also pick up how key industry terms are actually used, in context.",
+    a: "Perfectly fine. Lessons are plain English, and courses like Crack an Interview hand you the exact scripts. Plenty of students started right here.",
   },
 ];
+
+/** Footer copy + link columns. */
+export const FOOTER = {
+  tagline: "Learn what school skipped. Think bigger. A StartupWithShashank brand.",
+  explore: [
+    { label: "All courses", href: "/#courses" },
+    { label: "All-access bundle", href: "/all-access" },
+    { label: "Find your course", href: "/start" },
+    { label: "Shashank's story", href: "/about" },
+  ],
+  help: [
+    { label: "Terms & refund policy", href: "/terms" },
+    { label: "Instagram — 3.8M+ reached", href: "#" },
+    { label: "Support", href: "#" },
+  ],
+};
 
 /** Shashank's story beats — authenticity, not guru-polish.
  *  TODO: SAMPLE copy — tighten with real dates/details from Shashank. */
