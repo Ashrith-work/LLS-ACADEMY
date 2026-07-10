@@ -37,6 +37,24 @@ export interface Course {
   thumb: { from: string; to: string };
 }
 
+/**
+ * Short vertical teaser video for a course. A projection of the published
+ * rows from the `reels` Postgres table (supabase/migrations/…_reels.sql):
+ * the query filters is_published and orders by sort_order, so the app never
+ * sees those columns. `courseSlug` matches a Course.id (the route slug).
+ */
+export type Reel = {
+  id: string;
+  title: string;
+  hook: string;
+  courseSlug: string;
+  videoUrl: string | null;
+  posterUrl: string | null;
+  captionsUrl: string | null;
+  durationSeconds: number | null;
+  ctaLabel: string;
+};
+
 export interface Testimonial {
   name: string;
   place: string;

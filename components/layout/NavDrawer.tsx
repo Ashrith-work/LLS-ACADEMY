@@ -19,6 +19,7 @@ const GOALS: NavLink[] = [
 
 const BROWSE: NavLink[] = [
   { href: "/#courses", label: "All courses" },
+  { href: "/#reels", label: "Reels", note: "60-second course teasers" },
   { href: "/all-access", label: "All-Access", note: "Every course, one price" },
   { href: "/path", label: "Learning path" },
 ];

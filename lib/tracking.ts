@@ -31,6 +31,8 @@ export type TrackEvent =
   | "payment_failed"
   | "waitlist_joined" // props: { courseId }
   | "add_to_cart" // props: { courseId }
+  | "reel_opened" // props: { reelId, courseId }
+  | "reel_cta_clicked" // props: { reelId, courseId }
   | "faq_opened"; // props: { question }
 
 export function track(event: TrackEvent, props: Record<string, unknown> = {}) {
