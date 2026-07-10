@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { TopBar } from "@/components/layout/TopBar";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
-import { ButtonLink } from "@/components/ui/Button";
 import { STORY, SITE } from "@/lib/data/site";
 
 export const metadata: Metadata = {
@@ -12,61 +12,74 @@ export const metadata: Metadata = {
 };
 
 /**
- * About — authenticity over polish. The story reads like a timeline of
- * struggle, not a highlight reel. Bone canvas: calm, credible.
+ * About — a magazine feature. Authenticity over polish: a chaptered timeline of
+ * struggle with oversized champagne numerals, not a highlight reel.
  */
 export default function AboutPage() {
   return (
     <>
       <TopBar />
-      <main>
-        <section className="bg-mist px-4 py-16 text-center sm:py-24">
-          <Reveal>
-            {/* TODO: real photo of Shashank via next/image — candid, not studio-polished. */}
-            <div
-              className="mx-auto mb-8 flex h-28 w-28 items-center justify-center rounded-full border border-ink/10 bg-card font-display font-semibold text-3xl text-ember shadow-brutal"
-              aria-hidden
-            >
-              S
-            </div>
-            <h1 className="mx-auto max-w-2xl font-display font-semibold text-4xl leading-[1.1] text-ink sm:text-5xl">
-              {STORY.headline}
-            </h1>
-            <p className="mx-auto mt-5 max-w-xl text-inkSoft">
-              {SITE.instagramReach} people reached — but the story started small, just like yours.
-            </p>
-          </Reveal>
+      <main className="bg-paper">
+        {/* Editorial hero — left-aligned. */}
+        <section className="px-4 pt-16 sm:pt-24" aria-labelledby="about-heading">
+          <div className="mx-auto max-w-4xl">
+            <Reveal>
+              <p className="text-kicker uppercase text-muted">The founder</p>
+              <h1
+                id="about-heading"
+                className="mt-4 max-w-3xl font-display font-medium text-ink [font-size:clamp(2.5rem,6vw,5rem)] [letter-spacing:-0.02em] [line-height:1.02]"
+              >
+                {STORY.headline}
+              </h1>
+              <p className="mt-6 max-w-xl text-standfirst text-inkText/75">
+                {SITE.instagramReach} people reached — but the story started small, just like yours.
+              </p>
+            </Reveal>
+          </div>
         </section>
 
-        <section className="on-light border-t border-ink/10 bg-mist py-16 text-inkText sm:py-24">
-          <div className="mx-auto max-w-2xl px-4">
-            <ol className="relative space-y-12 border-l border-ink/10 pl-8">
+        {/* Chaptered timeline. */}
+        <section className="px-4 py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl">
+            <ol className="border-b border-ink/10">
               {STORY.beats.map((b, i) => (
-                <Reveal key={b.title} delay={i * 0.05}>
-                  <li className="relative">
-                    <span
-                      className="absolute -left-[42px] top-1 h-4 w-4 rounded-full border border-ink/10 bg-ember"
-                      aria-hidden
-                    />
-                    <h2 className="font-display font-semibold text-xl">{b.title}</h2>
-                    <p className="mt-2 leading-relaxed text-inkText/75">{b.body}</p>
-                  </li>
-                </Reveal>
+                <li key={b.title}>
+                  <Reveal delay={i * 0.05}>
+                    <div className="grid grid-cols-[auto_1fr] gap-6 border-t border-ink/10 py-8 sm:gap-10">
+                      <span
+                        aria-hidden
+                        className="font-display text-champagne [font-size:clamp(2.25rem,5vw,3.75rem)] [line-height:0.9]"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="max-w-xl">
+                        <h2 className="font-display text-xl font-medium text-ink sm:text-2xl">{b.title}</h2>
+                        <p className="mt-2 leading-relaxed text-inkText/75">{b.body}</p>
+                      </div>
+                    </div>
+                  </Reveal>
+                </li>
               ))}
             </ol>
+          </div>
+        </section>
 
+        {/* Close — dark chapter CTA. */}
+        <section className="bg-ink px-4 py-20 text-cream sm:py-24">
+          <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <div className="mt-16 rounded-2xl border border-ink/10 bg-surface p-8 text-center text-ink shadow-brutal">
-                <h2 className="font-display font-semibold text-2xl">Now it's your turn.</h2>
-                <p className="mt-3 text-sm text-inkSoft">
-                  2 questions — we'll show you the right course for your goal. 30 seconds.
-                </p>
-                <div className="mt-6">
-                  <ButtonLink href="/start" variant="primary" size="lg">
-                    Find your course →
-                  </ButtonLink>
-                </div>
-              </div>
+              <h2 className="font-display font-medium [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.04]">
+                Now it&rsquo;s your turn.
+              </h2>
+              <p className="mx-auto mt-4 max-w-md text-cream/70">
+                Two questions — we&rsquo;ll show you the right course for your goal. Thirty seconds.
+              </p>
+              <Link
+                href="/start"
+                className="mt-8 inline-flex items-center gap-2 bg-champagne px-7 py-3.5 font-medium text-ink transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              >
+                Find your course <span aria-hidden>→</span>
+              </Link>
             </Reveal>
           </div>
         </section>

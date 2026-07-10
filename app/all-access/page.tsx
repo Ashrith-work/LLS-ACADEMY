@@ -3,10 +3,9 @@ import Link from "next/link";
 import { TopBar } from "@/components/layout/TopBar";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
-import { ButtonLink } from "@/components/ui/Button";
+import { Grain } from "@/components/ui/Grain";
 import { BUNDLE, catalogueValue, valueStack, TOTAL_COUNT, LIVE_COUNT } from "@/lib/data/courses";
 import { GUARANTEES } from "@/lib/data/site";
-import { GuaranteeIcon } from "@/components/ui/GuaranteeIcon";
 import { inr } from "@/lib/utils";
 import { Faq } from "@/components/home/Faq";
 
@@ -16,9 +15,8 @@ export const metadata: Metadata = {
 };
 
 /**
- * All-access bundle page. Value-stack ordering: premium anchors FIRST so
- * the first number seen is high and the total feels huge. Gold = premium.
- * Lifetime framing throughout — it dissolves the completion-fear.
+ * All-access bundle page. Editorial hero → dark "money" chapter (typographic
+ * value contrast + hairline catalogue index) → included index → FAQ.
  */
 export default function AllAccessPage() {
   const stack = valueStack();
@@ -27,81 +25,121 @@ export default function AllAccessPage() {
   return (
     <>
       <TopBar />
-      <main className="bg-bone/75">
-        <section className="px-4 pb-16 pt-14 text-center sm:pt-20">
-          <Reveal>
-            <p className="mx-auto mb-4 w-fit rounded-full border border-ink/10 bg-gold px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-cream">
-              One-time payment · lifetime access
-            </p>
-            <h1 className="mx-auto max-w-3xl font-display font-semibold text-4xl leading-[1.1] text-ink sm:text-5xl">
-              One <span className="text-gold">decision</span> to learn it all.
-            </h1>
-            <p className="mx-auto mt-5 max-w-xl text-inkSoft">
-              All {TOTAL_COUNT} courses ({LIVE_COUNT} live, the rest land in your library automatically the moment they launch).
-              No deadline to finish — lifetime means lifetime.
-            </p>
-          </Reveal>
-        </section>
-
-        {/* The full stack — premium first. */}
-        <section className="px-4 pb-16">
-          <div className="mx-auto max-w-2xl">
+      <main className="bg-paper">
+        {/* Editorial hero */}
+        <section className="px-4 pt-16 sm:pt-24" aria-labelledby="aa-heading">
+          <div className="mx-auto max-w-4xl">
             <Reveal>
-              <div className="rounded-2xl border border-ink/10 bg-surface p-6 shadow-brutal sm:p-8">
-                <ul className="divide-y divide-ink/10">
-                  {stack.map((c) => (
-                    <li key={c.id} className="flex items-baseline justify-between gap-4 py-2.5 text-sm">
-                      <span className="text-ink">
-                        {c.title}
-                        {c.anchor && <span className="ml-1.5 text-lime">★</span>}
-                        {c.status === "coming-soon" && <span className="ml-1.5 text-xs text-muted">(coming soon)</span>}
-                      </span>
-                      <span className="shrink-0 font-display tabular-nums text-muted">{inr(c.price)}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5 flex items-baseline justify-between border-t border-ink/10 pt-5">
-                  <span className="font-semibold text-ink">Total value</span>
-                  <span className="font-display font-semibold tabular-nums text-2xl text-ink">{inr(total)}+</span>
-                </div>
-                <div className="mt-2 flex items-baseline justify-between">
-                  <span className="font-semibold text-ink">All-access price</span>
-                  {/* The shock number — lime. */}
-                  <span className="font-display font-semibold tabular-nums text-4xl text-lime">{inr(BUNDLE.price)}</span>
-                </div>
-                <div className="mt-7">
-                  <ButtonLink href="/checkout?item=all-access" variant="gold" size="lg" className="w-full">
-                    Get all-access →
-                  </ButtonLink>
-                </div>
-                <p className="mt-4 text-center text-xs uppercase tracking-[0.18em] text-muted">
-                  Secure payment via Razorpay · instant access to everything live
-                </p>
-              </div>
+              <p className="text-kicker uppercase text-muted">All-access</p>
+              <h1
+                id="aa-heading"
+                className="mt-4 max-w-3xl font-display font-medium text-ink [font-size:clamp(2.5rem,6vw,5rem)] [letter-spacing:-0.02em] [line-height:1.02]"
+              >
+                One decision to learn it all.
+              </h1>
+              <p className="mt-6 max-w-xl text-standfirst text-inkText/75">
+                All {TOTAL_COUNT} courses ({LIVE_COUNT} live, the rest land in your library automatically the moment
+                they launch). No deadline to finish — lifetime means lifetime.
+              </p>
             </Reveal>
           </div>
         </section>
 
-        {/* What comes with it. */}
-        <section className="on-light border-t border-ink/10 bg-mist py-16 text-inkText">
-          <div className="mx-auto max-w-4xl px-4">
+        {/* The money chapter — dark, grain, huge champagne price + hairline index */}
+        <section
+          className="relative mt-16 overflow-hidden bg-ink py-20 text-cream sm:mt-24 sm:py-28"
+          aria-labelledby="price-heading"
+        >
+          <Grain opacity={0.05} />
+          <div className="relative mx-auto grid max-w-6xl gap-14 px-4 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
             <Reveal>
-              <h2 className="text-center font-display font-semibold text-3xl">With every course, you also get:</h2>
+              <p className="text-kicker uppercase text-champagne">The bundle</p>
+              <h2
+                id="price-heading"
+                className="mt-4 font-display font-medium [font-size:clamp(2.25rem,5vw,4rem)] [letter-spacing:-0.02em] [line-height:1.02]"
+              >
+                Every skill.
+                <br />
+                One price.
+              </h2>
+              <div className="mt-10">
+                <p className="text-sm text-cream/45 line-through">{inr(total)}+ total value</p>
+                <p className="mt-1 font-display font-semibold text-champagne [font-size:clamp(3.5rem,9vw,6rem)] [line-height:1]">
+                  {inr(BUNDLE.price)}
+                </p>
+                <p className="mt-2 text-kicker uppercase text-cream/50">One-time · lifetime access</p>
+              </div>
+              <Link
+                href="/checkout?item=all-access"
+                className="mt-10 inline-flex items-center gap-2 bg-champagne px-7 py-3.5 font-medium text-ink transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              >
+                Get all-access <span aria-hidden>→</span>
+              </Link>
+              <p className="mt-4 text-xs uppercase tracking-[0.14em] text-cream/40">
+                Secure payment via Razorpay · instant access to everything live
+              </p>
             </Reveal>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {GUARANTEES.map((d, i) => (
-                <Reveal key={d.title} delay={i * 0.04}>
-                  <div className="h-full rounded-xl border border-ink/10 bg-card p-5 shadow-brutal">
-                    <GuaranteeIcon name={d.icon} className="mb-3 h-5 w-5 text-ember" />
-                    <p className="font-semibold">{d.title}</p>
-                    <p className="mt-1 text-sm text-inkText/70">{d.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+
+            <Reveal delay={0.1}>
+              <p className="text-kicker uppercase text-cream/50">Everything included</p>
+              <ul className="mt-6">
+                {stack.map((c) => (
+                  <li
+                    key={c.id}
+                    className="flex items-baseline justify-between gap-4 border-t border-[color:var(--hairline-invert)] py-3 text-[15px]"
+                  >
+                    <span className="text-cream/85">
+                      {c.title}
+                      {c.anchor && <span className="ml-1.5 text-champagne">★</span>}
+                      {c.status === "coming-soon" && (
+                        <span className="ml-2 text-xs uppercase tracking-[0.14em] text-cream/40">soon</span>
+                      )}
+                    </span>
+                    <span className="shrink-0 font-display tabular-nums text-cream/45">{inr(c.price)}</span>
+                  </li>
+                ))}
+                <li className="flex items-baseline justify-between gap-4 border-y border-[color:var(--hairline-invert)] py-3 text-[15px]">
+                  <span className="font-medium text-cream">Total value</span>
+                  <span className="shrink-0 font-display tabular-nums text-champagne">{inr(total)}+</span>
+                </li>
+              </ul>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* What comes with it — hairline numbered index */}
+        <section className="px-4 py-20 sm:py-28" aria-labelledby="incl-heading">
+          <div className="mx-auto max-w-4xl">
             <Reveal>
-              <p className="mt-8 text-center text-sm text-inkText/60">
-                Some courses aren't shot yet — with the bundle, they're automatically yours the moment they launch.
+              <p className="text-kicker uppercase text-muted">What you get</p>
+              <h2
+                id="incl-heading"
+                className="mt-4 max-w-2xl font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
+              >
+                With every course, included
+              </h2>
+            </Reveal>
+            <ul className="mt-12 border-b border-ink/10">
+              {GUARANTEES.map((g, i) => (
+                <li key={g.title}>
+                  <Reveal delay={i * 0.04}>
+                    <div className="grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-t border-ink/10 py-5 sm:grid-cols-[3rem_1fr_16rem] sm:gap-6">
+                      <span aria-hidden className="font-display text-lg tabular-nums text-champagne">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-display text-lg font-medium text-ink sm:text-xl">{g.title}</span>
+                      <span className="col-start-2 mt-1 text-sm text-inkText/70 sm:col-start-3 sm:mt-0 sm:text-right">
+                        {g.desc}
+                      </span>
+                    </div>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+            <Reveal>
+              <p className="mt-8 text-sm text-inkText/60">
+                Some courses aren&rsquo;t shot yet — with the bundle, they&rsquo;re automatically yours the moment they
+                launch.
               </p>
             </Reveal>
           </div>
@@ -111,10 +149,10 @@ export default function AllAccessPage() {
 
         <section className="border-t border-ink/10 px-4 py-16 text-center">
           <Reveal>
-            <h2 className="font-display font-semibold text-2xl text-ink">Rather start with just one course?</h2>
-            <p className="mt-2 text-sm text-inkSoft">
+            <h2 className="font-display font-medium text-2xl text-ink sm:text-3xl">Rather start with just one course?</h2>
+            <p className="mt-3 text-sm text-inkText/70">
               No problem —{" "}
-              <Link href="/start" className="text-ink underline">
+              <Link href="/start" className="text-ink underline decoration-magenta decoration-1 underline-offset-4">
                 find your course in 2 questions
               </Link>
               .

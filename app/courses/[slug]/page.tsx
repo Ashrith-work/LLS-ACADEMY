@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { COURSES, getCourse, effectivePrice, FOUNDING_PRICING } from "@/lib/data/courses";
 import { GUARANTEES, TESTIMONIALS, STORY } from "@/lib/data/site";
 import { GuaranteeIcon } from "@/components/ui/GuaranteeIcon";
-import { inr, LANE_STYLES, cn } from "@/lib/utils";
+import { inr } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaitlistForm } from "@/components/course/WaitlistForm";
 import { CourseCta } from "./CourseCta";
@@ -35,7 +35,6 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
   const course = getCourse(params.slug);
   if (!course) notFound();
 
-  const styles = LANE_STYLES[course.lane];
   const comingSoon = course.status === "coming-soon";
   const price = effectivePrice(course);
   const founding = FOUNDING_PRICING && course.foundingPrice;
@@ -58,10 +57,12 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             aria-hidden
           />
           <div className="relative mx-auto max-w-3xl text-center">
-            <p className={cn("mb-4 text-xs font-semibold uppercase tracking-[0.18em]", styles.text)}>
+            <p className="text-kicker uppercase text-muted">
               {comingSoon ? "Coming soon · gauging demand" : "Recorded course · lifetime access"}
             </p>
-            <h1 className="font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">{course.hook}</h1>
+            <h1 className="mt-4 font-display font-medium text-ink [font-size:clamp(2.5rem,6vw,5rem)] [letter-spacing:-0.02em] [line-height:1.02]">
+              {course.hook}
+            </h1>
             <p className="mx-auto mt-5 max-w-xl text-base text-inkSoft sm:text-lg">{course.description}</p>
             {!comingSoon && (
               <p className="mt-8 text-sm text-inkSoft">
@@ -105,13 +106,16 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
                 {/* One relevant testimonial — not a wall. TODO: map per-course testimonials. */}
                 <Reveal>
-                  <figure className="mt-10 rounded-2xl border border-ink/10 bg-card p-6 shadow-cardLift">
-                    <blockquote className="text-[15px] leading-relaxed">
+                  <figure className="mt-12 border-t border-ink/10 pt-6">
+                    <blockquote className="font-display text-pullquote font-medium text-ink [text-wrap:balance]">
                       &ldquo;{TESTIMONIALS[0].quote}&rdquo;
                     </blockquote>
-                    <figcaption className="mt-3 text-sm">
-                      <span className="font-semibold">{TESTIMONIALS[0].name}</span>
-                      <span className="text-inkText/60"> · {TESTIMONIALS[0].city}</span>
+                    <figcaption className="mt-5 text-kicker uppercase text-muted">
+                      <span className="text-ink">{TESTIMONIALS[0].name}</span>
+                      <span className="mx-2 text-ink/30">·</span>
+                      {TESTIMONIALS[0].city}
+                      <span className="mx-2 text-ink/30">·</span>
+                      <span className="text-champagne">{TESTIMONIALS[0].outcome}</span>
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -122,18 +126,23 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <section className="py-16 sm:py-20">
               <div className="mx-auto max-w-3xl px-4">
                 <Reveal>
-                  <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">Exactly what's in this course:</h2>
+                  <p className="text-kicker uppercase text-muted">What&rsquo;s inside</p>
+                  <h2 className="mt-4 font-display font-medium text-ink [font-size:clamp(1.75rem,4vw,2.75rem)] [letter-spacing:-0.02em] [line-height:1.04]">
+                    Exactly what&rsquo;s in this course
+                  </h2>
                 </Reveal>
-                <ul className="mt-8 space-y-3">
+                <ul className="mt-8 border-b border-ink/10">
                   {course.whatYouGet.map((w, i) => (
-                    <Reveal key={w} delay={i * 0.04}>
-                      <li className="flex items-start gap-3 rounded-xl border border-ink/10 bg-card px-5 py-4">
-                        <span className={cn("mt-0.5 font-bold", styles.text)} aria-hidden>
-                          ✓
-                        </span>
-                        <span className="text-inkText">{w}</span>
-                      </li>
-                    </Reveal>
+                    <li key={w}>
+                      <Reveal delay={i * 0.04}>
+                        <div className="flex items-baseline gap-4 border-t border-ink/10 py-4">
+                          <span className="font-display text-champagne" aria-hidden>
+                            —
+                          </span>
+                          <span className="text-inkText">{w}</span>
+                        </div>
+                      </Reveal>
+                    </li>
                   ))}
                 </ul>
                 <Reveal>
@@ -154,16 +163,18 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <section className="px-4 pb-8">
               <div className="mx-auto max-w-xl">
                 <Reveal>
-                  <div className="rounded-2xl border border-ink/10 bg-card p-8 text-center shadow-cardLift">
+                  <div className="border border-ink/15 bg-surface p-8 text-center">
                     {founding && (
-                      <p className="mb-3 inline-block rounded-full border border-ink/10 bg-gold px-3 py-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-ink">
+                      <p className="mb-4 inline-block border border-champagne px-3 py-1 text-kicker uppercase text-champagne">
                         Founding price — limited batch
                       </p>
                     )}
                     <div className="flex items-baseline justify-center gap-3">
                       {founding && <span className="text-lg text-muted line-through">{inr(course.price)}</span>}
-                      {/* The big number — lime, reserved for this moment. */}
-                      <p className="font-display text-5xl font-semibold text-lime">{inr(price)}</p>
+                      {/* The big number — champagne, reserved for this moment. */}
+                      <p className="font-display font-semibold text-champagne [font-size:clamp(3rem,7vw,4.5rem)] [line-height:1]">
+                        {inr(price)}
+                      </p>
                     </div>
                     <p className="mt-2 text-sm text-muted">One-time · lifetime access · all updates free</p>
                     <div className="mt-7">
