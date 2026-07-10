@@ -31,20 +31,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Site-wide premium backdrop — near-black charcoal with a warm amber glow
-   bleeding in from the lower-right, one faint diagonal light streak, and a
-   subtle depth glow top-left. Centre-left stays dark (headline negative space).
-   Fixed pseudo-elements (not background-attachment:fixed) avoid iOS jank. */
+/* Site-wide premium backdrop — deep crimson-to-black with a glossy red light
+   ribbon curving through pure black (public/bg-premium.svg). Upper-left stays
+   dark for headline negative space. Fixed pseudo-element avoids iOS jank. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
-  background:
-    linear-gradient(118deg, transparent 42%, rgba(255, 190, 130, 0.05) 50%, transparent 58%),
-    radial-gradient(115% 115% at 90% 96%, rgba(255, 138, 46, 0.55) 0%, rgba(214, 96, 32, 0.28) 20%, rgba(120, 54, 20, 0.1) 38%, rgba(14, 13, 16, 0) 60%),
-    radial-gradient(90% 80% at 8% 4%, rgba(70, 62, 74, 0.22), rgba(14, 13, 16, 0) 46%),
-    #0e0d10;
+  background: url("/bg-premium.svg") center / cover no-repeat, #050203;
 }
 
 /* Fine film grain over the backdrop for a matte, cinematic finish. */
