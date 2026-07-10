@@ -26,9 +26,23 @@ html {
 }
 
 body {
-  background: var(--bone);
+  background: transparent;
   color: var(--ink);
   text-rendering: optimizeLegibility;
+}
+
+/* Site-wide background image — a single fixed backdrop behind all content.
+   Uses a fixed pseudo-element (not background-attachment:fixed) to avoid
+   iOS/mobile jank. A bone wash keeps text readable over the photo.
+   The "paper" sections above are translucent so this shows through. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(239, 236, 228, 0.55), rgba(239, 236, 228, 0.55)),
+    url("/hero-banner.webp") center / cover no-repeat;
 }
 
 /* Accessible focus everywhere — solid ink ring (monochrome). */

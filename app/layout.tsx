@@ -54,7 +54,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="font-body bg-bone text-inkText antialiased">
+      <body className="font-body text-inkText antialiased">
         <AuthProvider>
           <CartProvider>{children}</CartProvider>
         </AuthProvider>
