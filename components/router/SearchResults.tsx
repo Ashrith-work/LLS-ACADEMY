@@ -21,7 +21,7 @@ import {
  * Every card links straight to /courses/<slug>. Dark theme + coral accent.
  */
 
-const ACCENT = "#E8622C";
+const ACCENT = "#4b9fe1";
 const ALL_CATS: CategoryKey[] = ["sell", "brand", "grow"];
 
 function priceLabel(price: number | null): string {
@@ -39,7 +39,7 @@ function ResultCard({ course, starter = false }: { course: Course; starter?: boo
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#16161f] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8622C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E14]"
+      className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#16161f] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E14]"
     >
       <div className="mb-3 flex items-center gap-2">
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: cat.color }} aria-hidden />
@@ -65,7 +65,7 @@ function ResultCard({ course, starter = false }: { course: Course; starter?: boo
         <span className="text-sm text-white/70">
           {soon ? "Join waitlist" : <>from <span className="font-semibold text-white">{priceLabel(course.price)}</span></>}
         </span>
-        <span className="text-white/40 transition group-hover:translate-x-0.5 group-hover:text-[#E8622C]" aria-hidden>
+        <span className="text-white/40 transition group-hover:translate-x-0.5 group-hover:text-[#4b9fe1]" aria-hidden>
           →
         </span>
       </div>
@@ -127,7 +127,7 @@ export function SearchResults() {
 
         {/* Search box */}
         <form onSubmit={refine} className="mb-9">
-          <div className="flex items-center gap-3 rounded-3xl border border-white/10 bg-[#16161f] px-5 py-3 transition-all duration-200 focus-within:border-[#E8622C]/50 focus-within:ring-4 focus-within:ring-[#E8622C]/15">
+          <div className="flex items-center gap-3 rounded-3xl border border-white/10 bg-[#16161f] px-5 py-3 transition-all duration-200 focus-within:border-[#4b9fe1]/50 focus-within:ring-4 focus-within:ring-[#4b9fe1]/15">
             <input
               type="text"
               value={value}
@@ -141,7 +141,7 @@ export function SearchResults() {
               type="submit"
               disabled={!value.trim()}
               aria-label="Search"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8622C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#16161f] enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#16161f] enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40"
               style={{ backgroundColor: value.trim() ? ACCENT : "#2A2A33" }}
             >
               <ArrowUp size={18} aria-hidden />

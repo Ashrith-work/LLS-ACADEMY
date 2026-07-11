@@ -20,11 +20,11 @@ import {
  *
  * Claude/ChatGPT home feel (one input + quick chips) but it's a COURSE FINDER,
  * not a chatbot: everything just routes into /start. Sits below the hero and
- * above the courses grid. White section, coral-orange accent (#E8622C) to match
+ * above the courses grid. White section, blue accent (#4b9fe1) to match
  * the site's primary button; headings use the site's display font.
  */
 
-const ACCENT = "#E8622C";
+const ACCENT = "#4b9fe1";
 
 /** First three chips map to goal routes; the rest become free-text searches. */
 const CHIPS: { label: string; href: string; Icon: LucideIcon }[] = [
@@ -83,7 +83,7 @@ export function CourseFinderHero() {
 
         {/* Input card */}
         <form onSubmit={(e) => { e.preventDefault(); submitText(); }} className="mt-9 w-full">
-          <div className="flex items-center gap-3 rounded-3xl border border-ink/15 bg-bone px-5 py-3 transition-all duration-200 focus-within:border-[#E8622C]/50 focus-within:ring-4 focus-within:ring-[#E8622C]/15">
+          <div className="flex items-center gap-3 rounded-3xl border border-ink/15 bg-bone px-5 py-3 transition-all duration-200 focus-within:border-[#4b9fe1]/50 focus-within:ring-4 focus-within:ring-[#4b9fe1]/15">
             <input
               type="text"
               value={value}
@@ -97,7 +97,7 @@ export function CourseFinderHero() {
               type="submit"
               disabled={!canSubmit}
               aria-label="Find courses"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8622C] focus-visible:ring-offset-2 focus-visible:ring-offset-white enabled:hover:-translate-y-0.5 enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-white enabled:hover:-translate-y-0.5 enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40"
               style={{ backgroundColor: canSubmit ? ACCENT : "#D8CEBC" }}
             >
               <ArrowUp size={20} aria-hidden />
@@ -111,9 +111,9 @@ export function CourseFinderHero() {
             <Link
               key={label}
               href={href}
-              className="group inline-flex items-center gap-2 rounded-full border border-ink/12 bg-ink/[0.02] px-4 py-2 text-sm text-[#312E81]/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#E8622C] hover:text-[#312E81] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8622C] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="group inline-flex items-center gap-2 rounded-full border border-ink/12 bg-ink/[0.02] px-4 py-2 text-sm text-[#312E81]/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#4b9fe1] hover:text-[#312E81] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              <Icon size={15} className="text-ink/40 transition-colors group-hover:text-[#E8622C]" aria-hidden />
+              <Icon size={15} className="text-ink/40 transition-colors group-hover:text-[#4b9fe1]" aria-hidden />
               {label}
             </Link>
           ))}
