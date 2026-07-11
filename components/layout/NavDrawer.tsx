@@ -115,8 +115,8 @@ function Section({
   onNavigate: () => void;
 }) {
   return (
-    <div className="mb-5">
-      <p className="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-muted">
+    <div className="mb-3">
+      <p className="px-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
         {title}
       </p>
       {links.map((l) => (
@@ -124,10 +124,9 @@ function Section({
           key={l.href}
           href={l.href}
           onClick={onNavigate}
-          className="block rounded-lg px-2 py-2 transition hover:bg-ink/5"
+          className="block rounded-lg px-2 py-1.5 text-[15px] font-semibold text-inkText transition hover:bg-ink/5 hover:text-ember"
         >
-          <span className="block text-sm font-medium text-inkText">{l.label}</span>
-          {l.note && <span className="block text-xs text-muted">{l.note}</span>}
+          {l.label}
         </Link>
       ))}
     </div>
