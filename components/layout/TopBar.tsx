@@ -12,7 +12,7 @@ export function TopBar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <NavDrawer />
           <Link href="/" className="font-display text-xl font-semibold tracking-tight text-inkText">
-            Live Life <span className="italic text-ember">Shameless</span>
+            Live Life <span className="italic text-inkText">Shameless</span>
           </Link>
         </div>
         <div className="flex items-center gap-5 sm:gap-7">

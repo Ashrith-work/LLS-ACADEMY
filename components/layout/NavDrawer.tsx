@@ -83,7 +83,7 @@ export function NavDrawer() {
             onClick={() => setOpen(false)}
             className="font-display text-lg font-semibold tracking-tight text-inkText"
           >
-            Live Life <span className="italic text-ember">Shameless</span>
+            Live Life <span className="italic text-inkText">Shameless</span>
           </Link>
           <button
             type="button"
