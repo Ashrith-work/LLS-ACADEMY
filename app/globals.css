@@ -39,6 +39,13 @@ body {
   line-height: 1.6;
 }
 
+/* Light, airy display headings. Placed after @tailwind utilities so it wins
+   over font-semibold/font-medium utilities (same specificity, later source
+   order) — forces every display-font heading to weight 300. */
+.font-display {
+  font-weight: 300;
+}
+
 /* Scroll-reveal (IntersectionObserver toggles .is-visible). Reduced-motion safe. */
 .reveal {
   opacity: 0;
