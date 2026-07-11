@@ -34,7 +34,7 @@ const config: Config = {
         line: "#D8CEBC", // warm hairline on cream
         magenta: "#BE185D", // accent — hover underlines, "Start here", one hairline
         champagne: "#C9A96A", // premium accent — bundle + "Start here" moments
-        ember: { DEFAULT: ACCENT, soft: "#22222B" },
+        ember: { DEFAULT: "#4b9fe1", soft: "#3d8fd4" }, // blue accent — primary buttons
         gold: ACCENT,
         lime: ACCENT,
         violet: ACCENT,
