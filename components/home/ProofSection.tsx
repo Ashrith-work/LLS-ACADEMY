@@ -12,7 +12,7 @@ export function ProofSection() {
   return (
     <>
       {/* 4 — Founder story */}
-      <section className="bg-paper py-20 sm:py-28" aria-labelledby="story-heading">
+      <section className="bg-white py-20 sm:py-28" aria-labelledby="story-heading">
         <div className="mx-auto max-w-4xl px-4">
           <Reveal>
             <p className="text-kicker uppercase text-muted">The founder</p>
@@ -60,7 +60,7 @@ export function ProofSection() {
       </section>
 
       {/* 5 — Testimonials */}
-      <section className="bg-mist py-20 sm:py-28" aria-labelledby="proof-heading">
+      <section className="bg-white py-20 sm:py-28" aria-labelledby="proof-heading">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <p className="text-kicker uppercase text-muted">Proof</p>
@@ -93,7 +93,7 @@ export function ProofSection() {
       </section>
 
       {/* 6 — Guarantees */}
-      <section className="bg-paper py-20 sm:py-28" aria-labelledby="guarantees-heading">
+      <section className="bg-white py-20 sm:py-28" aria-labelledby="guarantees-heading">
         <div className="mx-auto max-w-4xl px-4">
           <Reveal>
             <p className="text-kicker uppercase text-muted">What you get</p>

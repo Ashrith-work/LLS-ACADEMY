@@ -49,7 +49,7 @@ export function ReelsRail() {
   };
 
   return (
-    <section id="reels" aria-labelledby="reels-heading" className="bg-mist py-16 sm:py-20">
+    <section id="reels" aria-labelledby="reels-heading" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8 max-w-2xl sm:mb-10">
           <p className="text-kicker uppercase text-muted">In motion</p>
