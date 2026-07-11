@@ -71,13 +71,13 @@ export function CourseFinderHero() {
         }`}
       >
         {/* Badge */}
-        <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-ink/[0.03] px-4 py-1.5 text-sm text-inkSoft">
+        <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-ink/[0.03] px-4 py-1.5 text-sm text-[#312E81]/70">
           <Sparkles size={15} style={{ color: ACCENT }} aria-hidden />
           Not sure where to start?
         </span>
 
         {/* Time-aware greeting (display font, short) */}
-        <h2 className="font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+        <h2 className="font-display text-3xl font-semibold leading-tight text-[#312E81] sm:text-4xl">
           {greeting}. What do you want to get better at?
         </h2>
 
@@ -91,7 +91,7 @@ export function CourseFinderHero() {
               placeholder="Tell me what you want to get better at — e.g. 'close more sales' or 'crack an interview'…"
               aria-label="Describe what you want to get better at"
               enterKeyHint="search"
-              className="min-w-0 flex-1 bg-transparent py-2 text-base text-ink placeholder:text-ink/40 focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent py-2 text-base text-[#312E81] placeholder:text-[#312E81]/40 focus:outline-none"
             />
             <button
               type="submit"
@@ -111,7 +111,7 @@ export function CourseFinderHero() {
             <Link
               key={label}
               href={href}
-              className="group inline-flex items-center gap-2 rounded-full border border-ink/12 bg-ink/[0.02] px-4 py-2 text-sm text-inkSoft transition-all duration-200 hover:-translate-y-0.5 hover:border-[#E8622C] hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8622C] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="group inline-flex items-center gap-2 rounded-full border border-ink/12 bg-ink/[0.02] px-4 py-2 text-sm text-[#312E81]/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#E8622C] hover:text-[#312E81] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8622C] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
               <Icon size={15} className="text-ink/40 transition-colors group-hover:text-[#E8622C]" aria-hidden />
               {label}
