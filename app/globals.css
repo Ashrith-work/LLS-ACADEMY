@@ -46,6 +46,14 @@ body {
   font-weight: 300;
 }
 
+/* Prices/figures stay in the legible body font (Jost), not blackletter.
+   Higher specificity (0,2,0) beats .font-display, so tabular-nums figures
+   opt back into the clean sans. */
+.font-display.tabular-nums {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
 /* Scroll-reveal (IntersectionObserver toggles .is-visible). Reduced-motion safe. */
 .reveal {
   opacity: 0;

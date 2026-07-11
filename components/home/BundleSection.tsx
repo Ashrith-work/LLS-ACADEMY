@@ -41,7 +41,7 @@ export function BundleSection() {
 
           <div className="mt-10">
             <p className="text-sm text-cream/45 line-through">{inr(total)}+ total value</p>
-            <p className="mt-1 font-display font-semibold text-champagne [font-size:clamp(3.5rem,9vw,6rem)] [line-height:1]">
+            <p className="mt-1 font-display tabular-nums font-semibold text-champagne [font-size:clamp(3.5rem,9vw,6rem)] [line-height:1]">
               {inr(BUNDLE.price)}
             </p>
             <p className="mt-2 text-kicker uppercase text-cream/50">One-time · lifetime access</p>

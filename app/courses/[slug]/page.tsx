@@ -172,7 +172,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                     <div className="flex items-baseline justify-center gap-3">
                       {founding && <span className="text-lg text-muted line-through">{inr(course.price)}</span>}
                       {/* The big number — champagne, reserved for this moment. */}
-                      <p className="font-display font-semibold text-champagne [font-size:clamp(3rem,7vw,4.5rem)] [line-height:1]">
+                      <p className="font-display tabular-nums font-semibold text-champagne [font-size:clamp(3rem,7vw,4.5rem)] [line-height:1]">
                         {inr(price)}
                       </p>
                     </div>

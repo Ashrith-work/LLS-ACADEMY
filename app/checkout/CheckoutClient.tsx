@@ -109,7 +109,7 @@ export function CheckoutClient() {
         <div className="mt-6 rounded-2xl border border-ink/10 bg-card px-5 py-4 shadow-cardLift">
           <div className="flex items-baseline justify-between text-sm">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Total (one-time, no hidden charges)</span>
-            <span className="font-display text-2xl text-inkText">{inr(amount)}</span>
+            <span className="font-display tabular-nums text-2xl text-inkText">{inr(amount)}</span>
           </div>
         </div>
 
@@ -180,7 +180,7 @@ function OptionCard({
           <span className="mt-0.5 block text-xs text-muted">{subtitle}</span>
         </span>
       </span>
-      <span className="shrink-0 font-display text-lg text-inkText">{inr(price)}</span>
+      <span className="shrink-0 font-display tabular-nums text-lg text-inkText">{inr(price)}</span>
     </button>
   );
 }
