@@ -66,7 +66,7 @@ export function CourseFinderHero() {
   return (
     <section className="w-full bg-white" aria-label="Find your course">
       <div
-        className={`mx-auto flex max-w-[720px] flex-col items-center px-5 pt-6 pb-20 text-center transition-all duration-500 ease-out sm:pt-10 sm:pb-28 ${
+        className={`mx-auto flex max-w-[720px] flex-col items-center px-5 pt-2 pb-20 text-center transition-all duration-500 ease-out sm:pt-4 sm:pb-28 ${
           mounted ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
         }`}
       >
