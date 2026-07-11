@@ -159,8 +159,7 @@ export function LoginModal({
             <button
               type="button"
               onClick={onClose}
-              className="mt-6 inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[#0E0E14] transition hover:brightness-105"
-              style={{ backgroundImage: "linear-gradient(135deg, #E4C88A 0%, #C9A15F 55%, #B8894A 100%)" }}
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#fa255e] px-6 py-2.5 text-sm font-semibold text-white transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F2EA]"
             >
               Done
             </button>
