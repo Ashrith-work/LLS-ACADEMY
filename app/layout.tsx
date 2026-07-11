@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { UnifrakturMaguntia, Jost } from "next/font/google";
 import { AuthProvider } from "@/lib/auth/dev-auth";
 import { CartProvider } from "@/lib/cart/cart";
 import { AddCourseBadge } from "@/components/ui/AddCourseBadge";
 import { SITE } from "@/lib/data/site";
 import "./globals.css";
 
-/* Heritage boutique-hotel type pairing.
-   Display: Cormorant Garamond — light, airy high-contrast serif for headings.
+/* Type pairing.
+   Display: UnifrakturMaguntia — traditional blackletter/Fraktur for headings.
    Body:    Jost — a clean geometric sans for copy, nav + buttons. */
-const display = Cormorant_Garamond({
-  weight: ["300", "400", "500", "600"],
+const display = UnifrakturMaguntia({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
