@@ -9,7 +9,7 @@ import Link from "next/link";
  * Reusable + presentational: the parent (TopBar) owns the shared scrim and the
  * open/close state; this renders only the card (fixed, centered) when `open`.
  * Brand: cream card #F7F2EA on the shared dark scrim, Fraunces display heading,
- * champagne (#C9A15F) gradient CTA, magenta (#E0348B) focus accents.
+ * champagne (#C9A15F) gradient CTA, magenta (#fa255e) focus accents.
  *
  * Fields (in order): Email → Phone → Date of birth. Validates on submit; shows
  * inline red hints and a success state. Submit is wired to a placeholder handler
@@ -17,7 +17,7 @@ import Link from "next/link";
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAGENTA = "#E0348B";
+const MAGENTA = "#fa255e";
 const RED = "#C0362C";
 
 export interface LoginValues {
@@ -134,7 +134,7 @@ export function LoginModal({
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-[#0E0E14]/50 transition hover:bg-[#0E0E14]/5 hover:text-[#0E0E14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E0348B]"
+          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-[#0E0E14]/50 transition hover:bg-[#0E0E14]/5 hover:text-[#0E0E14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e]"
         >
           ×
         </button>
@@ -221,7 +221,7 @@ export function LoginModal({
                 By continuing you agree to our{" "}
                 <Link
                   href="/terms"
-                  className="font-medium underline decoration-[#E0348B]/50 underline-offset-2 transition hover:text-[#E0348B]"
+                  className="font-medium underline decoration-[#fa255e]/50 underline-offset-2 transition hover:text-[#fa255e]"
                   style={{ color: MAGENTA }}
                 >
                   Terms
@@ -278,7 +278,7 @@ function Field({
         className={`w-full rounded-xl border bg-white/70 px-4 py-2.5 text-[15px] text-[#0E0E14] outline-none transition placeholder:text-[#0E0E14]/35 focus:ring-2 ${
           error
             ? "border-[#C0362C] focus:border-[#C0362C] focus:ring-[#C0362C]/20"
-            : "border-[#0E0E14]/15 focus:border-[#E0348B] focus:ring-[#E0348B]/20"
+            : "border-[#0E0E14]/15 focus:border-[#fa255e] focus:ring-[#fa255e]/20"
         }`}
       />
       {error && (

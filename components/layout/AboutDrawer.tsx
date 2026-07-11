@@ -8,11 +8,11 @@ import Link from "next/link";
  *
  * Reusable + presentational: the parent (TopBar) owns the shared scrim + open
  * state and the animated hamburger; this renders only the sliding panel when
- * `open`. Brand: cream #F4EFE6 panel, Fraunces heading, a magenta (#E0348B)
+ * `open`. Brand: cream #F4EFE6 panel, Fraunces heading, a magenta (#fa255e)
  * vertical timeline, champagne (#C9A15F) portrait ring.
  */
 
-const MAGENTA = "#E0348B";
+const MAGENTA = "#fa255e";
 
 const STEPS: { title: string; note?: string }[] = [
   { title: "Engineering → confusion", note: "A degree, and no idea what came next." },
@@ -79,7 +79,7 @@ export function AboutDrawer({ open, onClose }: { open: boolean; onClose: () => v
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-[#0E0E14]/50 transition hover:bg-[#0E0E14]/5 hover:text-[#0E0E14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E0348B]"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-[#0E0E14]/50 transition hover:bg-[#0E0E14]/5 hover:text-[#0E0E14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e]"
         >
           ×
         </button>
@@ -123,7 +123,7 @@ export function AboutDrawer({ open, onClose }: { open: boolean; onClose: () => v
         <Link
           href="/about"
           onClick={onClose}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold transition hover:gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E0348B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4EFE6]"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold transition hover:gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4EFE6]"
           style={{ color: MAGENTA }}
         >
           Read the full story <span aria-hidden>→</span>
