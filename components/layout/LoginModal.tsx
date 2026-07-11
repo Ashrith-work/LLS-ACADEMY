@@ -211,8 +211,7 @@ export function LoginModal({
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-1 w-full rounded-full px-6 py-3 text-sm font-semibold text-[#0E0E14] shadow-[0_10px_30px_-12px_rgba(201,161,95,0.9)] transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A15F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F2EA] disabled:cursor-not-allowed disabled:opacity-70"
-                style={{ backgroundImage: "linear-gradient(135deg, #E4C88A 0%, #C9A15F 55%, #B8894A 100%)" }}
+                className="mt-1 w-full rounded-full bg-[#fa255e] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-12px_rgba(250,37,94,0.9)] transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F2EA] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {submitting ? "One moment…" : "Continue"}
               </button>
