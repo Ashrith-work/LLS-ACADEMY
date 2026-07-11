@@ -16,7 +16,7 @@ const POSTER_SRC = "/hero-banner-poster.jpg";
 export function GoalEntry() {
   return (
     <section className="bg-white" aria-label="Hero">
-      <div className="mx-auto w-full max-w-[1120px] px-5 py-10 sm:py-16">
+      <div className="mx-auto w-full max-w-[1120px] px-5 pt-10 pb-4 sm:pt-16 sm:pb-6">
         <div className="min-h-[200px] overflow-hidden rounded-2xl border border-ink/10 bg-mist shadow-brutalLg sm:min-h-[320px]">
           <video
             className="block h-auto w-full"
