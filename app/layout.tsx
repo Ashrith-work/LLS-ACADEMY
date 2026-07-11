@@ -1,22 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import { AuthProvider } from "@/lib/auth/dev-auth";
 import { CartProvider } from "@/lib/cart/cart";
 import { AddCourseBadge } from "@/components/ui/AddCourseBadge";
 import { SITE } from "@/lib/data/site";
 import "./globals.css";
 
-/* Editorial type system.
-   Display: Fraunces — expressive, high-contrast serif for headlines.
-   Body:    Hanken Grotesk — a quiet, warm neo-grotesque for copy + UI. */
-const display = Fraunces({
-  weight: ["400", "500", "600", "700", "900"],
-  style: ["normal", "italic"],
+/* Heritage boutique-hotel type pairing.
+   Display: Cormorant Garamond — light, airy high-contrast serif for headings.
+   Body:    Jost — a clean geometric sans for copy, nav + buttons. */
+const display = Cormorant_Garamond({
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
-const body = Hanken_Grotesk({
+const body = Jost({
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
