@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 import { GoalEntry } from "@/components/home/GoalEntry";
 import { CourseFinderHero } from "@/components/CourseFinderHero";
 import { LaneRow } from "@/components/home/LaneRow";
-import { ReelsRail } from "@/components/home/ReelsRail";
 import { BundleSection } from "@/components/home/BundleSection";
 import { ProofSection } from "@/components/home/ProofSection";
 import { Faq } from "@/components/home/Faq";
@@ -26,7 +25,6 @@ export default function HomePage() {
             <LaneRow key={lane.id} lane={lane} index={i} />
           ))}
         </div>
-        <ReelsRail />
         <BundleSection />
         <ProofSection />
         <Faq bgClass="bg-white" />
