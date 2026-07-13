@@ -71,8 +71,8 @@ export function CourseFinderHero() {
         }`}
       >
         {/* Badge */}
-        <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-ink/[0.03] px-4 py-1.5 text-sm text-[#312E81]/70">
-          <Sparkles size={15} style={{ color: ACCENT }} aria-hidden />
+        <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-[#4b9fe1]/25 bg-[#4b9fe1]/[0.08] px-3 py-1 text-xs text-[#312E81]/70">
+          <Sparkles size={13} style={{ color: ACCENT }} aria-hidden />
           Not sure where to start?
         </span>
 

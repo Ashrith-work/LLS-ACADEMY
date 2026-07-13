@@ -62,7 +62,7 @@ export function TopBar() {
           isAbout ? "z-[110]" : "z-40"
         }`}
       >
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-4" aria-label="Main">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 sm:px-4" aria-label="Main">
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
