@@ -46,9 +46,9 @@ body {
   font-weight: 300;
 }
 
-/* Prices/figures stay in the legible body font (Jost), not blackletter.
+/* Prices/figures stay in the clean body font (Jost) for even tabular figures.
    Higher specificity (0,2,0) beats .font-display, so tabular-nums figures
-   opt back into the clean sans. */
+   opt back into the sans. */
 .font-display.tabular-nums {
   font-family: var(--font-body);
   font-weight: 500;
