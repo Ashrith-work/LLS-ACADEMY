@@ -91,7 +91,7 @@ export function SignupGate({
             {/* Google — primary, one tap. */}
             <button
               onClick={googleSignIn}
-              className="flex w-full items-center justify-center gap-3 rounded-xl border border-line bg-surface px-6 py-3.5 font-semibold text-ink shadow-brutal transition hover:-translate-y-0.5"
+              className="flex w-full items-center justify-center gap-3 rounded-xl border border-line bg-card px-6 py-3.5 font-semibold text-ink shadow-brutal transition hover:-translate-y-0.5"
             >
               {/* Inline Google "G" — no icon library needed. */}
               <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden>
@@ -204,14 +204,14 @@ function Field({
         id={id}
         className={cn(
           "w-full rounded-xl border bg-card px-4 py-3 text-inkText placeholder:text-muted/60",
-          error ? "border-lime" : "border-ink/15",
+          error ? "border-danger" : "border-ink/15",
         )}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         {...inputProps}
       />
       {error && (
-        <p id={`${id}-error`} className="mt-1 text-xs text-lime" role="alert">
+        <p id={`${id}-error`} className="mt-1 text-xs text-danger" role="alert">
           {error}
         </p>
       )}

@@ -20,11 +20,11 @@ import {
  *
  * Claude/ChatGPT home feel (one input + quick chips) but it's a COURSE FINDER,
  * not a chatbot: everything just routes into /start. Sits below the hero and
- * above the courses grid. White section, blue accent (#4b9fe1) to match
+ * above the courses grid. White section, blue accent (#5B3DF5) to match
  * the site's primary button; headings use the site's display font.
  */
 
-const ACCENT = "#4b9fe1";
+const ACCENT = "#F59E0B";
 
 /** First three chips map to goal routes; the rest become free-text searches. */
 const CHIPS: { label: string; href: string; Icon: LucideIcon }[] = [
@@ -64,26 +64,26 @@ export function CourseFinderHero() {
   }
 
   return (
-    <section className="w-full bg-white" aria-label="Find your course">
+    <section className="w-full bg-paper" aria-label="Find your course">
       <div
         className={`mx-auto flex max-w-[720px] flex-col items-center px-5 pt-2 pb-20 text-center transition-all duration-500 ease-out sm:pt-4 sm:pb-28 ${
           mounted ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
         }`}
       >
         {/* Badge */}
-        <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-[#4b9fe1]/25 bg-[#4b9fe1]/[0.08] px-3 py-1 text-xs text-[#312E81]/70">
+        <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-ember/25 bg-ember/[0.10] px-3 py-1 text-xs text-ember">
           <Sparkles size={13} style={{ color: ACCENT }} aria-hidden />
           Not sure where to start?
         </span>
 
         {/* Time-aware greeting (display font, short) */}
-        <h2 className="font-display text-3xl font-semibold leading-tight text-[#312E81] sm:text-4xl">
+        <h2 className="font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
           {greeting}. What do you want to get better at?
         </h2>
 
         {/* Input card */}
         <form onSubmit={(e) => { e.preventDefault(); submitText(); }} className="mt-9 w-full">
-          <div className="flex items-center gap-3 rounded-3xl border border-ink/15 bg-bone px-5 py-3 transition-all duration-200 focus-within:border-[#4b9fe1]/50 focus-within:ring-4 focus-within:ring-[#4b9fe1]/15">
+          <div className="flex items-center gap-3 rounded-3xl border border-white/10 bg-card px-5 py-3 shadow-cardLift transition-all duration-200 focus-within:border-ember/50 focus-within:ring-4 focus-within:ring-ember/15">
             <input
               type="text"
               value={value}
@@ -91,14 +91,14 @@ export function CourseFinderHero() {
               placeholder="Tell me what you want to get better at — e.g. 'close more sales' or 'crack an interview'…"
               aria-label="Describe what you want to get better at"
               enterKeyHint="search"
-              className="min-w-0 flex-1 bg-transparent py-2 text-base text-[#312E81] placeholder:text-[#312E81]/40 focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent py-2 text-base text-white placeholder:text-inkSoft/70 focus:outline-none"
             />
             <button
               type="submit"
               disabled={!canSubmit}
               aria-label="Find courses"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-white enabled:hover:-translate-y-0.5 enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40"
-              style={{ backgroundColor: canSubmit ? ACCENT : "#D8CEBC" }}
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-black transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] enabled:hover:-translate-y-0.5 enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40"
+              style={{ backgroundColor: canSubmit ? ACCENT : "#3F3F46" }}
             >
               <ArrowUp size={20} aria-hidden />
             </button>
@@ -111,9 +111,9 @@ export function CourseFinderHero() {
             <Link
               key={label}
               href={href}
-              className="group inline-flex items-center gap-2 rounded-full border border-ink/12 bg-ink/[0.02] px-4 py-2 text-sm text-[#312E81]/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#4b9fe1] hover:text-[#312E81] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-inkSoft transition-all duration-200 hover:-translate-y-0.5 hover:border-ember hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
             >
-              <Icon size={15} className="text-ink/40 transition-colors group-hover:text-[#4b9fe1]" aria-hidden />
+              <Icon size={15} className="text-inkSoft transition-colors group-hover:text-ember" aria-hidden />
               {label}
             </Link>
           ))}

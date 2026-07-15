@@ -9,7 +9,7 @@ import Link from "next/link";
  * Reusable + presentational: the parent (TopBar) owns the shared scrim and the
  * open/close state; this renders only the card (fixed, centered) when `open`.
  * Brand: cream card #F7F2EA on the shared dark scrim, Fraunces display heading,
- * champagne (#C9A15F) gradient CTA, magenta (#fa255e) focus accents.
+ * champagne (#C9A15F) gradient CTA, magenta (#5B3DF5) focus accents.
  *
  * Fields (in order): Email → Phone → Date of birth. Validates on submit; shows
  * inline red hints and a success state. Submit is wired to a placeholder handler
@@ -17,7 +17,7 @@ import Link from "next/link";
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAGENTA = "#fa255e";
+const MAGENTA = "#F59E0B";
 const RED = "#C0362C";
 
 export interface LoginValues {
@@ -126,7 +126,7 @@ export function LoginModal({
         aria-modal="true"
         aria-labelledby="login-title"
         onKeyDown={onKeyDownTrap}
-        className={`relative w-full max-w-md rounded-2xl bg-[#F7F2EA] p-6 shadow-[0_40px_120px_-30px_rgba(14,14,20,0.7)] transition-all duration-200 ease-out motion-reduce:transition-none sm:p-8 ${
+        className={`relative w-full max-w-md rounded-2xl bg-card p-6 shadow-[0_40px_120px_-30px_rgba(14,14,20,0.7)] transition-all duration-200 ease-out motion-reduce:transition-none sm:p-8 ${
           show ? "translate-y-0 scale-100 opacity-100" : "translate-y-2 scale-[0.97] opacity-0"
         }`}
       >
@@ -134,7 +134,7 @@ export function LoginModal({
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-[#0E0E14]/50 transition hover:bg-[#0E0E14]/5 hover:text-[#0E0E14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e]"
+          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-white/50 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
         >
           ×
         </button>
@@ -142,7 +142,7 @@ export function LoginModal({
         {done ? (
           <div className="py-6 text-center">
             <div
-              className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full text-white"
+              className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full text-black"
               style={{ backgroundColor: MAGENTA }}
               aria-hidden
             >
@@ -150,26 +150,26 @@ export function LoginModal({
                 <path d="M5 12.5l4 4 10-10" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <h2 id="login-title" className="font-display text-2xl font-semibold text-[#0E0E14]">
+            <h2 id="login-title" className="font-display text-2xl font-semibold text-white">
               You&rsquo;re all set
             </h2>
-            <p className="mx-auto mt-2 max-w-xs text-sm text-[#0E0E14]/60">
+            <p className="mx-auto mt-2 max-w-xs text-sm text-inkSoft">
               Thanks — we&rsquo;ll be in touch at {values.email}.
             </p>
             <button
               type="button"
               onClick={onClose}
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#fa255e] px-6 py-2.5 text-sm font-semibold text-white transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F2EA]"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-ember px-6 py-2.5 text-sm font-semibold text-black transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
             >
               Done
             </button>
           </div>
         ) : (
           <>
-            <h2 id="login-title" className="font-display text-2xl font-semibold leading-tight text-[#0E0E14] sm:text-[1.75rem]">
+            <h2 id="login-title" className="font-display text-2xl font-semibold leading-tight text-white sm:text-[1.75rem]">
               Log in or join
             </h2>
-            <p className="mt-1.5 text-sm text-[#0E0E14]/60">
+            <p className="mt-1.5 text-sm text-inkSoft">
               Enter your details to continue — new here or returning, same door.
             </p>
 
@@ -210,16 +210,16 @@ export function LoginModal({
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-1 w-full rounded-full bg-[#fa255e] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-12px_rgba(250,37,94,0.9)] transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F2EA] disabled:cursor-not-allowed disabled:opacity-70"
+                className="mt-1 w-full rounded-full bg-ember px-6 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_-12px_rgba(250,37,94,0.9)] transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {submitting ? "One moment…" : "Continue"}
               </button>
 
-              <p className="text-center text-xs text-[#0E0E14]/50">
+              <p className="text-center text-xs text-inkSoft">
                 By continuing you agree to our{" "}
                 <Link
                   href="/terms"
-                  className="font-medium underline decoration-[#fa255e]/50 underline-offset-2 transition hover:text-[#fa255e]"
+                  className="font-medium underline decoration-ember/50 underline-offset-2 transition hover:text-ember"
                   style={{ color: MAGENTA }}
                 >
                   Terms
@@ -259,7 +259,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#0E0E14]/60">
+      <label htmlFor={id} className="mb-1 block text-xs font-semibold uppercase tracking-wider text-inkSoft">
         {label}
       </label>
       <input
@@ -273,10 +273,10 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`w-full rounded-xl border bg-white/70 px-4 py-2.5 text-[15px] text-[#0E0E14] outline-none transition placeholder:text-[#0E0E14]/35 focus:ring-2 ${
+        className={`w-full rounded-xl border bg-white/[0.04] px-4 py-2.5 text-[15px] text-white outline-none transition placeholder:text-white/35 focus:ring-2 ${
           error
             ? "border-[#C0362C] focus:border-[#C0362C] focus:ring-[#C0362C]/20"
-            : "border-[#0E0E14]/15 focus:border-[#fa255e] focus:ring-[#fa255e]/20"
+            : "border-white/10 focus:border-ember focus:ring-ember/20"
         }`}
       />
       {error && (

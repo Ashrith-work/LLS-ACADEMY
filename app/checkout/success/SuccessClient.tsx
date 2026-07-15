@@ -24,7 +24,7 @@ export function SuccessClient() {
       <div className="max-w-md">
         <p className="font-display text-6xl" aria-hidden>🎉</p>
         <h1 className="mt-4 font-display font-semibold text-3xl text-ink sm:text-4xl">
-          Done. <span className="text-teal">Your journey has started.</span>
+          Done. <span className="text-ember">Your journey has started.</span>
         </h1>
         <p className="mt-4 text-inkSoft">
           <span className="text-ink">{title}</span> is now yours. Access details are on their way to your email

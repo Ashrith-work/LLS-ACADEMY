@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <>
       <TopBar />
-      <main className="bg-white">
+      <main className="bg-paper">
         <GoalEntry />
         <CourseFinderHero />
         <div id="courses" className="border-y border-ink/10 py-4">
@@ -27,7 +27,7 @@ export default function HomePage() {
         </div>
         <BundleSection />
         <ProofSection />
-        <Faq bgClass="bg-white" />
+        <Faq bgClass="bg-paper" />
       </main>
       <Footer />
     </>

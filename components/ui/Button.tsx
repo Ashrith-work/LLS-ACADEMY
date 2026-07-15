@@ -4,25 +4,24 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "lime" | "gold" | "ghost" | "onLight";
 
 /**
- * Editorial button system — refined pills, solid ink/accent fills, quiet
- * hover (colour shift + faint lift). No hard borders or offset shadows.
- *  primary (ember)  → the default action: tomato accent.
- *  lime             → RARE. The single most important action (deep red).
- *  gold             → bundle / premium value actions only (ochre).
- *  ghost            → secondary actions (hairline outline on paper).
- *  onLight          → solid ink action for light sections.
+ * Luxury button system — pill shapes, amber accent, black label, soft glow.
+ *  primary (ember)  → the default action: amber (#F59E0B) → #FFD166 on hover.
+ *  lime             → RARE. The single most important action (amber, glowing).
+ *  gold             → bundle / premium value actions only (amber).
+ *  ghost            → secondary actions (hairline outline on dark).
+ *  onLight          → solid amber action (kept for API parity).
  */
 const styles: Record<Variant, string> = {
   primary:
-    "bg-ember text-cream hover:bg-ember-soft",
+    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
   lime:
-    "bg-lime text-cream hover:brightness-110",
+    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
   gold:
-    "bg-gold text-cream hover:brightness-110",
+    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
   ghost:
-    "bg-transparent text-ink border border-ink/30 hover:border-ink/70 hover:bg-ink/[0.04]",
+    "bg-transparent text-ink border border-ink/20 hover:border-ink/40 hover:bg-ink/[0.05]",
   onLight:
-    "bg-ember text-cream hover:bg-ember-soft",
+    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
 };
 
 interface BaseProps {
@@ -33,8 +32,8 @@ interface BaseProps {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight shadow-brutal transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none";
-const sizes = { md: "px-6 py-3 text-sm", lg: "px-8 py-4 text-base" };
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none";
+const sizes = { md: "px-7 py-3.5 text-sm", lg: "px-8 py-4 text-base" };
 
 export function Button({
   variant = "primary",

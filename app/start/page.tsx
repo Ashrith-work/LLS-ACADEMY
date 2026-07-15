@@ -16,7 +16,7 @@ export default function StartPage() {
   // SearchResults handles ?q= (search), ?goal= (category), or browse-all.
   return (
     // Suspense boundary required for useSearchParams during static build.
-    <Suspense fallback={<div className="min-h-dvh" style={{ backgroundColor: "#0E0E14" }} />}>
+    <Suspense fallback={<div className="min-h-dvh" style={{ backgroundColor: "#050505" }} />}>
       <SearchResults />
     </Suspense>
   );

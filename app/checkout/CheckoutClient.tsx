@@ -136,7 +136,7 @@ export function CheckoutClient() {
         </div>
 
         {DEV_BYPASS && (
-          <p className="mt-6 rounded-xl border border-ink/10 bg-gold px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-ink">
+          <p className="mt-6 rounded-xl border border-ember/30 bg-ember/[0.12] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-ember">
             DEV MODE: payment is simulated — the button goes straight to the success page.
             {/* TODO: wire Razorpay in lib/payments.ts + app/api/create-order/route.ts */}
           </p>
@@ -171,7 +171,7 @@ function OptionCard({
         <span
           className={cn(
             "mt-1 h-4 w-4 shrink-0 rounded-full border border-ink/15",
-            selected ? (gold ? "bg-gold" : "bg-ember") : "bg-card",
+            selected ? (gold ? "bg-amber-soft" : "bg-ember") : "bg-card",
           )}
           aria-hidden
         />
@@ -198,14 +198,14 @@ function Input({
         id={id}
         className={cn(
           "w-full rounded-xl border bg-card px-4 py-3 text-inkText placeholder:text-ink/40",
-          error ? "border-lime" : "border-ink/15",
+          error ? "border-danger" : "border-ink/15",
         )}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         {...inputProps}
       />
       {error && (
-        <p id={`${id}-error`} className="mt-1 text-xs font-semibold text-lime" role="alert">{error}</p>
+        <p id={`${id}-error`} className="mt-1 text-xs font-semibold text-danger" role="alert">{error}</p>
       )}
     </div>
   );

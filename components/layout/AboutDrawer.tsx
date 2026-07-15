@@ -8,11 +8,11 @@ import Link from "next/link";
  *
  * Reusable + presentational: the parent (TopBar) owns the shared scrim + open
  * state and the animated hamburger; this renders only the sliding panel when
- * `open`. Brand: cream #F4EFE6 panel, Fraunces heading, a magenta (#fa255e)
+ * `open`. Brand: cream #F4EFE6 panel, Fraunces heading, a magenta (#5B3DF5)
  * vertical timeline, champagne (#C9A15F) portrait ring.
  */
 
-const MAGENTA = "#fa255e";
+const MAGENTA = "#F59E0B";
 
 const STEPS: { title: string; note?: string }[] = [
   { title: "Engineering → confusion", note: "A degree, and no idea what came next." },
@@ -67,7 +67,7 @@ export function AboutDrawer({ open, onClose }: { open: boolean; onClose: () => v
       aria-modal="true"
       aria-labelledby="about-title"
       onKeyDown={onKeyDownTrap}
-      className={`fixed left-0 top-0 z-[100] flex h-full w-[380px] max-w-[88vw] flex-col bg-[#F4EFE6] shadow-[0_0_120px_-10px_rgba(14,14,20,0.6)] transition-transform duration-300 ease-out motion-reduce:transition-none ${
+      className={`fixed left-0 top-0 z-[100] flex h-full w-[380px] max-w-[88vw] flex-col bg-card shadow-[0_0_120px_-10px_rgba(14,14,20,0.6)] transition-transform duration-300 ease-out motion-reduce:transition-none ${
         show ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -79,7 +79,7 @@ export function AboutDrawer({ open, onClose }: { open: boolean; onClose: () => v
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-[#0E0E14]/50 transition hover:bg-[#0E0E14]/5 hover:text-[#0E0E14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e]"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none text-white/50 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
         >
           ×
         </button>
@@ -88,17 +88,17 @@ export function AboutDrawer({ open, onClose }: { open: boolean; onClose: () => v
       <div className="flex-1 overflow-y-auto px-6 pb-8">
         {/* Portrait circle — drop a real photo in as the <img>/background later. */}
         <div
-          className="flex h-24 w-24 items-center justify-center rounded-full font-display text-3xl font-semibold text-[#0E0E14] ring-2 ring-[#C9A15F] ring-offset-2 ring-offset-[#F4EFE6]"
+          className="flex h-24 w-24 items-center justify-center rounded-full font-display text-3xl font-semibold text-black ring-2 ring-[#C9A15F] ring-offset-2 ring-offset-[#111111]"
           style={{ backgroundImage: "linear-gradient(140deg, #E4C88A 0%, #C9A15F 100%)" }}
           aria-hidden
         >
           S
         </div>
 
-        <h2 id="about-title" className="mt-5 font-display text-[1.6rem] font-semibold leading-[1.15] text-[#0E0E14]">
+        <h2 id="about-title" className="mt-5 font-display text-[1.6rem] font-semibold leading-[1.15] text-white">
           Not a guru. Someone who struggled just like you.
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-[#0E0E14]/65">
+        <p className="mt-3 text-sm leading-relaxed text-inkSoft">
           Shashank has been the confused graduate, the nervous salesperson, and the founder starting
           from zero. Here&rsquo;s the short version of how the path unfolded.
         </p>
@@ -108,22 +108,22 @@ export function AboutDrawer({ open, onClose }: { open: boolean; onClose: () => v
           {STEPS.map((s) => (
             <li key={s.title} className="relative pb-6 pl-6 last:pb-0">
               <span
-                className="absolute -left-[8px] top-1 h-3.5 w-3.5 rounded-full ring-4 ring-[#F4EFE6]"
+                className="absolute -left-[8px] top-1 h-3.5 w-3.5 rounded-full ring-4 ring-[#111111]"
                 style={{ backgroundColor: MAGENTA }}
                 aria-hidden
               />
-              <p className="text-[15px] font-semibold text-[#0E0E14]">{s.title}</p>
-              {s.note && <p className="mt-0.5 text-xs leading-snug text-[#0E0E14]/55">{s.note}</p>}
+              <p className="text-[15px] font-semibold text-white">{s.title}</p>
+              {s.note && <p className="mt-0.5 text-xs leading-snug text-inkSoft">{s.note}</p>}
             </li>
           ))}
         </ol>
       </div>
 
-      <div className="border-t border-[#0E0E14]/10 px-6 py-4">
+      <div className="border-t border-white/10 px-6 py-4">
         <Link
           href="/about"
           onClick={onClose}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold transition hover:gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fa255e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4EFE6]"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold transition hover:gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
           style={{ color: MAGENTA }}
         >
           Read the full story <span aria-hidden>→</span>

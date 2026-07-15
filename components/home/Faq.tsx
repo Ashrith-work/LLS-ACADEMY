@@ -11,7 +11,7 @@ import { track } from "@/lib/tracking";
  */
 export function Faq({ bgClass = "bg-paper" }: { bgClass?: string }) {
   return (
-    <section className={`${bgClass} py-20 sm:py-28`} aria-labelledby="faq-heading">
+    <section className={`${bgClass} py-24 sm:py-32`} aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal>
           <p className="text-kicker uppercase text-muted">Questions</p>

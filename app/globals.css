@@ -2,63 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design tokens (mirrors tailwind.config.ts — "Monochrome Limestone") ── */
+/* ── Design tokens (mirrors tailwind.config.ts — "Premium Luxury Education / Dark") ── */
 :root {
-  /* Warm editorial palette. */
-  --ink: #0e0e14; /* dark chapter surfaces + strong headlines */
-  --paper: #f4eee2; /* warm cream — never pure white */
-  --body: #2a2622; /* body text on cream */
-  --ink-soft: #5c544c;
-  --surface: #fbf6ea;
-  --card: #fbf6ea;
-  --bone: #f4eee2;
-  --line: #d8cebc;
-  --muted: #8a8074;
-  --cream: #f7f1e6;
-  --magenta: #be185d; /* accent — underlines, "Start here", one hairline */
-  --champagne: #c9a96a; /* premium accent — bundle + "Start here" moments */
-  --hairline: rgba(0, 0, 0, 0.12); /* on cream */
-  --hairline-invert: rgba(255, 255, 255, 0.14); /* on ink */
-  /* Legacy accent vars → strong ink. */
-  --ember: #0e0e14;
-  --gold: #0e0e14;
-  --lime: #0e0e14;
-  --violet: #0e0e14;
-  --teal: #0e0e14;
+  /* Deep near-black canvas, graphite surfaces, one warm amber accent. */
+  --ink: #ffffff; /* primary text (white) */
+  --paper: #050505; /* page background */
+  --secondary: #0f0f0f; /* alternating section background */
+  --body: #a1a1aa; /* secondary body text */
+  --ink-soft: #a1a1aa;
+  --surface: #111111;
+  --card: #111111;
+  --bone: #0f0f0f;
+  --line: rgba(255, 255, 255, 0.08);
+  --muted: #a1a1aa;
+  --cream: #f5f5f7;
+  --magenta: #f59e0b; /* unified accent */
+  --champagne: #f59e0b; /* unified accent */
+  --accent: #f59e0b; /* amber */
+  --accent-hover: #ffd166;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-invert: rgba(255, 255, 255, 0.08);
+  --ember: #f59e0b;
+  --gold: #18181b;
+  --lime: #18181b;
+  --violet: #18181b;
+  --teal: #18181b;
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  background: var(--paper);
 }
 
 body {
   background: var(--paper);
   color: var(--body);
   text-rendering: optimizeLegibility;
-  line-height: 1.6;
+  line-height: 1.7; /* 170% body per design system */
+  letter-spacing: -0.01em;
 }
 
-/* Light, airy display headings. Placed after @tailwind utilities so it wins
-   over font-semibold/font-medium utilities (same specificity, later source
-   order) — forces every display-font heading to weight 300. */
+/* Inter display headings — confident weight (800) + tight tracking.
+   Placed after @tailwind utilities so it wins over font-medium/light
+   utilities (same specificity, later source order). */
 .font-display {
-  font-weight: 300;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-/* Prices/figures stay in the clean body font (Jost) for even tabular figures.
-   Higher specificity (0,2,0) beats .font-display, so tabular-nums figures
-   opt back into the sans. */
+/* Prices/figures stay in the clean body font for even tabular figures.
+   Higher specificity (0,2,0) beats .font-display. */
 .font-display.tabular-nums {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Scroll-reveal (IntersectionObserver toggles .is-visible). Reduced-motion safe. */
+/* Scroll-reveal (IntersectionObserver toggles .is-visible). Framer-style
+   fade-up: opacity 0→1, translateY 40px→0, 0.7s. Reduced-motion safe. */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -75,16 +84,16 @@ body {
   }
 }
 
-/* Accessible focus everywhere — solid ink ring (monochrome). */
+/* Accessible focus everywhere — amber ring. */
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 3px;
 }
 
 ::selection {
-  background: var(--ember);
-  color: var(--cream);
+  background: var(--accent);
+  color: #050505;
 }
 
 /* Horizontal course rows: hide scrollbar, keep scrollability. */
@@ -106,12 +115,76 @@ body {
   will-change: transform;
 }
 
-/* Hero fallback tiles — near-white cards with a hairline rule + gentle shadow. */
+/* ── Luxury primitives ──────────────────────────────────────────────── */
+
+/* Glass panel — testimonials, chips, floating surfaces. */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Luxury card — graphite fill, hairline, deep shadow, amber-glow lift. */
+.card-lux {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+.card-lux:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-lux:hover {
+    transform: none;
+  }
+}
+
+/* Hero fallback tiles — elevated graphite cards. */
 .hero-tile {
   border-radius: 16px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  box-shadow: 0 30px 60px -34px rgba(31, 28, 23, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111111;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Floating amber gradient blur — ambient glow behind hero / headings. */
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.5;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(245, 158, 11, 0.45),
+    rgba(245, 158, 11, 0) 70%
+  );
+}
+
+/* Animated underline for nav links — grows from the left on hover. */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1.5px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-underline:hover::after {
+  transform: scaleX(1);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,26 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Jost } from "next/font/google";
+import { Inter } from "next/font/google";
 import { AuthProvider } from "@/lib/auth/dev-auth";
 import { CartProvider } from "@/lib/cart/cart";
 import { AddCourseBadge } from "@/components/ui/AddCourseBadge";
 import { SITE } from "@/lib/data/site";
 import "./globals.css";
 
-/* Type pairing.
-   Display: Fraunces — an elegant high-contrast serif for headings.
-   Body:    Jost — a clean geometric sans for copy, nav + buttons. */
-const display = Fraunces({
-  weight: ["300", "400", "500", "600"],
+/* Premium luxury type — Inter across the board.
+   Display: heavy Inter (up to 800) for confident, tight headlines.
+   Body:    Inter for crisp, legible copy, nav + buttons.
+   Both CSS variables point at the same family so the existing
+   font-display / font-body Tailwind utilities keep working. */
+const inter = Inter({
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
-const body = Jost({
-  weight: ["300", "400", "500", "600"],
+const body = Inter({
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
 });
+const display = inter;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0E0E14",
+  themeColor: "#050505",
   width: "device-width",
   initialScale: 1,
 };

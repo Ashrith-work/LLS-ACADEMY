@@ -49,7 +49,7 @@ export function PathClient() {
           Your goal: {lane.label}
         </p>
         <h1 className="mt-3 font-display font-semibold text-3xl text-ink sm:text-5xl">
-          Your path is <span className="text-lime">ready</span>.
+          Your path is <span className="text-ember">ready</span>.
         </h1>
         <p className="mt-3 text-sm text-inkSoft sm:text-base">
           Based on your answers — start right here. Just one. No confusion.
@@ -65,7 +65,7 @@ export function PathClient() {
               background: `linear-gradient(135deg, ${recommended.thumb.from}, ${recommended.thumb.to})`,
             }}
           >
-            <span className="absolute left-4 top-4 rounded-full border border-ink/10 bg-lime px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cream">
+            <span className="absolute left-4 top-4 rounded-full border border-ink/10 bg-ember px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-black">
               Start here ★
             </span>
           </div>
@@ -114,7 +114,7 @@ export function PathClient() {
       {/* Go deeper — the single upsell. Gold = premium value. */}
       <div className="mx-auto mt-14 max-w-3xl px-4">
         <div className="rounded-2xl border border-ink/10 bg-surface p-6 text-center shadow-brutal sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime">Go deeper</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ember">Go deeper</p>
           <h3 className="mt-2 font-display font-semibold text-2xl text-ink">
             Not just one course — want it all?
           </h3>

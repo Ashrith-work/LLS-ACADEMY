@@ -12,7 +12,7 @@ export function ProofSection() {
   return (
     <>
       {/* 4 — Founder story */}
-      <section className="bg-white py-20 sm:py-28" aria-labelledby="story-heading">
+      <section className="bg-card py-24 sm:py-32" aria-labelledby="story-heading">
         <div className="mx-auto max-w-4xl px-4">
           <Reveal>
             <p className="text-kicker uppercase text-muted">The founder</p>
@@ -60,7 +60,7 @@ export function ProofSection() {
       </section>
 
       {/* 5 — Testimonials */}
-      <section className="bg-white py-20 sm:py-28" aria-labelledby="proof-heading">
+      <section className="bg-paper py-24 sm:py-32" aria-labelledby="proof-heading">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <p className="text-kicker uppercase text-muted">Proof</p>
@@ -71,19 +71,19 @@ export function ProofSection() {
               They did it. Why can&rsquo;t you?
             </h2>
           </Reveal>
-          <div className="mt-14 grid gap-x-12 gap-y-14 sm:grid-cols-2">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 sm:gap-8">
             {TESTIMONIALS.map((t, i) => (
               <Reveal key={t.name} delay={(i % 2) * 0.08}>
-                <figure className="border-t border-ink/10 pt-6">
-                  <blockquote className="font-display text-pullquote font-medium text-ink [text-wrap:balance]">
+                <figure className="glass h-full rounded-3xl p-8 sm:p-9">
+                  <blockquote className="font-display text-pullquote font-semibold text-white [text-wrap:balance]">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
-                  <figcaption className="mt-5 text-kicker uppercase text-muted">
-                    <span className="text-ink">{t.name}</span>
-                    <span className="mx-2 text-ink/30">·</span>
+                  <figcaption className="mt-6 text-kicker uppercase text-muted">
+                    <span className="text-white">{t.name}</span>
+                    <span className="mx-2 text-white/30">·</span>
                     {t.city}
-                    <span className="mx-2 text-ink/30">·</span>
-                    <span className="text-champagne">{t.outcome}</span>
+                    <span className="mx-2 text-white/30">·</span>
+                    <span className="text-ember">{t.outcome}</span>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -93,7 +93,7 @@ export function ProofSection() {
       </section>
 
       {/* 6 — Guarantees */}
-      <section className="bg-white py-20 sm:py-28" aria-labelledby="guarantees-heading">
+      <section className="bg-bone py-24 sm:py-32" aria-labelledby="guarantees-heading">
         <div className="mx-auto max-w-4xl px-4">
           <Reveal>
             <p className="text-kicker uppercase text-muted">What you get</p>

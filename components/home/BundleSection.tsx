@@ -19,7 +19,7 @@ export function BundleSection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-ink py-20 text-cream sm:py-28"
+      className="relative overflow-hidden border-y border-white/[0.06] bg-bone py-24 text-cream sm:py-32"
       aria-labelledby="bundle-heading"
     >
       <Grain opacity={0.05} />
@@ -50,7 +50,7 @@ export function BundleSection() {
           <Link
             href="/all-access"
             onClick={() => track("bundle_cta_clicked", { from: "home-bundle-section" })}
-            className="mt-10 inline-flex items-center gap-2 bg-champagne px-7 py-3.5 font-medium text-ink transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-ember px-8 py-4 font-semibold text-black shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
           >
             See everything inside <span aria-hidden>→</span>
           </Link>

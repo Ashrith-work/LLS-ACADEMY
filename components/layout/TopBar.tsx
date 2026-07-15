@@ -58,11 +58,14 @@ export function TopBar() {
           an X and toggles it); for the Login modal it stays at its normal level
           and the scrim/modal cover it. */}
       <header
-        className={`sticky top-0 border-b border-line bg-bone/90 backdrop-blur ${
+        className={`sticky top-0 px-3 pt-3 sm:px-4 sm:pt-4 ${
           isAbout ? "z-[110]" : "z-40"
         }`}
       >
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 sm:px-4" aria-label="Main">
+        <nav
+          className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 bg-black/45 px-4 py-2 shadow-cardLift backdrop-blur-[18px] sm:px-5"
+          aria-label="Main"
+        >
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
@@ -70,18 +73,18 @@ export function TopBar() {
               aria-label={isAbout ? "Close menu" : "About Shashank"}
               aria-haspopup="dialog"
               aria-expanded={isAbout}
-              className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-lg text-inkText transition hover:bg-ink/5"
+              className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-full text-white transition hover:bg-white/10"
             >
               <span className={`${line} ${isAbout ? "translate-y-[7px] rotate-45" : ""}`} />
               <span className={`${line} ${isAbout ? "opacity-0" : ""}`} />
               <span className={`${line} ${isAbout ? "-translate-y-[7px] -rotate-45" : ""}`} />
             </button>
-            <Link href="/" className="font-display text-xl font-semibold tracking-tight text-inkText">
-              Live Life <span className="italic text-inkText">Shameless</span>
+            <Link href="/" className="font-display text-xl font-semibold tracking-tight text-white">
+              Live Life <span className="italic text-ember">Shameless</span>
             </Link>
           </div>
           <div className="flex items-center gap-5 sm:gap-7">
-            <Link href="/#courses" className="text-sm text-muted transition hover:text-ink">
+            <Link href="/#courses" className="nav-underline text-sm text-inkSoft transition-colors hover:text-white">
               Courses
             </Link>
             <CartButton />
@@ -90,7 +93,7 @@ export function TopBar() {
               onClick={openOverlay("login")}
               aria-haspopup="dialog"
               aria-expanded={overlay === "login"}
-              className="rounded-full bg-[#fa255e] px-5 py-2 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:brightness-105"
+              className="rounded-full bg-ember px-5 py-2 text-sm font-semibold text-black shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft"
             >
               Log in
             </button>

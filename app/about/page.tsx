@@ -65,7 +65,7 @@ export default function AboutPage() {
         </section>
 
         {/* Close — dark chapter CTA. */}
-        <section className="bg-ink px-4 py-20 text-cream sm:py-24">
+        <section className="bg-bone px-4 py-20 text-cream sm:py-24">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <h2 className="font-display font-medium [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.04]">
@@ -76,7 +76,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/start"
-                className="mt-8 inline-flex items-center gap-2 bg-champagne px-7 py-3.5 font-medium text-ink transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-ember px-8 py-4 font-semibold text-black shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
               >
                 Find your course <span aria-hidden>→</span>
               </Link>

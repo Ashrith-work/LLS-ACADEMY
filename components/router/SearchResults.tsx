@@ -21,7 +21,7 @@ import {
  * Every card links straight to /courses/<slug>. Dark theme + coral accent.
  */
 
-const ACCENT = "#4b9fe1";
+const ACCENT = "#F59E0B";
 const ALL_CATS: CategoryKey[] = ["sell", "brand", "grow"];
 
 function priceLabel(price: number | null): string {
@@ -39,14 +39,14 @@ function ResultCard({ course, starter = false }: { course: Course; starter?: boo
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#16161f] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E14]"
+      className="group flex h-full flex-col rounded-2xl border border-white/10 bg-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
     >
       <div className="mb-3 flex items-center gap-2">
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: cat.color }} aria-hidden />
         <span className="text-xs font-medium uppercase tracking-wide text-white/50">{cat.label}</span>
         {starter ? (
           <span
-            className="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold text-white"
+            className="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold text-black"
             style={{ backgroundColor: ACCENT }}
           >
             <Star size={11} aria-hidden /> Start here
@@ -65,7 +65,7 @@ function ResultCard({ course, starter = false }: { course: Course; starter?: boo
         <span className="text-sm text-white/70">
           {soon ? "Join waitlist" : <>from <span className="font-semibold text-white">{priceLabel(course.price)}</span></>}
         </span>
-        <span className="text-white/40 transition group-hover:translate-x-0.5 group-hover:text-[#4b9fe1]" aria-hidden>
+        <span className="text-white/40 transition group-hover:translate-x-0.5 group-hover:text-ember" aria-hidden>
           →
         </span>
       </div>
@@ -113,7 +113,7 @@ export function SearchResults() {
   const search = hasQuery ? searchCourses(q) : null;
 
   return (
-    <main className="min-h-dvh w-full" style={{ backgroundColor: "#0E0E14" }}>
+    <main className="min-h-dvh w-full" style={{ backgroundColor: "#050505" }}>
       <div className="mx-auto w-full max-w-3xl px-5 py-10 sm:py-14">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
@@ -127,7 +127,7 @@ export function SearchResults() {
 
         {/* Search box */}
         <form onSubmit={refine} className="mb-9">
-          <div className="flex items-center gap-3 rounded-3xl border border-white/10 bg-[#16161f] px-5 py-3 transition-all duration-200 focus-within:border-[#4b9fe1]/50 focus-within:ring-4 focus-within:ring-[#4b9fe1]/15">
+          <div className="flex items-center gap-3 rounded-3xl border border-white/10 bg-card px-5 py-3 transition-all duration-200 focus-within:border-ember/50 focus-within:ring-4 focus-within:ring-ember/15">
             <input
               type="text"
               value={value}
@@ -141,8 +141,8 @@ export function SearchResults() {
               type="submit"
               disabled={!value.trim()}
               aria-label="Search"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4b9fe1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#16161f] enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40"
-              style={{ backgroundColor: value.trim() ? ACCENT : "#2A2A33" }}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-black transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40"
+              style={{ backgroundColor: value.trim() ? ACCENT : "#3F3F46" }}
             >
               <ArrowUp size={18} aria-hidden />
             </button>

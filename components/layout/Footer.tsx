@@ -5,7 +5,7 @@ import { Grain } from "@/components/ui/Grain";
 /** Refined dark footer — small-caps labels, hairline dividers, grain. */
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-ink text-cream">
+    <footer className="relative overflow-hidden border-t border-white/[0.08] bg-[#030303] text-cream">
       <Grain opacity={0.05} />
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:grid-cols-3 sm:gap-16 sm:py-20">
         <div className="sm:max-w-xs">

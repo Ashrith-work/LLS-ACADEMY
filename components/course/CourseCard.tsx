@@ -29,8 +29,8 @@ export function CourseCard({
   return (
     <article
       className={cn(
-        "group relative flex h-full w-64 shrink-0 flex-col bg-card transition-colors duration-200 sm:w-72",
-        startHere ? "border border-champagne/70" : "border border-ink/10 hover:border-ink/30",
+        "group relative flex h-full w-64 shrink-0 flex-col overflow-hidden rounded-2xl bg-card shadow-cardLift transition-colors duration-300 sm:w-72",
+        startHere ? "border border-ember/70" : "border border-white/10 hover:border-ember/40",
       )}
     >
       {/* Slim art band — placeholder gradient + status markers. */}
@@ -40,17 +40,17 @@ export function CourseCard({
         aria-hidden
       >
         {startHere && (
-          <span className="absolute left-3 top-3 bg-champagne px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink">
+          <span className="absolute left-3 top-3 rounded-full bg-ember px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-black">
             Start here ★
           </span>
         )}
         {comingSoon && (
-          <span className="absolute right-3 top-3 bg-ink/85 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-cream">
+          <span className="absolute right-3 top-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-cream backdrop-blur-sm">
             Coming soon
           </span>
         )}
         {course.signature && !comingSoon && (
-          <span className="absolute right-3 top-3 border border-champagne px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-champagne">
+          <span className="absolute right-3 top-3 rounded-full border border-ember px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-ember">
             Signature
           </span>
         )}

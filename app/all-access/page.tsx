@@ -47,7 +47,7 @@ export default function AllAccessPage() {
 
         {/* The money chapter — dark, grain, huge champagne price + hairline index */}
         <section
-          className="relative mt-16 overflow-hidden bg-ink py-20 text-cream sm:mt-24 sm:py-28"
+          className="relative mt-16 overflow-hidden bg-bone py-20 text-cream sm:mt-24 sm:py-28"
           aria-labelledby="price-heading"
         >
           <Grain opacity={0.05} />
@@ -71,7 +71,7 @@ export default function AllAccessPage() {
               </div>
               <Link
                 href="/checkout?item=all-access"
-                className="mt-10 inline-flex items-center gap-2 bg-champagne px-7 py-3.5 font-medium text-ink transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                className="mt-10 inline-flex items-center gap-2 rounded-full bg-ember px-8 py-4 font-semibold text-black shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
               >
                 Get all-access <span aria-hidden>→</span>
               </Link>
