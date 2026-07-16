@@ -93,7 +93,7 @@ export function TopBar() {
               onClick={openOverlay("login")}
               aria-haspopup="dialog"
               aria-expanded={overlay === "login"}
-              className="rounded-full bg-ember px-5 py-2 text-sm font-semibold text-black shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft"
+              className="rounded-full bg-ember px-5 py-2 text-sm font-semibold text-accentFg shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft"
             >
               Log in
             </button>

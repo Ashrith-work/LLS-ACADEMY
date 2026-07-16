@@ -65,7 +65,7 @@ export function PathClient() {
               background: `linear-gradient(135deg, ${recommended.thumb.from}, ${recommended.thumb.to})`,
             }}
           >
-            <span className="absolute left-4 top-4 rounded-full border border-ink/10 bg-ember px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-black">
+            <span className="absolute left-4 top-4 rounded-full border border-ink/10 bg-ember px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accentFg">
               Start here ★
             </span>
           </div>

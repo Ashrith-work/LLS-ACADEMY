@@ -76,7 +76,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/start"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-ember px-8 py-4 font-semibold text-black shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-ember px-8 py-4 font-semibold text-accentFg shadow-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
               >
                 Find your course <span aria-hidden>→</span>
               </Link>

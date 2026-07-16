@@ -12,7 +12,7 @@ import Link from "next/link";
  * vertical timeline, champagne (#C9A15F) portrait ring.
  */
 
-const MAGENTA = "#F59E0B";
+const MAGENTA = "#FF3D7A";
 
 const STEPS: { title: string; note?: string }[] = [
   { title: "Engineering → confusion", note: "A degree, and no idea what came next." },
@@ -88,7 +88,7 @@ export function AboutDrawer({ open, onClose }: { open: boolean; onClose: () => v
       <div className="flex-1 overflow-y-auto px-6 pb-8">
         {/* Portrait circle — drop a real photo in as the <img>/background later. */}
         <div
-          className="flex h-24 w-24 items-center justify-center rounded-full font-display text-3xl font-semibold text-black ring-2 ring-[#C9A15F] ring-offset-2 ring-offset-[#111111]"
+          className="flex h-24 w-24 items-center justify-center rounded-full font-display text-3xl font-semibold text-accentFg ring-2 ring-[#C9A15F] ring-offset-2 ring-offset-[#111111]"
           style={{ backgroundImage: "linear-gradient(140deg, #E4C88A 0%, #C9A15F 100%)" }}
           aria-hidden
         >

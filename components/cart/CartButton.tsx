@@ -25,8 +25,8 @@ export function CartButton() {
       </svg>
       {ready && count > 0 && (
         <span
-          className="absolute -right-2.5 -top-2 flex h-[18px] min-w-[18px] items-center justify-center rounded-full px-1 text-[11px] font-bold leading-none text-black"
-          style={{ backgroundColor: "#F59E0B" }}
+          className="absolute -right-2.5 -top-2 flex h-[18px] min-w-[18px] items-center justify-center rounded-full px-1 text-[11px] font-bold leading-none text-accentFg"
+          style={{ backgroundColor: "#FF3D7A" }}
         >
           {count}
         </span>

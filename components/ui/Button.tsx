@@ -4,24 +4,24 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "lime" | "gold" | "ghost" | "onLight";
 
 /**
- * Luxury button system — pill shapes, amber accent, black label, soft glow.
- *  primary (ember)  → the default action: amber (#F59E0B) → #FFD166 on hover.
- *  lime             → RARE. The single most important action (amber, glowing).
- *  gold             → bundle / premium value actions only (amber).
- *  ghost            → secondary actions (hairline outline on dark).
- *  onLight          → solid amber action (kept for API parity).
+ * Luxury button system — pill shapes, pink accent, cobalt label, soft glow.
+ *  primary (ember)  → the default action: pink (#FF3D7A) → #FF5C90 on hover.
+ *  lime             → RARE. The single most important action (pink, glowing).
+ *  gold             → bundle / premium value actions only (pink).
+ *  ghost            → secondary actions (hairline outline on cobalt).
+ *  onLight          → solid pink action (kept for API parity).
  */
 const styles: Record<Variant, string> = {
   primary:
-    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
+    "bg-ember text-accentFg shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
   lime:
-    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
+    "bg-ember text-accentFg shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
   gold:
-    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
+    "bg-ember text-accentFg shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
   ghost:
     "bg-transparent text-ink border border-ink/20 hover:border-ink/40 hover:bg-ink/[0.05]",
   onLight:
-    "bg-ember text-black shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
+    "bg-ember text-accentFg shadow-btn hover:bg-ember-soft hover:shadow-cardHover",
 };
 
 interface BaseProps {

@@ -24,7 +24,7 @@ import {
  * the site's primary button; headings use the site's display font.
  */
 
-const ACCENT = "#F59E0B";
+const ACCENT = "#FF3D7A";
 
 /** First three chips map to goal routes; the rest become free-text searches. */
 const CHIPS: { label: string; href: string; Icon: LucideIcon }[] = [
@@ -97,8 +97,8 @@ export function CourseFinderHero() {
               type="submit"
               disabled={!canSubmit}
               aria-label="Find courses"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-black transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] enabled:hover:-translate-y-0.5 enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40"
-              style={{ backgroundColor: canSubmit ? ACCENT : "#3F3F46" }}
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-accentFg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] enabled:hover:-translate-y-0.5 enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40"
+              style={{ backgroundColor: canSubmit ? ACCENT : "#1E2C82" }}
             >
               <ArrowUp size={20} aria-hidden />
             </button>

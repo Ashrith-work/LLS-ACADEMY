@@ -21,7 +21,7 @@ import {
  * Every card links straight to /courses/<slug>. Dark theme + coral accent.
  */
 
-const ACCENT = "#F59E0B";
+const ACCENT = "#FF3D7A";
 const ALL_CATS: CategoryKey[] = ["sell", "brand", "grow"];
 
 function priceLabel(price: number | null): string {
@@ -46,7 +46,7 @@ function ResultCard({ course, starter = false }: { course: Course; starter?: boo
         <span className="text-xs font-medium uppercase tracking-wide text-white/50">{cat.label}</span>
         {starter ? (
           <span
-            className="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold text-black"
+            className="ml-auto inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold text-accentFg"
             style={{ backgroundColor: ACCENT }}
           >
             <Star size={11} aria-hidden /> Start here
@@ -141,7 +141,7 @@ export function SearchResults() {
               type="submit"
               disabled={!value.trim()}
               aria-label="Search"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-black transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-accentFg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40"
               style={{ backgroundColor: value.trim() ? ACCENT : "#3F3F46" }}
             >
               <ArrowUp size={18} aria-hidden />

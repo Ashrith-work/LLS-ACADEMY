@@ -2,33 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design tokens (mirrors tailwind.config.ts — "Premium Luxury Education / Dark") ── */
+/* ── Design tokens (mirrors tailwind.config.ts — "Volt · cobalt / hot-pink / mint") ── */
 :root {
-  /* Deep near-black canvas, graphite surfaces, one warm amber accent. */
-  --ink: #ffffff; /* primary text (white) */
-  --paper: #050505; /* page background */
-  --secondary: #0f0f0f; /* alternating section background */
-  --body: #a1a1aa; /* secondary body text */
-  --ink-soft: #a1a1aa;
-  --surface: #111111;
-  --card: #111111;
-  --bone: #0f0f0f;
-  --line: rgba(255, 255, 255, 0.08);
-  --muted: #a1a1aa;
-  --cream: #f5f5f7;
-  --magenta: #f59e0b; /* unified accent */
-  --champagne: #f59e0b; /* unified accent */
-  --accent: #f59e0b; /* amber */
-  --accent-hover: #ffd166;
+  /* Cobalt field, hot-pink accent, mint support. */
+  --ink: #eef1ff; /* primary text */
+  --paper: #0d1854; /* page background */
+  --secondary: #16226b; /* alternating section background */
+  --body: #99a4de; /* secondary body text */
+  --ink-soft: #99a4de;
+  --surface: #16226b;
+  --card: #16226b;
+  --raised: #1e2c82;
+  --bone: #16226b;
+  --line: #2c3a99;
+  --muted: #99a4de;
+  --cream: #eef1ff;
+  --magenta: #ff3d7a; /* unified accent */
+  --champagne: #ff3d7a; /* unified accent */
+  --accent: #ff3d7a; /* hot pink */
+  --accent-hover: #ff5c90;
+  --on-accent: #0d1854; /* text ON pink — never white */
+  --support: #5ce1c0; /* mint */
   --success: #22c55e;
   --danger: #ef4444;
-  --hairline: rgba(255, 255, 255, 0.08);
-  --hairline-invert: rgba(255, 255, 255, 0.08);
-  --ember: #f59e0b;
-  --gold: #18181b;
-  --lime: #18181b;
-  --violet: #18181b;
-  --teal: #18181b;
+  --hairline: rgba(238, 241, 255, 0.1);
+  --hairline-invert: rgba(238, 241, 255, 0.14);
+  --ember: #ff3d7a;
+  --gold: #ff3d7a;
+  --lime: #ff3d7a;
+  --violet: #ff3d7a;
+  --teal: #ff3d7a;
   color-scheme: dark;
 }
 
@@ -93,7 +96,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: #050505;
+  color: var(--on-accent);
 }
 
 /* Horizontal course rows: hide scrollbar, keep scrollability. */
@@ -136,8 +139,8 @@ body {
 }
 .card-lux:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 30px 80px rgba(245, 158, 11, 0.15);
-  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 0 30px 80px rgba(255, 61, 122, 0.18);
+  border-color: rgba(255, 61, 122, 0.3);
 }
 @media (prefers-reduced-motion: reduce) {
   .card-lux:hover {
@@ -145,25 +148,26 @@ body {
   }
 }
 
-/* Hero fallback tiles — elevated graphite cards. */
+/* Hero fallback tiles — elevated cobalt cards. */
 .hero-tile {
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #111111;
+  border: 1px solid rgba(238, 241, 255, 0.1);
+  background: #16226b;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 
-/* Floating amber gradient blur — ambient glow behind hero / headings. */
+/* Floating gradient blur — ambient pink→mint glow behind hero / headings. */
 .hero-glow {
   position: absolute;
   border-radius: 9999px;
   filter: blur(90px);
-  opacity: 0.5;
+  opacity: 0.55;
   pointer-events: none;
   background: radial-gradient(
-    circle at center,
-    rgba(245, 158, 11, 0.45),
-    rgba(245, 158, 11, 0) 70%
+    circle at 35% 40%,
+    rgba(255, 61, 122, 0.5),
+    rgba(92, 225, 192, 0.22) 55%,
+    rgba(255, 61, 122, 0) 75%
   );
 }
 

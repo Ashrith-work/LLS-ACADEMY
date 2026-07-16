@@ -17,7 +17,7 @@ import Link from "next/link";
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAGENTA = "#F59E0B";
+const MAGENTA = "#FF3D7A";
 const RED = "#C0362C";
 
 export interface LoginValues {
@@ -142,7 +142,7 @@ export function LoginModal({
         {done ? (
           <div className="py-6 text-center">
             <div
-              className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full text-black"
+              className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full text-accentFg"
               style={{ backgroundColor: MAGENTA }}
               aria-hidden
             >
@@ -159,7 +159,7 @@ export function LoginModal({
             <button
               type="button"
               onClick={onClose}
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-ember px-6 py-2.5 text-sm font-semibold text-black transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-ember px-6 py-2.5 text-sm font-semibold text-accentFg transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
             >
               Done
             </button>
@@ -210,7 +210,7 @@ export function LoginModal({
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-1 w-full rounded-full bg-ember px-6 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_-12px_rgba(250,37,94,0.9)] transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] disabled:cursor-not-allowed disabled:opacity-70"
+                className="mt-1 w-full rounded-full bg-ember px-6 py-3 text-sm font-semibold text-accentFg shadow-[0_10px_30px_-12px_rgba(250,37,94,0.9)] transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {submitting ? "One moment…" : "Continue"}
               </button>

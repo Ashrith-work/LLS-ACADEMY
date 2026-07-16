@@ -18,34 +18,37 @@ import type { Config } from "tailwindcss";
  *   cream        = text on filled surfaces. ember = the amber accent.
  *   Legacy accent tokens (gold/lime/violet/teal) map to elevated graphite.
  */
-const ACCENT = "#F59E0B"; // legacy accent tokens (gold/lime/violet/teal) collapse onto the single amber accent
+const ACCENT = "#FF3D7A"; // legacy accent tokens (gold/lime/violet/teal) collapse onto the Volt pink accent
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Premium luxury dark palette — near-black canvas, amber accent.
-        ink: "#FFFFFF", // primary text (white) + white-alpha borders / glass
-        inkText: "#EDEDED", // body / prominent copy on dark
-        inkSoft: "#A1A1AA", // secondary text
-        surface: "#111111", // raised surface
-        card: "#111111", // card surface
-        bone: "#0F0F0F", // secondary / alternating section background
-        paper: "#050505", // page / primary background
-        mist: "#0F0F0F", // faint elevated banding (video frame, alt bands)
-        line: "rgba(255,255,255,0.08)", // hairline border / divider
-        magenta: "#F59E0B", // unified to the amber accent
-        champagne: "#F59E0B", // unified to the amber accent
-        ember: { DEFAULT: "#F59E0B", soft: "#FFD166" }, // amber accent → hover
-        amber: { DEFAULT: "#F59E0B", soft: "#FFD166" },
+        // Volt palette — cobalt field, hot-pink accent, mint support.
+        ink: "#EEF1FF", // primary text + light-alpha borders / glass
+        inkText: "#EEF1FF", // body / prominent copy
+        inkSoft: "#99A4DE", // secondary text
+        surface: "#16226B", // raised surface
+        card: "#16226B", // card surface
+        raised: "#1E2C82", // hover / dropdowns / sticky bar
+        bone: "#16226B", // secondary / alternating section background
+        paper: "#0D1854", // page / primary background
+        mist: "#16226B", // elevated banding (video frame, alt bands)
+        line: "#2C3A99", // hairline border / divider
+        accentFg: "#0D1854", // text ON accent / support fills (do NOT use white)
+        magenta: "#FF3D7A", // unified to the pink accent
+        champagne: "#FF3D7A", // unified to the pink accent
+        ember: { DEFAULT: "#FF3D7A", soft: "#FF5C90" }, // pink accent → hover
+        amber: { DEFAULT: "#FF3D7A", soft: "#FF5C90" },
+        support: { DEFAULT: "#5CE1C0", fg: "#0D1854" }, // mint support (badges, checks)
         success: "#22C55E",
         danger: "#EF4444",
         gold: ACCENT,
         lime: ACCENT,
         violet: ACCENT,
         teal: ACCENT,
-        cream: "#F5F5F7", // light text on filled surfaces
-        muted: "#A1A1AA", // kickers / captions / meta
+        cream: "#EEF1FF", // light text on filled surfaces
+        muted: "#99A4DE", // kickers / captions / meta
       },
       fontFamily: {
         display: ["var(--font-display)", "Inter", "system-ui", "sans-serif"],
@@ -67,11 +70,11 @@ const config: Config = {
         glow: "0 0 0 1px rgba(255,255,255,0.04)",
         limeGlow: "0 0 0 1px rgba(255,255,255,0.04)",
         cardLift: "0 20px 60px rgba(0,0,0,0.35)",
-        cardHover: "0 30px 80px rgba(245,158,11,0.15)",
-        amberGlow: "0 30px 80px rgba(245,158,11,0.15)",
+        cardHover: "0 30px 80px rgba(255,61,122,0.18)",
+        amberGlow: "0 30px 80px rgba(255,61,122,0.18)",
         brutal: "0 10px 30px rgba(0,0,0,0.30)",
         brutalLg: "0 30px 80px rgba(0,0,0,0.45)",
-        btn: "0 8px 24px rgba(245,158,11,0.25)",
+        btn: "0 8px 24px rgba(255,61,122,0.30)",
       },
       keyframes: {
         drift: {
