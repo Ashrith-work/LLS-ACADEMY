@@ -57,7 +57,7 @@ export function CourseCard({
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        <span className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted">{category}</span>
+        <span className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-support">{category}</span>
 
         {/* One-liner — the hero of the card. Stretched link covers the whole card. */}
         <Link
