@@ -24,7 +24,7 @@ export default function AboutPage() {
         <section className="px-4 pt-16 sm:pt-24" aria-labelledby="about-heading">
           <div className="mx-auto max-w-4xl">
             <Reveal>
-              <p className="text-kicker uppercase text-muted">The founder</p>
+              <p className="text-kicker uppercase text-support">The founder</p>
               <h1
                 id="about-heading"
                 className="mt-4 max-w-3xl font-display font-medium text-ink [font-size:clamp(2.5rem,6vw,5rem)] [letter-spacing:-0.02em] [line-height:1.02]"
@@ -48,7 +48,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-[auto_1fr] gap-6 border-t border-ink/10 py-8 sm:gap-10">
                       <span
                         aria-hidden
-                        className="font-display text-champagne [font-size:clamp(2.25rem,5vw,3.75rem)] [line-height:0.9]"
+                        className="font-display text-support [font-size:clamp(2.25rem,5vw,3.75rem)] [line-height:0.9]"
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>

@@ -58,7 +58,7 @@ export function SuccessClient() {
 function NextStep({ n, title, detail }: { n: number; title: string; detail: string }) {
   return (
     <div className="flex gap-4 rounded-2xl border border-ink/10 bg-card px-5 py-4 shadow-cardLift">
-      <span className="font-display text-lg text-ember">{n}</span>
+      <span className="font-display text-lg text-support">{n}</span>
       <div>
         <p className="font-semibold text-inkText">{title}</p>
         <p className="mt-0.5 text-xs text-muted">{detail}</p>

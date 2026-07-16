@@ -107,7 +107,7 @@ export function GoalRouter() {
           {[0, 1, 2, 3].map((i) => (
             <span
               key={i}
-              className={cn("h-1.5 w-8 rounded-full", i <= stepIndex ? "bg-ember" : "bg-line")}
+              className={cn("h-1.5 w-8 rounded-full", i <= stepIndex ? "bg-support" : "bg-line")}
               aria-hidden
             />
           ))}

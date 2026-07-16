@@ -14,7 +14,7 @@ export function Faq({ bgClass = "bg-paper" }: { bgClass?: string }) {
     <section className={`${bgClass} py-24 sm:py-32`} aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl px-4">
         <Reveal>
-          <p className="text-kicker uppercase text-muted">Questions</p>
+          <p className="text-kicker uppercase text-support">Questions</p>
           <h2
             id="faq-heading"
             className="mt-4 font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"

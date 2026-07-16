@@ -15,7 +15,7 @@ export function ProofSection() {
       <section className="bg-card py-24 sm:py-32" aria-labelledby="story-heading">
         <div className="mx-auto max-w-4xl px-4">
           <Reveal>
-            <p className="text-kicker uppercase text-muted">The founder</p>
+            <p className="text-kicker uppercase text-support">The founder</p>
             <h2
               id="story-heading"
               className="mt-4 max-w-2xl font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.04]"
@@ -31,7 +31,7 @@ export function ProofSection() {
                   <div className="grid grid-cols-[auto_1fr] gap-6 border-t border-ink/10 py-8 sm:gap-10">
                     <span
                       aria-hidden
-                      className="font-display text-champagne [font-size:clamp(2.25rem,5vw,3.75rem)] [line-height:0.9]"
+                      className="font-display text-support [font-size:clamp(2.25rem,5vw,3.75rem)] [line-height:0.9]"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -63,7 +63,7 @@ export function ProofSection() {
       <section className="bg-paper py-24 sm:py-32" aria-labelledby="proof-heading">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
-            <p className="text-kicker uppercase text-muted">Proof</p>
+            <p className="text-kicker uppercase text-support">Proof</p>
             <h2
               id="proof-heading"
               className="mt-4 max-w-2xl font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
@@ -78,12 +78,12 @@ export function ProofSection() {
                   <blockquote className="font-display text-pullquote font-semibold text-white [text-wrap:balance]">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
-                  <figcaption className="mt-6 text-kicker uppercase text-muted">
+                  <figcaption className="mt-6 text-kicker uppercase text-support">
                     <span className="text-white">{t.name}</span>
                     <span className="mx-2 text-white/30">·</span>
                     {t.city}
                     <span className="mx-2 text-white/30">·</span>
-                    <span className="text-ember">{t.outcome}</span>
+                    <span className="text-support">{t.outcome}</span>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -96,7 +96,7 @@ export function ProofSection() {
       <section className="bg-bone py-24 sm:py-32" aria-labelledby="guarantees-heading">
         <div className="mx-auto max-w-4xl px-4">
           <Reveal>
-            <p className="text-kicker uppercase text-muted">What you get</p>
+            <p className="text-kicker uppercase text-support">What you get</p>
             <h2
               id="guarantees-heading"
               className="mt-4 max-w-2xl font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
@@ -113,7 +113,7 @@ export function ProofSection() {
               <li key={g.title}>
                 <Reveal delay={i * 0.04}>
                   <div className="grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-t border-ink/10 py-5 sm:grid-cols-[3rem_1fr_16rem] sm:gap-6">
-                    <span aria-hidden className="font-display text-lg tabular-nums text-champagne">
+                    <span aria-hidden className="font-display text-lg tabular-nums text-support">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="font-display text-lg font-medium text-ink sm:text-xl">{g.title}</span>

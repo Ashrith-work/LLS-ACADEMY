@@ -57,7 +57,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             aria-hidden
           />
           <div className="relative mx-auto max-w-3xl text-center">
-            <p className="text-kicker uppercase text-muted">
+            <p className="text-kicker uppercase text-support">
               {comingSoon ? "Coming soon · gauging demand" : "Recorded course · lifetime access"}
             </p>
             <h1 className="mt-4 font-display font-medium text-ink [font-size:clamp(2.5rem,6vw,5rem)] [letter-spacing:-0.02em] [line-height:1.02]">
@@ -110,12 +110,12 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                     <blockquote className="font-display text-pullquote font-medium text-ink [text-wrap:balance]">
                       &ldquo;{TESTIMONIALS[0].quote}&rdquo;
                     </blockquote>
-                    <figcaption className="mt-5 text-kicker uppercase text-muted">
+                    <figcaption className="mt-5 text-kicker uppercase text-support">
                       <span className="text-ink">{TESTIMONIALS[0].name}</span>
                       <span className="mx-2 text-ink/30">·</span>
                       {TESTIMONIALS[0].city}
                       <span className="mx-2 text-ink/30">·</span>
-                      <span className="text-champagne">{TESTIMONIALS[0].outcome}</span>
+                      <span className="text-support">{TESTIMONIALS[0].outcome}</span>
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -126,7 +126,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <section className="py-16 sm:py-20">
               <div className="mx-auto max-w-3xl px-4">
                 <Reveal>
-                  <p className="text-kicker uppercase text-muted">What&rsquo;s inside</p>
+                  <p className="text-kicker uppercase text-support">What&rsquo;s inside</p>
                   <h2 className="mt-4 font-display font-medium text-ink [font-size:clamp(1.75rem,4vw,2.75rem)] [letter-spacing:-0.02em] [line-height:1.04]">
                     Exactly what&rsquo;s in this course
                   </h2>
@@ -136,7 +136,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                     <li key={w}>
                       <Reveal delay={i * 0.04}>
                         <div className="flex items-baseline gap-4 border-t border-ink/10 py-4">
-                          <span className="font-display text-champagne" aria-hidden>
+                          <span className="font-display text-support" aria-hidden>
                             —
                           </span>
                           <span className="text-inkText">{w}</span>
@@ -149,7 +149,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
                     {GUARANTEES.slice(0, 4).map((d) => (
                       <div key={d.title} className="rounded-xl border border-ink/10 bg-surface px-5 py-4">
-                        <GuaranteeIcon name={d.icon} className="mb-2 h-4 w-4 text-ember" />
+                        <GuaranteeIcon name={d.icon} className="mb-2 h-4 w-4 text-support" />
                         <p className="text-sm font-semibold text-inkText">{d.title}</p>
                         <p className="mt-1 text-xs text-muted">{d.desc}</p>
                       </div>

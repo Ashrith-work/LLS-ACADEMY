@@ -30,7 +30,7 @@ export default function AllAccessPage() {
         <section className="px-4 pt-16 sm:pt-24" aria-labelledby="aa-heading">
           <div className="mx-auto max-w-4xl">
             <Reveal>
-              <p className="text-kicker uppercase text-muted">All-access</p>
+              <p className="text-kicker uppercase text-support">All-access</p>
               <h1
                 id="aa-heading"
                 className="mt-4 max-w-3xl font-display font-medium text-ink [font-size:clamp(2.5rem,6vw,5rem)] [letter-spacing:-0.02em] [line-height:1.02]"
@@ -53,7 +53,7 @@ export default function AllAccessPage() {
           <Grain opacity={0.05} />
           <div className="relative mx-auto grid max-w-6xl gap-14 px-4 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
             <Reveal>
-              <p className="text-kicker uppercase text-champagne">The bundle</p>
+              <p className="text-kicker uppercase text-support">The bundle</p>
               <h2
                 id="price-heading"
                 className="mt-4 font-display font-medium [font-size:clamp(2.25rem,5vw,4rem)] [letter-spacing:-0.02em] [line-height:1.02]"
@@ -90,7 +90,7 @@ export default function AllAccessPage() {
                   >
                     <span className="text-cream/85">
                       {c.title}
-                      {c.anchor && <span className="ml-1.5 text-champagne">★</span>}
+                      {c.anchor && <span className="ml-1.5 text-support">★</span>}
                       {c.status === "coming-soon" && (
                         <span className="ml-2 text-xs uppercase tracking-[0.14em] text-cream/40">soon</span>
                       )}
@@ -111,7 +111,7 @@ export default function AllAccessPage() {
         <section className="px-4 py-20 sm:py-28" aria-labelledby="incl-heading">
           <div className="mx-auto max-w-4xl">
             <Reveal>
-              <p className="text-kicker uppercase text-muted">What you get</p>
+              <p className="text-kicker uppercase text-support">What you get</p>
               <h2
                 id="incl-heading"
                 className="mt-4 max-w-2xl font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
@@ -124,7 +124,7 @@ export default function AllAccessPage() {
                 <li key={g.title}>
                   <Reveal delay={i * 0.04}>
                     <div className="grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-t border-ink/10 py-5 sm:grid-cols-[3rem_1fr_16rem] sm:gap-6">
-                      <span aria-hidden className="font-display text-lg tabular-nums text-champagne">
+                      <span aria-hidden className="font-display text-lg tabular-nums text-support">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="font-display text-lg font-medium text-ink sm:text-xl">{g.title}</span>

@@ -128,7 +128,7 @@ export function LaneRow({ lane, index }: { lane: Lane; index: number }) {
         <div className="mx-auto max-w-6xl px-4">
           {/* Editorial collection header — numbered kicker, serif headline, standfirst. */}
           <div className="mb-8 max-w-2xl sm:mb-10">
-            <p className="font-body text-kicker uppercase text-muted">
+            <p className="font-body text-kicker uppercase text-support">
               <span className="text-inkText">{String(index + 1).padStart(2, "0")}</span>
               <span className="mx-2 text-ink/30">—</span>Collection
             </p>

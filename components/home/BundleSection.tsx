@@ -26,7 +26,7 @@ export function BundleSection() {
       <div className="relative mx-auto grid max-w-6xl gap-14 px-4 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
         {/* Left — the money moment */}
         <Reveal>
-          <p className="text-kicker uppercase text-champagne">The bundle</p>
+          <p className="text-kicker uppercase text-support">The bundle</p>
           <h2
             id="bundle-heading"
             className="mt-4 font-display font-medium [font-size:clamp(2.25rem,5vw,4rem)] [letter-spacing:-0.02em] [line-height:1.02]"
@@ -67,7 +67,7 @@ export function BundleSection() {
               >
                 <span className="text-cream/85">
                   {c.title}
-                  {c.anchor && <span className="ml-1.5 text-champagne">★</span>}
+                  {c.anchor && <span className="ml-1.5 text-support">★</span>}
                 </span>
                 <span className="shrink-0 font-display tabular-nums text-cream/45">{inr(c.price)}</span>
               </li>

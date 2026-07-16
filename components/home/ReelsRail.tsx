@@ -52,7 +52,7 @@ export function ReelsRail() {
     <section id="reels" aria-labelledby="reels-heading" className="bg-paper py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8 max-w-2xl sm:mb-10">
-          <p className="text-kicker uppercase text-muted">In motion</p>
+          <p className="text-kicker uppercase text-support">In motion</p>
           <h2
             id="reels-heading"
             className="mt-4 font-display font-medium text-ink [font-size:clamp(2rem,4.5vw,3.25rem)] [letter-spacing:-0.02em] [line-height:1.02]"
