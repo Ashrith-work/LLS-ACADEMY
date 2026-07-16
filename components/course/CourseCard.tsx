@@ -45,7 +45,7 @@ export function CourseCard({
           </span>
         )}
         {comingSoon && (
-          <span className="absolute right-3 top-3 rounded-full bg-raised px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-muted backdrop-blur-sm">
+          <span className="absolute right-3 top-3 rounded-full border border-white/25 bg-raised/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white shadow-cardLift backdrop-blur-sm">
             Coming soon
           </span>
         )}
