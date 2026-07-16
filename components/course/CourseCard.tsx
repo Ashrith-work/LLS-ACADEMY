@@ -40,7 +40,7 @@ export function CourseCard({
         aria-hidden
       >
         {startHere && (
-          <span className="absolute left-3 top-3 rounded-full bg-support px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-support-fg">
+          <span className="absolute left-3 top-3 rounded-full bg-support px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-support-fg shadow-cardLift ring-1 ring-black/10">
             Start here ★
           </span>
         )}
